@@ -18,7 +18,9 @@ function App() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   const updateCursorPosition = useCallback((e: MouseEvent) => {
-    setCursorPosition({ x: e.clientX, y: e.clientY });
+    requestAnimationFrame(() => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    });
   }, []);
 
   useEffect(() => {
