@@ -162,7 +162,7 @@ function App() {
                 <Moon className="w-5 h-5" />
               </button>
               <a
-                href="/attached_assets/Mishra_Aarsh.pdf"
+                href="/Mishra_Aarsh.pdf"
                 className="px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 hover:scale-105 transition-all duration-200 flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
