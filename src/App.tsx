@@ -158,7 +158,7 @@ function App() {
               id="hero-image"
               src="/attached_assets/profile.jpg"
               alt="Profile"
-              className="w-32 h-32 rounded-full absolute top-0 left-0 transition-transform duration-200"
+              className="w-32 h-32 rounded-full absolute top-0 left-0 transition-all duration-300 ease-in-out object-cover"
               style={{ transformOrigin: "center center" }}
             />
           </div>
