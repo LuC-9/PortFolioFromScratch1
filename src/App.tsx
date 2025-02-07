@@ -229,8 +229,8 @@ function App() {
       {/* Experience Section */}
       <section id="experience" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
-            Experience
+          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
+            <Briefcase size={40} weight="duotone" className="text-red-500 animate-pulse" />
           </h2>
           <div className="space-y-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
