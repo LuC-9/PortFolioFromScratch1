@@ -106,7 +106,7 @@ function App() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <img
             id="nav-image"
-            src="/attached_assets/profile.jpg"
+            src="/profile.jpg"
             alt="Profile"
             className={`w-10 h-10 rounded-full transition-all duration-300 ${
               isScrolled ? "opacity-100" : "opacity-0"
