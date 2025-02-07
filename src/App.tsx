@@ -292,8 +292,8 @@ const skillCategories = [
             </div>
           </div>
         </div>
-      </nav> */}
-import { Moon, Sun } from "lucide-react";
+      </nav> 
+/*import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -328,7 +328,10 @@ export default function ThemeToggle() {
       )}
     </Button>
   );
-}
+}*
+*/}
+<Navbar/>
+
 
 
       {/* Hero Section */}
