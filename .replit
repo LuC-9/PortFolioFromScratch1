@@ -1,3 +1,4 @@
+modules = ["nodejs-20"]
 [workflows]
 runButton = "dev"
 
@@ -12,3 +13,8 @@ args = "npm run dev"
 [deployment]
 run = ["sh", "-c", "npm run preview"]
 build = ["sh", "-c", "npm run build"]
+
+[[ports]]
+localPort = 5173
+externalPort = 80
+exposeLocalhost = true
