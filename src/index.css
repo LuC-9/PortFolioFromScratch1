@@ -8,13 +8,13 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at center, #1a0808 0%, #000000 100%);
+  background: radial-gradient(circle at center, #140404 0%, #000000 100%);
 }
 
 .custom-cursor {
   width: 20px;
   height: 20px;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(190, 30, 30, 0.5);
   border-radius: 50%;
   pointer-events: none;
   position: fixed;
@@ -63,7 +63,7 @@ body {
 
 .hover-scale:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(190, 30, 30, 0.2);
 }
 
 ::-webkit-scrollbar {
@@ -75,15 +75,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff0000;
+  background: #8b1919;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff3333;
+  background: #be1e1e;
 }
 
 ::selection {
-  background: rgba(255, 0, 0, 0.2);
+  background: rgba(190, 30, 30, 0.2);
   color: #fff;
 }
