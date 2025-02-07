@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Toaster } from "react-hot-toast";
 import {
   Github,
@@ -15,6 +15,16 @@ import ContactForm from "./components/ContactForm";
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  const updateCursorPosition = useCallback((e: MouseEvent) => {
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', updateCursorPosition);
+    return () => window.removeEventListener('mousemove', updateCursorPosition);
+  }, [updateCursorPosition]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +85,15 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen text-white">
+      <div 
+        className="custom-cursor" 
+        style={{ 
+          left: `${cursorPosition.x}px`, 
+          top: `${cursorPosition.y}px`,
+          transform: 'translate(-50%, -50%)'
+        }} 
+      />
       <Toaster position="top-right" />
 
       {/* Navigation */}

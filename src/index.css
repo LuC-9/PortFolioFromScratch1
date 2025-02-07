@@ -4,22 +4,39 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
+}
+
+body {
+  background: radial-gradient(circle at center, #1a0808 0%, #000000 100%);
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  position: fixed;
+  mix-blend-mode: difference;
+  transition: all 0.15s ease-out;
+  z-index: 9999;
 }
 
 @layer utilities {
   .animate-slide-up {
-    animation: slide-up 0.5s ease-out;
+    animation: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .animate-fade-in {
-    animation: fade-in 0.5s ease-out;
+    animation: fade-in 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -30,16 +47,41 @@ html {
 @keyframes fade-in {
   from {
     opacity: 0;
+    filter: saturate(0);
   }
   to {
     opacity: 1;
+    filter: saturate(1);
   }
 }
 
 .hover-scale {
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-scale:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0404;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3333;
+}
+
+::selection {
+  background: rgba(255, 0, 0, 0.2);
+  color: #fff;
 }
