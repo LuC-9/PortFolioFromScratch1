@@ -217,55 +217,42 @@ function App() {
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Engineer</h3>
-                  <p className="text-gray-400">Nagarro • Jan- 204 - Present</p>
+                  <p className="text-gray-400">Nagarro • 01/2024 - Present • Gurugram, India</p>
                 </div>
               </div>
-              <p className="text-gray-300">
-                <ul>
-                  Developed and optimized 250+ APIs for seamless system
-                  integration
-                </ul>
-                <ul>
-                  Delivered scalable backend solutions to enhance performance
-                  and reliability
-                </ul>
-                <ul>
-                  Collaborated with teams to ensure efficient data flow across
-                  platforms
-                </ul>
-              </p>
+              <ul className="text-gray-300 list-disc pl-5 space-y-2">
+                <li>Developed and optimized 250+ APIs for seamless system integration</li>
+                <li>Delivered scalable backend solutions to enhance performance and reliability</li>
+                <li>Collaborated with teams to ensure efficient data flow across platforms</li>
+              </ul>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <div className="flex items-center gap-4 mb-4">
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
-                  <h3 className="text-xl font-bold">Full Stack Developer</h3>
-                  <p className="text-gray-400">Tech Corp • 2021 - 2023</p>
+                  <h3 className="text-xl font-bold">Associate Engineer</h3>
+                  <p className="text-gray-400">Nagarro • 07/2022 - 12/2023 • Gurugram, India</p>
                 </div>
               </div>
-              <p className="text-gray-300">
-                Developed and maintained multiple full-stack applications using
-                React, Node.js, and PostgreSQL. Led a team of 4 developers and
-                implemented agile methodologies that increased team productivity
-                by 30%.
-              </p>
+              <ul className="text-gray-300 list-disc pl-5 space-y-2">
+                <li>Developed expertise in Java and Spring Boot for backend development</li>
+                <li>Managed codebases using Git and version control systems</li>
+                <li>Worked with backend technologies, including Node.js, to build and integrate applications</li>
+              </ul>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <div className="flex items-center gap-4 mb-4">
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
-                  <h3 className="text-xl font-bold">
-                    Software Engineer Intern
-                  </h3>
-                  <p className="text-gray-400">StartUp Inc • 2020 - 2021</p>
+                  <h3 className="text-xl font-bold">Systems Engineer Intern</h3>
+                  <p className="text-gray-400">Infosys • 02/2022 - 05/2022 • Mysore, India</p>
                 </div>
               </div>
-              <p className="text-gray-300">
-                Contributed to the development of a real-time analytics
-                dashboard. Implemented new features and fixed bugs in the
-                existing codebase. Reduced page load time by 50% through
-                optimization techniques.
-              </p>
+              <ul className="text-gray-300 list-disc pl-5 space-y-2">
+                <li>Developed a system for managing complaints across city departments with role-based access</li>
+                <li>Implemented solution for Police, Healthcare, Education, and Transport departments</li>
+                <li>Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git</li>
+              </ul>
             </div>
           </div>
         </div>
