@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/button";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SocialLinks from "@/components/buttons";
+import SocialLinks from "@/components/SocialLinks";
 
 const navItems = [
   { href: "#about", label: "About" },
