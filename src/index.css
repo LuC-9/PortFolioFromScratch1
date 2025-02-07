@@ -23,6 +23,11 @@ body {
   background: radial-gradient(circle at center, #140404 0%, #000000 100%);
 }
 
+#hero-image {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
 .custom-cursor {
   width: 20px;
   height: 20px;

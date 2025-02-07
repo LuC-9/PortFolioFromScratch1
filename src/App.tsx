@@ -47,15 +47,17 @@ function App() {
         const endX = navImageRect.left + navImageRect.width / 2;
         const endY = navImageRect.top + navImageRect.height / 2;
 
-        // Calculate current position
-        const currentX = startX + (endX - startX) * progress;
-        const currentY = startY + (endY - startY) * progress;
-        const scale = 1 - 0.7 * progress; // Scale from 1 to 0.3
+        // Use cubic-bezier easing for smoother animation
+        const easeProgress = progress * (2 - progress); // Ease out quad
 
-        if (progress < 1) {
-          heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
-          heroImage.style.opacity = `${1 - progress}`;
-        }
+        // Calculate current position with easing
+        const currentX = startX + (endX - startX) * easeProgress;
+        const currentY = startY + (endY - startY) * easeProgress;
+        const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
+
+        heroImage.style.transition = 'transform 0.1s ease-out, opacity 0.1s ease-out';
+        heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
+        heroImage.style.opacity = `${1 - easeProgress}`;
       }
     };
 
