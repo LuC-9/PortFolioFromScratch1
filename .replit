@@ -17,4 +17,11 @@ build = ["sh", "-c", "npm run build"]
 [[ports]]
 localPort = 5173
 externalPort = 80
-exposeLocalhost = true
+
+[[ports]]
+localPort = 5174
+externalPort = 3000
+
+[[ports]]
+localPort = 5175
+externalPort = 3001
