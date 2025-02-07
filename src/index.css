@@ -23,6 +23,10 @@ body {
   background: radial-gradient(circle at center, #140404 0%, #000000 100%);
   @apply font-sans antialiased bg-background text-foreground;
 }
+@layer base {
+  * {
+    @apply border-border;
+  }
 
 #hero-image {
   will-change: transform, opacity;
