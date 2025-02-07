@@ -397,7 +397,7 @@ export default function ThemeToggle() {
           </Card>
         </div>
       </section> */}
-<section className="py-20 bg-accent/5" data-scroll-section>
+<section id="about" className="py-20 bg-accent/5" data-scroll-section>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
@@ -475,7 +475,7 @@ export default function ThemeToggle() {
       </motion.div>
 
       {/* Experience Section */}
-      <section className="py-20" data-scroll-section>
+      <section id="experience" className="py-20" data-scroll-section>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
@@ -715,7 +715,7 @@ export default function ThemeToggle() {
         </div>
       </section> */}
 
- <section className="py-20" data-scroll-section>
+ <section id="skills" className="py-20" data-scroll-section>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
