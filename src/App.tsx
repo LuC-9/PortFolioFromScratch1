@@ -266,14 +266,14 @@ const skillCategories = [
             </a>
             <div className="flex items-center gap-4">
               <a
-                href="https://linkedin.com/in/your-profile"
+                href="https://linkedin.com/in/aarsh-mishra09"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedinLogo className="w-5 h-5 hover:text-red-500 hover:scale-110 transition-all duration-200" />
               </a>
               <a
-                href="https://github.com/your-username"
+                href="https://github.com/LuC-9"
                 target="_blank"
                 rel="noopener noreferrer"
               >
