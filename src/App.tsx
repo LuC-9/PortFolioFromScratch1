@@ -5,6 +5,7 @@ import {
   Linkedin,
   FileText,
   Briefcase,
+  Buildings,
   User,
   Code,
   Wrench,
