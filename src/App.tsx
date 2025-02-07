@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import { Building2 } from "lucide-react";
 import {
   GithubLogo,
   LinkedinLogo,
@@ -17,6 +18,41 @@ import {
 import ContactForm from "./components/ContactForm";
 
 function App() {
+  const experiences = [
+    {
+      title: "Engineer",
+      company: "Nagarro",
+      period: "01/2024 – Present",
+      location: "Gurugram, India",
+      description: [
+        "Developed and optimized 250+ APIs for seamless system integration",
+        "Delivered scalable backend solutions to enhance performance and reliability",
+        "Collaborated with teams to ensure efficient data flow across platforms"
+      ],
+    },
+    {
+      title: "Associate Engineer",
+      company: "Nagarro",
+      period: "07/2022 – 12/2023",
+      location: "Gurugram, India",
+      description: [
+        "Developed expertise in Java and Spring Boot for backend development",
+        "Managed codebases using Git and version control systems",
+        "Worked with backend technologies, including Node.js, to build and integrate applications"
+      ],
+    },
+    {
+      title: "Systems Engineer Intern",
+      company: "Infosys",
+      period: "02/2022 – 05/2022",
+      location: "Mysore, India",
+      description: [
+        "Developed a system for managing complaints across city departments with role-based access",
+        "Implemented solution for Police, Healthcare, Education, and Transport departments",
+        "Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git"
+      ],
+    },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -212,7 +248,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
             About Me
-          </h2>
+          </motion.h2>
           <Card>
             <CardContent className="p-8">
               <motion.div>
@@ -240,88 +276,59 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Briefcase
-              size={40}
-              weight="duotone"
-              className="text-red-500 animate-pulse"
-            />
-          </h2>
-          <div className="space-y-8">
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <div className="flex items-center gap-4 mb-4">
-                <Briefcase className="w-8 h-8 text-red-500" />
-                <div>
-                  <h3 className="text-xl font-bold">Engineer</h3>
-                  <p className="text-gray-400">
-                    Nagarro • 01/2024 - Present • Gurugram, India
-                  </p>
-                </div>
-              </div>
-              <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>
-                  Developed and optimized 250+ APIs for seamless system
-                  integration
-                </li>
-                <li>
-                  Delivered scalable backend solutions to enhance performance
-                  and reliability
-                </li>
-                <li>
-                  Collaborated with teams to ensure efficient data flow across
-                  platforms
-                </li>
-              </ul>
-            </div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <div className="flex items-center gap-4 mb-4">
-                <Briefcase className="w-8 h-8 text-red-500" />
-                <div>
-                  <h3 className="text-xl font-bold">Associate Engineer</h3>
-                  <p className="text-gray-400">
-                    Nagarro • 07/2022 - 12/2023 • Gurugram, India
-                  </p>
-                </div>
-              </div>
-              <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>
-                  Developed expertise in Java and Spring Boot for backend
-                  development
-                </li>
-                <li>Managed codebases using Git and version control systems</li>
-                <li>
-                  Worked with backend technologies, including Node.js, to build
-                  and integrate applications
-                </li>
-              </ul>
-            </div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <div className="flex items-center gap-4 mb-4">
-                <Briefcase className="w-8 h-8 text-red-500" />
-                <div>
-                  <h3 className="text-xl font-bold">Systems Engineer Intern</h3>
-                  <p className="text-gray-400">
-                    Infosys • 02/2022 - 05/2022 • Mysore, India
-                  </p>
-                </div>
-              </div>
-              <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>
-                  Developed a system for managing complaints across city
-                  departments with role-based access
-                </li>
-                <li>
-                  Implemented solution for Police, Healthcare, Education, and
-                  Transport departments
-                </li>
-                <li>
-                  Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs,
-                  MySQL, Git
-                </li>
-              </ul>
-            </div>
+      <section className="py-20" data-scroll-section>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", bounce: 0.5, duration: 0.8 }}
+            className="bg-primary/10 p-6 rounded-full w-fit mx-auto mb-12"
+          >
+            <Building2 className="w-12 h-12 text-primary" />
+          </motion.div>
+          <div className="grid gap-8 max-w-3xl mx-auto">
+            {experiences.map((experience, index) => (
+              <motion.div
+                key={experience.title}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+              >
+                <Card className="group hover:shadow-xl hover:scale-105 hover:bg-primary/5 transition-all duration-300 transform-gpu">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <motion.div
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                        className="p-3 rounded-full bg-primary/10 text-primary"
+                      >
+                        <Building2 className="w-6 h-6" />
+                      </motion.div>
+                      <div>
+                        <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                          {experience.title}
+                        </h3>
+                        <div className="flex justify-between items-center">
+                          <p className="text-muted-foreground">
+                            {experience.company}
+                          </p>
+                          <p className="text-muted-foreground text-right">
+                            {experience.period} • {experience.location}
+                          </p>
+                        </div>
+                        <ul className="mt-2 space-y-1 text-muted-foreground list-disc list-inside">
+                          {experience.description.map((point, i) => (
+                            <li key={i}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
