@@ -1,12 +1,15 @@
 {
+  "include": ["api/**/*.ts"],
+  "include": ["src/**/*", "shared/**/*", "server/**/*"],
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-    
   ],
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]}
+      "@/*": ["./src/*"]
+    }
   }
 }
