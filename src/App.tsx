@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/cards";
 import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
-import { Building2 } from "lucide-react";
+import { Building2, GraduationCap } from "lucide-react";
 import {
   GithubLogo,
   LinkedinLogo,
