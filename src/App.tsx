@@ -282,8 +282,8 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
-            Featured Projects
+          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
+            <Code size={40} weight="duotone" className="text-red-500 animate-pulse" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
@@ -365,8 +365,8 @@ function App() {
       {/* Skills Section */}
       <section id="skills" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
-            Skills
+          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
+            <Wrench size={40} weight="duotone" className="text-red-500 animate-pulse" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
