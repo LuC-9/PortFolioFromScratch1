@@ -17,8 +17,8 @@ export default function ContactForm() {
 
     try {
       // Replace BOT_TOKEN and CHAT_ID with your actual Telegram bot token and chat ID
-      const BOT_TOKEN = "YOUR_BOT_TOKEN";
-      const CHAT_ID = "YOUR_CHAT_ID";
+      const BOT_TOKEN = "5558392279:AAHzj1ZwLFxusJrPddvQzChYKVpWxyFYTTQ";
+      const CHAT_ID = "728907666";
 
       const text = `
 New Contact Form Submission:
