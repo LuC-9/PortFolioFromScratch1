@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   alias: {
-    "@": path.resolve(__dirname, "client", "src"),
+    "@": path.resolve(__dirname, "src"),
     "@shared": path.resolve(__dirname, "shared"),
   },
   optimizeDeps: {

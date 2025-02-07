@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Card, CardContent } from "src/components/ui/cards";
+import { Card, CardContent } from "@/components/ui/card";
 import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
