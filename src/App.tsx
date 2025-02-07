@@ -234,8 +234,7 @@ function App() {
           <div className="space-y-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <div className="flex items-center gap-4 mb-4">
-                {/* Updated here */}
-                <Buildings size={32} weight="duotone" className="text-red-500" />
+                <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Engineer</h3>
                   <p className="text-gray-400">Nagarro • 01/2024 - Present • Gurugram, India</p>
@@ -287,84 +286,74 @@ function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">E-commerce Platform</h3>
+              <h3 className="text-xl font-bold mb-4">Securities Exchange Platform</h3>
               <p className="text-gray-300 mb-4">
-                A full-stack e-commerce platform with real-time inventory
-                management and payment processing. Features include user
-                authentication, order tracking, and admin dashboard.
+                As a WebMethods Developer, I focused on enhancing integration and data exchange capabilities. 
+                Implemented robust solutions for secure financial transactions and real-time data processing.
               </p>
               <div className="flex flex-wrap gap-2">
+                <a href="https://adx.ae" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                  Live Demo
+                </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  React
+                  WebMethods
                 </span>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Node.js
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  PostgreSQL
+                  Integration
                 </span>
               </div>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">
-                Real-time Chat Application
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Phonebook</h3>
               <p className="text-gray-300 mb-4">
-                A modern chat application with features like real-time
-                messaging, file sharing, and group conversations. Includes
-                end-to-end encryption and message persistence.
+                Created a phonebook with Django REST framework, featuring user registration, login, 
+                contact management (add, list, search), spam marking, email notifications, and PDF downloads.
               </p>
               <div className="flex flex-wrap gap-2">
+                <a href="https://github.com/yourusername/phonebook" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                  GitHub
+                </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Vue.js
+                  Django
                 </span>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  WebSocket
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  MongoDB
+                  REST API
                 </span>
               </div>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">
-                AI-Powered Analytics Dashboard
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Arduino CLI Docker</h3>
               <p className="text-gray-300 mb-4">
-                A sophisticated analytics platform that uses machine learning to
-                provide insights from user data. Features interactive
-                visualizations and predictive analytics.
+                A CLI tool to compile Arduino codes on the cloud without need of an Arduino board. 
+                Enables remote development and testing of Arduino projects with cloud-based compilation.
               </p>
               <div className="flex flex-wrap gap-2">
+                <a href="https://github.com/yourusername/arduino-cli" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                  GitHub
+                </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Python
+                  Arduino
                 </span>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  TensorFlow
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  D3.js
+                  CLI
                 </span>
               </div>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">
-                DevOps Automation Suite
-              </h3>
+              <h3 className="text-xl font-bold mb-4">City Management System</h3>
               <p className="text-gray-300 mb-4">
-                A comprehensive DevOps toolkit that automates deployment
-                pipelines, monitoring, and scaling of cloud infrastructure.
-                Reduced deployment time by 70%.
+                A complaint management and resolution dashboard for a smart city utilising REST, 
+                Spring, JWT, MySQL and Angular. Developed during internship under Infosys.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Docker
+                  Spring Boot
                 </span>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Kubernetes
+                  Angular
                 </span>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  AWS
+                  MySQL
                 </span>
               </div>
             </div>
