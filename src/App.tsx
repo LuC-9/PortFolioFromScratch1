@@ -27,7 +27,7 @@ function App() {
       description: [
         "Developed and optimized 250+ APIs for seamless system integration",
         "Delivered scalable backend solutions to enhance performance and reliability",
-        "Collaborated with teams to ensure efficient data flow across platforms"
+        "Collaborated with teams to ensure efficient data flow across platforms",
       ],
     },
     {
@@ -38,7 +38,7 @@ function App() {
       description: [
         "Developed expertise in Java and Spring Boot for backend development",
         "Managed codebases using Git and version control systems",
-        "Worked with backend technologies, including Node.js, to build and integrate applications"
+        "Worked with backend technologies, including Node.js, to build and integrate applications",
       ],
     },
     {
@@ -49,7 +49,7 @@ function App() {
       description: [
         "Developed a system for managing complaints across city departments with role-based access",
         "Implemented solution for Police, Healthcare, Education, and Transport departments",
-        "Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git"
+        "Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git",
       ],
     },
   ];
@@ -246,7 +246,7 @@ function App() {
       {/* About Section */}
       <section id="about" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
+          <motion.h2 className="text-4xl font-bold mb-12 text-center">
             About Me
           </motion.h2>
           <Card>
