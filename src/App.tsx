@@ -10,7 +10,7 @@ import {
   Wrench,
   Mail,
   Moon,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import ContactForm from "./components/ContactForm";
 
 function App() {

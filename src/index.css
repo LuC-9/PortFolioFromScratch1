@@ -1,3 +1,15 @@
+
+/* Icon animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animate-on-scroll h2 svg {
+  animation: pulse 2s infinite;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
