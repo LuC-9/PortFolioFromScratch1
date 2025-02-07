@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { Send } from 'lucide-react';
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { Send } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,9 +17,9 @@ export default function ContactForm() {
 
     try {
       // Replace BOT_TOKEN and CHAT_ID with your actual Telegram bot token and chat ID
-      const BOT_TOKEN = 'YOUR_BOT_TOKEN';
-      const CHAT_ID = 'YOUR_CHAT_ID';
-      
+      const BOT_TOKEN = "YOUR_BOT_TOKEN";
+      const CHAT_ID = "YOUR_CHAT_ID";
+
       const text = `
 New Contact Form Submission:
 Name: ${formData.name}
@@ -30,14 +30,14 @@ Message: ${formData.message}
       await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         chat_id: CHAT_ID,
         text,
-        parse_mode: 'HTML'
+        parse_mode: "HTML",
       });
 
-      toast.success('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
-      console.error('Error:', error);
+      toast.error("Failed to send message. Please try again.");
+      console.error("Error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -50,7 +50,10 @@ Message: ${formData.message}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-300"
+          >
             Name
           </label>
           <input
@@ -63,26 +66,36 @@ Message: ${formData.message}
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-300"
+          >
             Email
           </label>
           <input
             type="email"
             id="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className="mt-1 block w-full px-3 py-2 bg-black border border-gray-800 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
             required
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-300"
+          >
             Message
           </label>
           <textarea
             id="message"
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
             rows={4}
             className="mt-1 block w-full px-3 py-2 bg-black border border-gray-800 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -94,7 +107,7 @@ Message: ${formData.message}
           className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isLoading ? (
-            'Sending...'
+            "Sending..."
           ) : (
             <>
               Send Message
