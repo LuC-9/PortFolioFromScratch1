@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 import {
   GithubLogo,
   LinkedinLogo,
@@ -25,8 +26,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('mousemove', updateCursorPosition);
-    return () => window.removeEventListener('mousemove', updateCursorPosition);
+    window.addEventListener("mousemove", updateCursorPosition);
+    return () => window.removeEventListener("mousemove", updateCursorPosition);
   }, [updateCursorPosition]);
 
   useEffect(() => {
@@ -55,7 +56,8 @@ function App() {
         const currentY = startY + (endY - startY) * easeProgress;
         const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
 
-        heroImage.style.transition = 'transform 0.1s ease-out, opacity 0.1s ease-out';
+        heroImage.style.transition =
+          "transform 0.1s ease-out, opacity 0.1s ease-out";
         heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
         heroImage.style.opacity = `${1 - easeProgress}`;
       }
@@ -91,13 +93,13 @@ function App() {
 
   return (
     <div className="min-h-screen text-white">
-      <div 
-        className="custom-cursor" 
-        style={{ 
-          left: `${cursorPosition.x}px`, 
+      <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPosition.x}px`,
           top: `${cursorPosition.y}px`,
-          transform: 'translate(-50%, -50%)'
-        }} 
+          transform: "translate(-50%, -50%)",
+        }}
       />
       <Toaster position="top-right" />
 
@@ -210,21 +212,23 @@ function App() {
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
             About Me
           </h2>
-          <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-            <p className="text-lg text-gray-300 mb-6">
-              I am a passionate Software Engineer currently working at Nagarro,
-              where I specialize in building robust and scalable applications.
-              With experience in both frontend and backend development, I have
-              developed a strong foundation in software development and a keen
-              eye for creating efficient solutions.
-            </p>
-            <p className="text-lg text-gray-300">
-              My technical journey has equipped me with expertise in various
-              technologies and frameworks, allowing me to tackle complex
-              challenges and deliver high-quality results. I am constantly
-              learning and staying updated with the latest industry trends.
-            </p>
-          </div>
+          <motion.div>
+            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
+              <p className="text-lg text-gray-300 mb-6">
+                I am a passionate Software Engineer currently working at
+                Nagarro, where I specialize in building robust and scalable
+                applications. With experience in both frontend and backend
+                development, I have developed a strong foundation in software
+                development and a keen eye for creating efficient solutions.
+              </p>
+              <p className="text-lg text-gray-300">
+                My technical journey has equipped me with expertise in various
+                technologies and frameworks, allowing me to tackle complex
+                challenges and deliver high-quality results. I am constantly
+                learning and staying updated with the latest industry trends.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -232,7 +236,11 @@ function App() {
       <section id="experience" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Briefcase size={40} weight="duotone" className="text-red-500 animate-pulse" />
+            <Briefcase
+              size={40}
+              weight="duotone"
+              className="text-red-500 animate-pulse"
+            />
           </h2>
           <div className="space-y-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
@@ -240,13 +248,24 @@ function App() {
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Engineer</h3>
-                  <p className="text-gray-400">Nagarro • 01/2024 - Present • Gurugram, India</p>
+                  <p className="text-gray-400">
+                    Nagarro • 01/2024 - Present • Gurugram, India
+                  </p>
                 </div>
               </div>
               <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>Developed and optimized 250+ APIs for seamless system integration</li>
-                <li>Delivered scalable backend solutions to enhance performance and reliability</li>
-                <li>Collaborated with teams to ensure efficient data flow across platforms</li>
+                <li>
+                  Developed and optimized 250+ APIs for seamless system
+                  integration
+                </li>
+                <li>
+                  Delivered scalable backend solutions to enhance performance
+                  and reliability
+                </li>
+                <li>
+                  Collaborated with teams to ensure efficient data flow across
+                  platforms
+                </li>
               </ul>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
@@ -254,13 +273,21 @@ function App() {
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Associate Engineer</h3>
-                  <p className="text-gray-400">Nagarro • 07/2022 - 12/2023 • Gurugram, India</p>
+                  <p className="text-gray-400">
+                    Nagarro • 07/2022 - 12/2023 • Gurugram, India
+                  </p>
                 </div>
               </div>
               <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>Developed expertise in Java and Spring Boot for backend development</li>
+                <li>
+                  Developed expertise in Java and Spring Boot for backend
+                  development
+                </li>
                 <li>Managed codebases using Git and version control systems</li>
-                <li>Worked with backend technologies, including Node.js, to build and integrate applications</li>
+                <li>
+                  Worked with backend technologies, including Node.js, to build
+                  and integrate applications
+                </li>
               </ul>
             </div>
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
@@ -268,13 +295,24 @@ function App() {
                 <Briefcase className="w-8 h-8 text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Systems Engineer Intern</h3>
-                  <p className="text-gray-400">Infosys • 02/2022 - 05/2022 • Mysore, India</p>
+                  <p className="text-gray-400">
+                    Infosys • 02/2022 - 05/2022 • Mysore, India
+                  </p>
                 </div>
               </div>
               <ul className="text-gray-300 list-disc pl-5 space-y-2">
-                <li>Developed a system for managing complaints across city departments with role-based access</li>
-                <li>Implemented solution for Police, Healthcare, Education, and Transport departments</li>
-                <li>Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git</li>
+                <li>
+                  Developed a system for managing complaints across city
+                  departments with role-based access
+                </li>
+                <li>
+                  Implemented solution for Police, Healthcare, Education, and
+                  Transport departments
+                </li>
+                <li>
+                  Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs,
+                  MySQL, Git
+                </li>
               </ul>
             </div>
           </div>
@@ -285,17 +323,29 @@ function App() {
       <section id="projects" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Code size={40} weight="duotone" className="text-red-500 animate-pulse" />
+            <Code
+              size={40}
+              weight="duotone"
+              className="text-red-500 animate-pulse"
+            />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">Securities Exchange Platform</h3>
+              <h3 className="text-xl font-bold mb-4">
+                Securities Exchange Platform
+              </h3>
               <p className="text-gray-300 mb-4">
-                As a WebMethods Developer, I focused on enhancing integration and data exchange capabilities. 
-                Implemented robust solutions for secure financial transactions and real-time data processing.
+                As a WebMethods Developer, I focused on enhancing integration
+                and data exchange capabilities. Implemented robust solutions for
+                secure financial transactions and real-time data processing.
               </p>
               <div className="flex flex-wrap gap-2">
-                <a href="https://adx.ae" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                <a
+                  href="https://adx.ae"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
+                >
                   Live Demo
                 </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
@@ -309,11 +359,17 @@ function App() {
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <h3 className="text-xl font-bold mb-4">Phonebook</h3>
               <p className="text-gray-300 mb-4">
-                Created a phonebook with Django REST framework, featuring user registration, login, 
-                contact management (add, list, search), spam marking, email notifications, and PDF downloads.
+                Created a phonebook with Django REST framework, featuring user
+                registration, login, contact management (add, list, search),
+                spam marking, email notifications, and PDF downloads.
               </p>
               <div className="flex flex-wrap gap-2">
-                <a href="https://github.com/yourusername/phonebook" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                <a
+                  href="https://github.com/yourusername/phonebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
+                >
                   GitHub
                 </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
@@ -327,11 +383,17 @@ function App() {
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <h3 className="text-xl font-bold mb-4">Arduino CLI Docker</h3>
               <p className="text-gray-300 mb-4">
-                A CLI tool to compile Arduino codes on the cloud without need of an Arduino board. 
-                Enables remote development and testing of Arduino projects with cloud-based compilation.
+                A CLI tool to compile Arduino codes on the cloud without need of
+                an Arduino board. Enables remote development and testing of
+                Arduino projects with cloud-based compilation.
               </p>
               <div className="flex flex-wrap gap-2">
-                <a href="https://github.com/yourusername/arduino-cli" target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
+                <a
+                  href="https://github.com/yourusername/arduino-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
+                >
                   GitHub
                 </a>
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
@@ -345,8 +407,9 @@ function App() {
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <h3 className="text-xl font-bold mb-4">City Management System</h3>
               <p className="text-gray-300 mb-4">
-                A complaint management and resolution dashboard for a smart city utilising REST, 
-                Spring, JWT, MySQL and Angular. Developed during internship under Infosys.
+                A complaint management and resolution dashboard for a smart city
+                utilising REST, Spring, JWT, MySQL and Angular. Developed during
+                internship under Infosys.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
@@ -368,7 +431,11 @@ function App() {
       <section id="skills" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Wrench size={40} weight="duotone" className="text-red-500 animate-pulse" />
+            <Wrench
+              size={40}
+              weight="duotone"
+              className="text-red-500 animate-pulse"
+            />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
