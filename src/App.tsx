@@ -83,7 +83,7 @@ function App() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <img
             id="nav-image"
-            src="https://avatars.githubusercontent.com/u/your-username"
+            src="/attached_assets/profile.jpg"
             alt="Profile"
             className={`w-10 h-10 rounded-full transition-all duration-300 ${
               isScrolled ? "opacity-100" : "opacity-0"
@@ -156,7 +156,7 @@ function App() {
           <div className="relative w-32 h-32 mx-auto mb-6">
             <img
               id="hero-image"
-              src="https://avatars.githubusercontent.com/u/-username"
+              src="/attached_assets/profile.jpg"
               alt="Profile"
               className="w-32 h-32 rounded-full absolute top-0 left-0 transition-transform duration-200"
               style={{ transformOrigin: "center center" }}
