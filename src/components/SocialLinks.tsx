@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { SiGithub, SiLinkedin, SiLeetcode, SiReplit } from "react-icons/si";
 import { FileText } from "lucide-react";
 
