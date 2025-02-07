@@ -330,7 +330,8 @@ export default function ThemeToggle() {
   );
 }*
 */}
-<Navbar/>
+<div
+<Navbar  /></div>   
 
 
 
