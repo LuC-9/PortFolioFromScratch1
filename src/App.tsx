@@ -234,7 +234,8 @@ function App() {
           <div className="space-y-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <div className="flex items-center gap-4 mb-4">
-                <Briefcase className="w-8 h-8 text-red-500" />
+                {/* Updated here */}
+                <Buildings size={32} weight="duotone" className="text-red-500" />
                 <div>
                   <h3 className="text-xl font-bold">Engineer</h3>
                   <p className="text-gray-400">Nagarro • 01/2024 - Present • Gurugram, India</p>
