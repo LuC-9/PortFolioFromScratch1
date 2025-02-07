@@ -3,20 +3,19 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(() => {
-    // Get theme from localStorage or system preference
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    }
-    return "light";
-  });
+  const [theme, setTheme] = useState("light"); // Default to light
 
   useEffect(() => {
-    // Apply theme class to <html>
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    // Ensure window is available before accessing localStorage
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") || 
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      setTheme(savedTheme);
+    }
+  }, []);
 
-    // Store theme in localStorage
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, [theme]);
 
