@@ -18,6 +18,32 @@ import {
 import ContactForm from "./components/ContactForm";
 
 function App() {
+  const projects = [
+    {
+      title: "Securities Exchange Platform",
+      description:
+        "As a WebMethods Developer, I focused on enhancing integration and data exchange capabilities. Implemented robust solutions for secure financial transactions and real-time data processing.",
+      link: "https://adx.ae",
+    },
+    {
+      title: "Phonebook",
+      description:
+        "Created a phonebook with Django REST framework, featuring user registration, login, contact management (add, list, search), spam marking, email notifications, and PDF downloads.",
+      link: "https://github.com/LuC-9/truecaller-clone",
+    },
+    {
+      title: "Arduino CLI Docker",
+      description:
+        "A CLI tool to compile Arduino codes on the cloud without need of an Arduino board. Enables remote development and testing of Arduino projects with cloud-based compilation.",
+      link: "https://github.com/LuC-9/Arduino-cli-docker",
+    },
+    {
+      title: "City Management System",
+      description:
+        "A complaint management and resolution dashboard for a smart city utilising REST, Spring, JWT, MySQL and Angular. Developed during internship under Infosys.",
+      link: "#",
+    },
+  ];
   const experiences = [
     {
       title: "Engineer",
@@ -243,35 +269,53 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-[#0a0404]">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 className="text-4xl font-bold mb-12 text-center">
-            About Me
-          </motion.h2>
-          <Card>
-            <CardContent className="p-8">
-              <motion.div>
-                <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-                  <p className="text-lg text-gray-300 mb-6">
-                    I am a passionate Software Engineer currently working at
-                    Nagarro, where I specialize in building robust and scalable
-                    applications. With experience in both frontend and backend
-                    development, I have developed a strong foundation in
-                    software development and a keen eye for creating efficient
-                    solutions.
-                  </p>
-                  <p className="text-lg text-gray-300">
-                    My technical journey has equipped me with expertise in
-                    various technologies and frameworks, allowing me to tackle
-                    complex challenges and deliver high-quality results. I am
-                    constantly learning and staying updated with the latest
-                    industry trends.
-                  </p>
+      <section className="py-20 bg-accent/5" data-scroll-section>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h2 className="text-4xl font-bold mb-12 text-center">
+              About Me
+            </motion.h2>
+            <Card>
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
+                    <p className="text-muted-foreground">
+                      I am a passionate Full Stack Developer with expertise in
+                      modern web technologies. My journey in tech began with a
+                      curiosity for creating impactful digital experiences, and
+                      has evolved into a professional career building robust
+                      applications.
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    <h3 className="text-2xl font-semibold mb-4">What I Do</h3>
+                    <p className="text-muted-foreground">
+                      I specialize in building full-stack web applications using
+                      modern technologies like React, Node.js, and TypeScript.
+                      I'm passionate about creating clean, efficient, and
+                      user-friendly solutions that solve real-world problems.
+                    </p>
+                  </motion.div>
                 </div>
-              </motion.div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -333,110 +377,107 @@ function App() {
         </div>
       </section>
 
+      {/*Education Section*/}
+      <section className="py-20 bg-accent/5" data-scroll-section>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", bounce: 0.5, duration: 0.8 }}
+            className="bg-primary/10 p-6 rounded-full w-fit mx-auto mb-12"
+          >
+            <GraduationCap className="w-12 h-12 text-primary" />
+          </motion.div>
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="group hover:shadow-xl hover:scale-105 hover:bg-primary/5 transition-all duration-300 transform-gpu">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                      className="p-3 rounded-full bg-primary/10 text-primary"
+                    >
+                      <GraduationCap className="w-6 h-6" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                        Bachelor of Technology
+                      </h3>
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-lg text-muted-foreground">
+                            Computer Science and Engineering
+                          </p>
+                          <p className="text-muted-foreground">
+                            PSIT College of Engineering
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-muted-foreground">
+                            July 2018 - July 2022
+                          </p>
+                          <p className="text-muted-foreground">Kanpur, India</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-[#0a0404]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Code
-              size={40}
-              weight="duotone"
-              className="text-red-500 animate-pulse"
-            />
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">
-                Securities Exchange Platform
-              </h3>
-              <p className="text-gray-300 mb-4">
-                As a WebMethods Developer, I focused on enhancing integration
-                and data exchange capabilities. Implemented robust solutions for
-                secure financial transactions and real-time data processing.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href="https://adx.ae"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
-                >
-                  Live Demo
-                </a>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  WebMethods
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Integration
-                </span>
-              </div>
-            </div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">Phonebook</h3>
-              <p className="text-gray-300 mb-4">
-                Created a phonebook with Django REST framework, featuring user
-                registration, login, contact management (add, list, search),
-                spam marking, email notifications, and PDF downloads.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href="https://github.com/yourusername/phonebook"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
-                >
-                  GitHub
-                </a>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Django
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  REST API
-                </span>
-              </div>
-            </div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">Arduino CLI Docker</h3>
-              <p className="text-gray-300 mb-4">
-                A CLI tool to compile Arduino codes on the cloud without need of
-                an Arduino board. Enables remote development and testing of
-                Arduino projects with cloud-based compilation.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href="https://github.com/yourusername/arduino-cli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
-                >
-                  GitHub
-                </a>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Arduino
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  CLI
-                </span>
-              </div>
-            </div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <h3 className="text-xl font-bold mb-4">City Management System</h3>
-              <p className="text-gray-300 mb-4">
-                A complaint management and resolution dashboard for a smart city
-                utilising REST, Spring, JWT, MySQL and Angular. Developed during
-                internship under Infosys.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Spring Boot
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  Angular
-                </span>
-                <span className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200">
-                  MySQL
-                </span>
-              </div>
-            </div>
+      <section className="py-20 bg-accent/5" data-scroll-section>
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-12 text-center"
+          >
+            Featured Projects
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="h-full"
+              >
+                <Card className="flex flex-col h-full hover:shadow-xl hover:scale-105 hover:bg-primary/5 transition-all duration-300 transform-gpu min-h-[250px] justify-between">
+                  <CardHeader>
+                    <h3 className="text-2xl font-semibold">{project.title}</h3>
+                  </CardHeader>
+                  <CardContent className="flex flex-col flex-grow">
+                    <p className="text-muted-foreground mb-4 flex-grow">
+                      {project.description}
+                    </p>
+                    <Button variant="outline" asChild className="w-fit">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Project
+                        <ExternalLink className="ml-2 w-4 h-4" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
