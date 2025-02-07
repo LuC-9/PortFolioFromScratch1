@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Toaster } from "react-hot-toast";
 import {
-  Github,
-  Linkedin,
+  GithubLogo,
+  LinkedinLogo,
   FileText,
   Briefcase,
   Buildings,
   User,
   Code,
   Wrench,
-  Mail,
+  EnvelopeSimple,
   Moon,
 } from "@phosphor-icons/react";
 import ContactForm from "./components/ContactForm";
@@ -147,14 +147,14 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="w-5 h-5 hover:text-red-500 hover:scale-110 transition-all duration-200" />
+                <LinkedinLogo className="w-5 h-5 hover:text-red-500 hover:scale-110 transition-all duration-200" />
               </a>
               <a
                 href="https://github.com/your-username"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="w-5 h-5 hover:text-red-500 hover:scale-110 transition-all duration-200" />
+                <GithubLogo className="w-5 h-5 hover:text-red-500 hover:scale-110 transition-all duration-200" />
               </a>
               <button className="p-2 hover:bg-gray-800 rounded-full transition-colors duration-200">
                 <Moon className="w-5 h-5" />
