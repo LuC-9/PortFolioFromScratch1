@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import {
@@ -212,23 +213,29 @@ function App() {
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
             About Me
           </h2>
-          <motion.div>
-            <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
-              <p className="text-lg text-gray-300 mb-6">
-                I am a passionate Software Engineer currently working at
-                Nagarro, where I specialize in building robust and scalable
-                applications. With experience in both frontend and backend
-                development, I have developed a strong foundation in software
-                development and a keen eye for creating efficient solutions.
-              </p>
-              <p className="text-lg text-gray-300">
-                My technical journey has equipped me with expertise in various
-                technologies and frameworks, allowing me to tackle complex
-                challenges and deliver high-quality results. I am constantly
-                learning and staying updated with the latest industry trends.
-              </p>
-            </div>
-          </motion.div>
+          <Card>
+            <CardContent className="p-8">
+              <motion.div>
+                <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
+                  <p className="text-lg text-gray-300 mb-6">
+                    I am a passionate Software Engineer currently working at
+                    Nagarro, where I specialize in building robust and scalable
+                    applications. With experience in both frontend and backend
+                    development, I have developed a strong foundation in
+                    software development and a keen eye for creating efficient
+                    solutions.
+                  </p>
+                  <p className="text-lg text-gray-300">
+                    My technical journey has equipped me with expertise in
+                    various technologies and frameworks, allowing me to tackle
+                    complex challenges and deliver high-quality results. I am
+                    constantly learning and staying updated with the latest
+                    industry trends.
+                  </p>
+                </div>
+              </motion.div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
