@@ -9,7 +9,7 @@
   ],
   "compilerOptions": {
     "target": "ESNext",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
     "target": "ES6",
     "module": "CommonJS",
     "strict": true,
