@@ -1,144 +1,110 @@
 import { motion } from "framer-motion";
-import { FaRegClock, FaMapMarkerAlt, FaFilePdf } from "react-icons/fa"; // For time, location, and resume
-import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si"; // For social icons
-import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si"; // Import necessary icons
+
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/in/aarsh-mishra09/",
+    icon: <SiLinkedin />,
+    username: "in/aarsh-mishra09/",
+  },
+  {
+    href: "https://github.com/LuC-9",
+    icon: <SiGithub />,
+    username: "/LuC-9",
+  },
+  {
+    href: "https://leetcode.com/u/LuC9/",
+    icon: <SiLeetcode />,
+    username: "/u/LuC9/",
+  },
+  {
+    href: "https://replit.com/@aarshmishra",
+    icon: <SiReplit />,
+    username: "@aarshmishra",
+  },
+];
 
 export default function Hero() {
-  const [time, setTime] = useState("");
-  const [location] = useState("India");
-
-  // Update time every minute to reflect the current time in IST
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const currentTime = new Date().toLocaleTimeString("en-IN", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "Asia/Kolkata",
-      });
-      setTime(currentTime);
-    }, 60000);
-
-    // Set the time immediately on mount
-    const initialTime = new Date().toLocaleTimeString("en-IN", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Kolkata",
-    });
-    setTime(initialTime);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const socialLinks = [
-    {
-      href: "https://www.linkedin.com/in/aarsh-mishra09/",
-      icon: SiLinkedin,
-      label: "LinkedIn",
-      username: "in/aarsh-mishra09/",
-    },
-    {
-      href: "https://github.com/LuC-9",
-      icon: SiGithub,
-      label: "GitHub",
-      username: "/LuC-9",
-    },
-    {
-      href: "https://leetcode.com/u/LuC9/",
-      icon: SiLeetcode,
-      label: "LeetCode",
-      username: "/u/LuC9/",
-    },
-    {
-      href: "https://replit.com/@aarshmishra",
-      icon: SiReplit,
-      label: "Replit",
-      username: "@aarshmishra",
-    },
-    // Resume Link
-    {
-      href: "/Mishra_Aarsh.pdf", // Resume link in the root directory
-      icon: FaFilePdf,
-      label: "Resume",
-    },
-  ];
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-darkRed">
-      <div className="container mx-auto px-4 flex flex-row justify-between items-center text-left space-y-2 md:space-y-0">
-        {/* Left Side Content */}
-        <div className="flex flex-col items-start gap-4">
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-2 font-[Poppins]"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
+    <section className="min-h-screen flex items-center justify-center relative">
+      <div className="container mx-auto px-4 flex flex-col items-center text-center">
+        <div className="h-40 mb-8" /> {/* Reduced spacer height */}
+
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-2" // Adjusted margin
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          Aarsh Mishra
+        </motion.h1>
+
+        <motion.h2
+          className="text-xl md:text-2xl text-muted-foreground mb-4" // Adjusted margin
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Software Engineer at Nagarro
+        </motion.h2>
+
+        <motion.div
+          className="flex flex-col items-center gap-4" // Adjusted gap
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          {/* Location/Time */}
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+            <span>IN</span> | <span>IST</span> | <span>{new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
+          </div>
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-red-500 to-red-600"
+            onClick={scrollToContact}
           >
-            Aarsh Mishra
-          </motion.h1>
+            Get in touch
+          </Button>
+        </motion.div>
+      </div>
 
-          <motion.p
-            className="text-xl text-gray-300 mb-2 font-[Poppins]"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            LuC
-          </motion.p>
-
-          <motion.h2
-            className="text-xl md:text-2xl text-muted-foreground mb-4 font-[Roboto]"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            Software Engineer at Nagarro
-          </motion.h2>
-
-          {/* Location and Time with Icons */}
-          <motion.div
-            className="text-lg text-gray-300 mb-4 font-[Roboto] flex items-center justify-start gap-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            {/* Location Icon */}
-            <div className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-white" />
-              <span className="font-[Poppins] text-white">{location}</span>
-            </div>
-
-            {/* Time Icon */}
-            <div className="flex items-center gap-2">
-              <FaRegClock className="text-white" />
-              <span className="font-[Poppins] text-white">{time} IST</span>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right Side: Social Links */}
-        <div className="flex flex-col items-start gap-4">
-          {socialLinks.map(({ href, icon: Icon, label, username }) => (
-            <motion.a
-              key={href}
-              href={href}
-              target={label === "Resume" ? "_self" : "_blank"}
+      {/* Social Links */}
+      <div className="absolute top-1/2 left-0 transform -translate-x-16">
+        <div className="flex flex-col items-center gap-4">
+          {socialLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              className="flex items-center gap-2 text-white"
             >
-              <Icon className="w-6 h-6" />
-              <span>{label}</span>
-              {username && (
-                <span className="text-gray-400">{username}</span>
-              )}
-            </motion.a>
+              <div className="text-xl">{link.icon}</div> 
+              <span className="text-xs">{link.username}</span> {/* Display username next to the icon */}
+            </a>
           ))}
         </div>
       </div>
+
+      {/* Hero Animation */}
+      <motion.a
+        href="#about"
+        className="absolute bottom-8 cursor-pointer"
+        animate={{
+          y: [0, 10, 0],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+        }}
+      >
+        <ChevronDown className="w-8 h-8" />
+      </motion.a>
     </section>
   );
 }
