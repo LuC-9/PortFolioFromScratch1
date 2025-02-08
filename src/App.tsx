@@ -139,16 +139,16 @@ const skillCategories = [
   const [isScrolled, setIsScrolled] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  const updateCursorPosition = useCallback((e: MouseEvent) => {
-    requestAnimationFrame(() => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    });
-  }, []);
+  // const updateCursorPosition = useCallback((e: MouseEvent) => {
+  //   requestAnimationFrame(() => {
+  //     setCursorPosition({ x: e.clientX, y: e.clientY });
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    window.addEventListener("mousemove", updateCursorPosition);
-    return () => window.removeEventListener("mousemove", updateCursorPosition);
-  }, [updateCursorPosition]);
+  // useEffect(() => {
+  //   window.addEventListener("mousemove", updateCursorPosition);
+  //   return () => window.removeEventListener("mousemove", updateCursorPosition);
+  // }, [updateCursorPosition]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,16 +213,16 @@ const skillCategories = [
 
  
   return (
-    <div className="min-h-screen text-white">
+    // <div className="min-h-screen text-white">
 <Cursor />
-      <div
-        className="custom-cursor"
-        style={{
-          left: `${cursorPosition.x}px`,
-          top: `${cursorPosition.y}px`,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
+      // <div
+      //   className="custom-cursor"
+      //   style={{
+      //     left: `${cursorPosition.x}px`,
+      //     top: `${cursorPosition.y}px`,
+      //     transform: "translate(-50%, -50%)",
+      //   }}
+      // />
       <Toaster position="top-right" />
       
 
