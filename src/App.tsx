@@ -8,6 +8,8 @@ import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
 import FloatingProfile from "@/components/FloatingProfile";
 import {
   GithubLogo,
@@ -399,6 +401,7 @@ export default function ThemeToggle() {
         </div>
       </section> */}
 <Hero />
+<About />
 // <section id="about" className="py-20 bg-accent/5" data-scroll-section>
 //       <div className="container mx-auto px-4">
 //         <motion.div
