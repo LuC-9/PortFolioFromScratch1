@@ -213,16 +213,9 @@ const skillCategories = [
 
  
   return (
-    // <div className="min-h-screen text-white">
+     <div className="min-h-screen text-white">
 <Cursor />
-      // <div
-      //   className="custom-cursor"
-      //   style={{
-      //     left: `${cursorPosition.x}px`,
-      //     top: `${cursorPosition.y}px`,
-      //     transform: "translate(-50%, -50%)",
-      //   }}
-      // />
+       <div/>
       <Toaster position="top-right" />
       
 
