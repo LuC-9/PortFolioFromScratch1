@@ -80,7 +80,7 @@ export default function Navbar() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center gap-4">
-            <ThemeToggle />
+{/*             <ThemeToggle /> */}
             <Button
               variant="ghost"
               size="icon"
