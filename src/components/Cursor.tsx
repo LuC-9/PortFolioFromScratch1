@@ -1,28 +1,27 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const smoothX = useSpring(mouseX, { stiffness: 100, damping: 20 });
+  const smoothY = useSpring(mouseY, { stiffness: 100, damping: 20 });
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
     window.addEventListener("mousemove", updatePosition);
     return () => window.removeEventListener("mousemove", updatePosition);
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <motion.div
       className="fixed w-8 h-8 pointer-events-none z-50 mix-blend-difference"
-      animate={{
-        x: position.x - 16,
-        y: position.y - 16,
-        scale: 1,
-        opacity: 1
-      }}
-      transition={{ type: "spring", stiffness: 500, damping: 28 }}
+      style={{ x: smoothX, y: smoothY }}
     >
       <div className="w-full h-full rounded-full border-2 border-white" />
     </motion.div>
