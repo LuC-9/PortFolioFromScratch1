@@ -8,6 +8,7 @@ import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
+import FloatingProfile from "@/components/FloatingProfile";
 import {
   GithubLogo,
   LinkedinLogo,
@@ -335,7 +336,7 @@ export default function ThemeToggle() {
 
 
       { /* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-20 animate-fade-in">
+{/*       <section className="min-h-screen flex items-center justify-center pt-20 animate-fade-in">
         <div className="text-center">
           <div className="relative w-32 h-32 mx-auto mb-6">
             <img
@@ -363,7 +364,8 @@ export default function ThemeToggle() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
+<FloatingProfile />
 
       {  /* About Section */
 /*       <section id="about" className="py-20 bg-[#0a0404]">
