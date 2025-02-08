@@ -9,7 +9,12 @@ export default function Cursor() {
   const smoothX = useSpring(mouseX, { stiffness: 150, damping: 25 });
   const smoothY = useSpring(mouseY, { stiffness: 150, damping: 25 });
 
+  // Check if the device is mobile
+  const isMobile = window.innerWidth <= 768;
+
   useEffect(() => {
+    if (isMobile) return; // Skip cursor update on mobile devices
+
     const updatePosition = (e: MouseEvent) => {
       mouseX.set(e.clientX - 16); // Correct offset
       mouseY.set(e.clientY - 16); // Correct offset
@@ -17,7 +22,9 @@ export default function Cursor() {
 
     window.addEventListener("mousemove", updatePosition);
     return () => window.removeEventListener("mousemove", updatePosition);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
+
+  if (isMobile) return null; // Don't render the cursor on mobile devices
 
   return (
     <motion.div
