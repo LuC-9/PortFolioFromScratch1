@@ -11,6 +11,7 @@ import Cursor from "@/components/Cursor";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
 import FloatingProfile from "@/components/FloatingProfile";
 import {
   GithubLogo,
@@ -341,53 +342,7 @@ const skillCategories = [
         </div>
       </section>
 
- <section id="skills" className="py-20" data-scroll-section>
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", bounce: 0.5, duration: 0.8 }}
-          className="bg-primary/10 p-6 rounded-full w-fit mx-auto mb-12"
-        >
-          <Code2 className="w-12 h-12 text-primary" />
-        </motion.div>
-        <div className="grid gap-12">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: categoryIndex * 0.1 }}
-            >
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <category.icon className="w-6 h-6 text-primary" />
-                <h3 className="text-2xl font-semibold text-center">{category.title}</h3>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {category.skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + categoryIndex * 0.2 }}
-                    whileHover={{ scale: 1.1 }}
-                    className="flex flex-col items-center"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <skill.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h4 className="text-lg font-medium text-center">{skill.name}</h4>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+<Skills />
 
 
       {/* Contact Section */}
