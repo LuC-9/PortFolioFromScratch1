@@ -78,8 +78,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4">
+          {/* Mobile Navigation - Toggle Button Shifted Left */}
+          <div className="md:hidden flex items-center gap-4 mr-auto">
             <Button
               variant="ghost"
               size="icon"
