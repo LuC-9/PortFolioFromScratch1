@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
 import { Button } from "./ui/button";
+import { FiClock, FiMapPin } from "react-icons/fi"; // Clock and location icons
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -35,9 +36,9 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-between relative bg-black/60 text-white px-6 py-12">
+    <section className="min-h-screen flex items-center justify-center relative bg-[#1a0f0f] text-white px-6 py-12">
       {/* Left Section: Name, Gamer Name, Profession, and Time */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 max-w-lg">
         <motion.h1
           className="text-4xl md:text-6xl font-bold"
           initial={{ y: 20, opacity: 0 }}
@@ -63,17 +64,17 @@ export default function Hero() {
           Software Engineer at Nagarro
         </motion.p>
         <motion.p
-          className="text-lg md:text-xl"
+          className="text-lg md:text-xl flex items-center gap-2"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          India | {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: '2-digit', minute: '2-digit', hour12: false })} IST
+          <FiMapPin className="w-5 h-5" /> India | <FiClock className="w-5 h-5" /> {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: '2-digit', minute: '2-digit', hour12: false })} IST
         </motion.p>
       </div>
 
       {/* Right Section: Social Links */}
-      <div className="flex flex-col gap-6 ml-auto">
+      <div className="flex flex-col gap-6 ml-auto max-w-xs">
         {socialLinks.map((link) => (
           <a
             key={link.href}
