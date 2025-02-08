@@ -64,9 +64,9 @@ export default function FloatingProfile() {
       {!isScrolled && ( // Conditionally render button based on scroll position
         <motion.button
           onClick={toggleImage}
-          className="absolute bottom-[-3rem] left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-full shadow-md"
+          className="absolute bottom-[-3rem] left-1/2 transform -translate-x-1/2 bg-transparent p-2 rounded-full shadow-md border-2 border-white/20"
         >
-          <ArrowLeftRight className="w-6 h-6 text-gray-800" />
+          <ArrowLeftRight className="w-6 h-6 text-white/80" />
         </motion.button>
       )}
     </motion.div>
