@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
-import { Button } from "./ui/button";
 import { FiClock, FiMapPin } from "react-icons/fi"; // Clock and location icons
 
 export default function Hero() {
@@ -37,9 +36,9 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-[#1a0f0f] text-white px-6 py-12">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-6">
         {/* Left Section: Name, Gamer Name, Profession, and Time */}
-        <div className="flex flex-col gap-4 max-w-lg text-center md:text-left">
+        <div className="flex flex-col gap-4 text-center md:text-left max-w-lg">
           <motion.h1
             className="text-4xl md:text-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
@@ -65,7 +64,7 @@ export default function Hero() {
             Software Engineer at Nagarro
           </motion.p>
           <motion.p
-            className="text-lg md:text-xl flex items-center gap-2"
+            className="text-lg md:text-xl flex items-center justify-center md:justify-start gap-2"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
