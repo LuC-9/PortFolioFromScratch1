@@ -36,21 +36,25 @@ export default function Hero() {
       href: "https://www.linkedin.com/in/aarsh-mishra09/",
       icon: SiLinkedin,
       label: "LinkedIn",
+      username: "in/aarsh-mishra09/",
     },
     {
       href: "https://github.com/LuC-9",
       icon: SiGithub,
       label: "GitHub",
+      username: "/LuC-9",
     },
     {
       href: "https://leetcode.com/u/LuC9/",
       icon: SiLeetcode,
       label: "LeetCode",
+      username: "/u/LuC9/",
     },
     {
-      href: "https://replit.com/",
+      href: "https://replit.com/@aarshmishra",
       icon: SiReplit,
       label: "Replit",
+      username: "@aarshmishra",
     },
     // Resume Link
     {
@@ -61,12 +65,12 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
-      <div className="container mx-auto px-4 flex flex-row justify-between items-center text-left">
+    <section className="min-h-screen flex items-center justify-center relative bg-darkRed">
+      <div className="container mx-auto px-4 flex flex-row justify-between items-center text-left space-y-2 md:space-y-0">
         {/* Left Side Content */}
-        <div className="flex flex-col items-start gap-6">
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-4 font-[Poppins]"
+        <div className="flex flex-col items-start gap-4">
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold mb-2 font-[Poppins]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -74,8 +78,8 @@ export default function Hero() {
             Aarsh Mishra
           </motion.h1>
 
-          <motion.p 
-            className="text-xl text-gray-300 mb-4 font-[Poppins]"
+          <motion.p
+            className="text-xl text-gray-300 mb-2 font-[Poppins]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -93,7 +97,7 @@ export default function Hero() {
           </motion.h2>
 
           {/* Location and Time with Icons */}
-          <motion.div 
+          <motion.div
             className="text-lg text-gray-300 mb-4 font-[Roboto] flex items-center justify-start gap-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -104,7 +108,7 @@ export default function Hero() {
               <FaMapMarkerAlt className="text-white" />
               <span className="font-[Poppins] text-white">{location}</span>
             </div>
-            
+
             {/* Time Icon */}
             <div className="flex items-center gap-2">
               <FaRegClock className="text-white" />
@@ -115,7 +119,7 @@ export default function Hero() {
 
         {/* Right Side: Social Links */}
         <div className="flex flex-col items-start gap-4">
-          {socialLinks.map(({ href, icon: Icon, label }) => (
+          {socialLinks.map(({ href, icon: Icon, label, username }) => (
             <motion.a
               key={href}
               href={href}
@@ -128,7 +132,9 @@ export default function Hero() {
             >
               <Icon className="w-6 h-6" />
               <span>{label}</span>
-              <span className="text-gray-400">/{label.toLowerCase()}</span>
+              {username && (
+                <span className="text-gray-400">{username}</span>
+              )}
             </motion.a>
           ))}
         </div>
