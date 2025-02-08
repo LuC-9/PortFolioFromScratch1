@@ -51,6 +51,17 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="w-10 h-10" /> {/* Placeholder for logo/profile */}
 
+          {/* Mobile Navigation - Toggle Button Shifted Left */}
+          <div className="md:hidden flex items-center gap-4 mr-auto">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Menu className="h-5 w-5 text-white" />
+            </Button>
+          </div>
+
           {/* Desktop Navigation (Left-Aligned) */}
           <div className="hidden md:flex items-center gap-8 w-full">
             <ul className="flex items-center gap-6">
@@ -76,17 +87,6 @@ export default function Navbar() {
             <div className="ml-auto">
               <SocialLinks />
             </div>
-          </div>
-
-          {/* Mobile Navigation - Toggle Button Shifted Left */}
-          <div className="md:hidden flex items-center gap-4 mr-auto">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-5 w-5 text-white" />
-            </Button>
           </div>
         </div>
 
