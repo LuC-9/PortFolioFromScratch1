@@ -154,6 +154,14 @@ const skillCategories = [
   //   window.addEventListener("mousemove", updateCursorPosition);
   //   return () => window.removeEventListener("mousemove", updateCursorPosition);
   // }, [updateCursorPosition]);
+useEffect(() => {
+    const disableRightClick = (e: MouseEvent) => e.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
