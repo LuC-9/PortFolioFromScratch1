@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-40 bg-[#1a0f0f]/80 backdrop-blur-md text-white shadow-md border-b border-gray-700"
+      className="fixed top-0 left-0 right-0 z-40 bg-black/30 backdrop-blur-sm text-white"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -60,7 +60,7 @@ export default function Navbar() {
                     href={item.href}
                     className={`text-sm font-medium transition-colors hover:text-gray-300 ${
                       activeSection === item.href.slice(1)
-                        ? "text-gray-100"
+                        ? "text-white"
                         : "text-gray-400"
                     }`}
                     onClick={(e) => {
@@ -90,10 +90,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu (Translucent) */}
+        {/* Mobile Menu (Solid when toggled) */}
         {isMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full bg-[#1a0f0f]/80 backdrop-blur-md text-white shadow-lg border-t border-gray-700"
+            className="absolute top-full left-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
