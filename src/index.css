@@ -14,6 +14,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent-color: rgba(255, 0, 0, 0.5); /* Red with 50% opacity */
+}
+
+
 html {
   scroll-behavior: smooth;
   cursor: none;
