@@ -38,15 +38,19 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-[#0a0404]">
+    <section id="projects" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
-            <Code
-              size={40}
-              weight="duotone"
-              className="text-red-500 animate-pulse"
-            />
-          </h2>
+          <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold mb-12 text-center"
+          >
+            <Code2 className="w-8 h-8 text-primary" />
+          </motion.div>
+        </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll">
               <h3 className="text-xl font-bold mb-4">
