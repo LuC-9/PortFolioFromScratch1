@@ -218,8 +218,8 @@ const skillCategories = [
 
 
 
-      {/* Navigation */}
-{/*       <nav className="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 px-6 py-3 transition-all duration-300">
+      /* Navigation */
+/*       <nav className="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 px-6 py-3 transition-all duration-300">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <img
             id="nav-image"
@@ -325,13 +325,13 @@ export default function ThemeToggle() {
     </Button>
   );
 }*
-*/}
+*/
 
 <Navbar />
 
 
 
-      {/* Hero Section */}
+      /* Hero Section */
       <section className="min-h-screen flex items-center justify-center pt-20 animate-fade-in">
         <div className="text-center">
           <div className="relative w-32 h-32 mx-auto mb-6">
@@ -362,8 +362,8 @@ export default function ThemeToggle() {
         </div>
       </section>
 
-      {/* About Section */}
-{/*       <section id="about" className="py-20 bg-[#0a0404]">
+      /* About Section */
+/*       <section id="about" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 className="text-4xl font-bold mb-12 text-center">
             About Me
@@ -392,7 +392,7 @@ export default function ThemeToggle() {
             </CardContent>
           </Card>
         </div>
-      </section> */}
+      </section> */
 <section id="about" className="py-20 bg-accent/5" data-scroll-section>
       <div className="container mx-auto px-4">
         <motion.div
@@ -442,7 +442,7 @@ export default function ThemeToggle() {
       </div>
     </section>
 
-      {/*Links*/}
+      /*Links*/
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -470,7 +470,7 @@ export default function ThemeToggle() {
         })}
       </motion.div>
 
-      {/* Experience Section */}
+      /* Experience Section */
       <section id="experience" className="py-20" data-scroll-section>
         <div className="container mx-auto px-4">
           <motion.div
@@ -528,7 +528,7 @@ export default function ThemeToggle() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      /* Projects Section */
       <section id="projects" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll flex items-center justify-center gap-4">
