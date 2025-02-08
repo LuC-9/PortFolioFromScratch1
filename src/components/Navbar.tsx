@@ -42,14 +42,14 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Left-aligned Navigation (Hidden on mobile) */}
+          {/* Left-aligned Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-6">
               {navItems.map((item) => (
@@ -73,12 +73,12 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Right-aligned Social Links (Hidden on mobile) */}
+          {/* Right-aligned Social Links (Desktop) */}
           <div className="hidden md:flex">
             <SocialLinks />
           </div>
 
-          {/* Mobile Navigation Toggle */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <Button
               variant="ghost"
@@ -90,14 +90,14 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu (Only visible when toggled) */}
+        {/* Mobile Menu (Fixed Alignment & Full Width) */}
         {isMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-16 left-0 w-full bg-background shadow-md"
+            className="absolute top-full left-0 w-full bg-background shadow-lg border-t border-gray-700"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <ul className="py-4 space-y-2 text-center">
+            <ul className="py-4 text-center space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
