@@ -36,57 +36,59 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-[#1a0f0f] text-white px-6 py-12">
-      {/* Left Section: Name, Gamer Name, Profession, and Time */}
-      <div className="flex flex-col gap-4 max-w-lg">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          Aarsh Mishra
-        </motion.h1>
-        <motion.h2
-          className="text-xl md:text-2xl text-muted-foreground"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          LuC
-        </motion.h2>
-        <motion.p
-          className="text-lg md:text-xl"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Software Engineer at Nagarro
-        </motion.p>
-        <motion.p
-          className="text-lg md:text-xl flex items-center gap-2"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <FiMapPin className="w-5 h-5" /> India | <FiClock className="w-5 h-5" /> {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: '2-digit', minute: '2-digit', hour12: false })} IST
-        </motion.p>
-      </div>
-
-      {/* Right Section: Social Links */}
-      <div className="flex flex-col gap-6 ml-auto max-w-xs">
-        {socialLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-white hover:text-gray-300"
+    <section className="min-h-screen flex items-center justify-center bg-[#1a0f0f] text-white px-6 py-12">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Left Section: Name, Gamer Name, Profession, and Time */}
+        <div className="flex flex-col gap-4 max-w-lg text-center md:text-left">
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
           >
-            <span className="text-xl">{link.icon}</span>
-            <span className="text-lg">{link.username}</span>
-          </a>
-        ))}
+            Aarsh Mishra
+          </motion.h1>
+          <motion.h2
+            className="text-xl md:text-2xl text-muted-foreground"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            LuC
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Software Engineer at Nagarro
+          </motion.p>
+          <motion.p
+            className="text-lg md:text-xl flex items-center gap-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <FiMapPin className="w-5 h-5" /> India | <FiClock className="w-5 h-5" /> {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: '2-digit', minute: '2-digit', hour12: false })} IST
+          </motion.p>
+        </div>
+
+        {/* Right Section: Social Links */}
+        <div className="flex flex-col gap-6 ml-auto max-w-xs text-center md:text-left">
+          {socialLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center md:justify-start gap-3 text-white hover:text-gray-300"
+            >
+              <span className="text-xl">{link.icon}</span>
+              <span className="text-lg">{link.username}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
