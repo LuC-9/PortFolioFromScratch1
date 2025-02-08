@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si"; // Import necessary icons
+import { ChevronDown } from "lucide-react";
 
 const socialLinks = [
   {
@@ -31,7 +32,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
+    <section className="min-h-screen flex items-center justify-center relative bg-gray-800"> {/* Add a background color here */}
       <div className="container mx-auto px-4 flex flex-col items-center text-center">
         <div className="h-40 mb-8" /> {/* Reduced spacer height */}
 
@@ -60,7 +61,7 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
         >
           {/* Location/Time */}
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+          <div className="flex items-center gap-4 text-sm text-white mb-4">
             <span>IN</span> | <span>IST</span> | <span>{new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
           </div>
           <Button 
