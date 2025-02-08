@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
+import { FaRegClock, FaMapMarkerAlt } from "react-icons/fa"; // Import icons for time and location
 import SocialLinks from "./SocialLinks";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [time, setTime] = useState("");
-  const [location, setLocation] = useState("India"); // You can change this as needed
+  const [location] = useState("India"); // Static location (India)
 
-  // Update time every minute
+  // Update time every minute to reflect the current time in IST
   useEffect(() => {
     const interval = setInterval(() => {
-      const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      const currentTime = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false });
       setTime(currentTime);
     }, 60000);
 
@@ -51,17 +52,25 @@ export default function Hero() {
           Software Engineer at Nagarro
         </motion.h2>
 
-        {/* Location and Time */}
-        <motion.p 
-          className="text-lg text-gray-300 mb-4 font-[Roboto]"
+        {/* Location and Time with Icons */}
+        <motion.div 
+          className="text-lg text-gray-300 mb-4 font-[Roboto] flex items-center justify-center gap-4"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Location: <span className="font-[Poppins] text-white">{location}</span><br />
-          Time: <span className="font-[Poppins] text-white">{time}</span><br />
-          Timezone: <span className="font-[Poppins] text-white">IST (Indian Standard Time)</span>
-        </motion.p>
+          {/* Location Icon */}
+          <div className="flex items-center gap-2">
+            <FaMapMarkerAlt className="text-white" />
+            <span className="font-[Poppins] text-white">{location}</span>
+          </div>
+          
+          {/* Time Icon */}
+          <div className="flex items-center gap-2">
+            <FaRegClock className="text-white" />
+            <span className="font-[Poppins] text-white">{time} IST</span>
+          </div>
+        </motion.div>
 
         <motion.div
           className="flex flex-col items-center gap-6"
