@@ -37,9 +37,111 @@ import {
 } from "react-icons/si";
 
 function App() {
-
-  
-  
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    skills: [
+      { name: "Java", icon: Code2 },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Python", icon: SiPython },
+      { name: "Shell", icon: Code2 }
+    ]
+  },
+  {
+    title: "Frameworks",
+    icon: Code2,
+    skills: [
+      { name: "Spring Boot", icon: SiSpring },
+      { name: "Node", icon: SiNodedotjs },
+      { name: "Express", icon: SiExpress },
+      { name: "React", icon: SiReact },
+      { name: "Angular", icon: SiAngular }
+    ]
+  },
+  {
+    title: "Servers & Platforms",
+    icon: Code2,
+    skills: [
+      { name: "SoftwareAG", icon: Code2 },
+      { name: "Docker", icon: SiDocker },
+      { name: "AWS", icon: SiAmazon },
+      { name: "GIT", icon: SiGithub },
+      { name: "Apigee", icon: SiApache },
+      { name: "Postman", icon: Code2 }
+    ]
+  },
+  {
+    title: "Databases",
+    icon: Code2,
+    skills: [
+      { name: "MySQL", icon: SiMysql },
+      { name: "MongoDB", icon: SiMongodb }
+    ]
+  }
+];
+  const experiences = [
+    {
+      title: "Engineer",
+      company: "Nagarro",
+      period: "01/2024 – Present",
+      location: "Gurugram, India",
+      description: [
+        "Developed and optimized 250+ APIs for seamless system integration",
+        "Delivered scalable backend solutions to enhance performance and reliability",
+        "Collaborated with teams to ensure efficient data flow across platforms",
+      ],
+    },
+    {
+      title: "Associate Engineer",
+      company: "Nagarro",
+      period: "07/2022 – 12/2023",
+      location: "Gurugram, India",
+      description: [
+        "Developed expertise in Java and Spring Boot for backend development",
+        "Managed codebases using Git and version control systems",
+        "Worked with backend technologies, including Node.js, to build and integrate applications",
+      ],
+    },
+    {
+      title: "Systems Engineer Intern",
+      company: "Infosys",
+      period: "02/2022 – 05/2022",
+      location: "Mysore, India",
+      description: [
+        "Developed a system for managing complaints across city departments with role-based access",
+        "Implemented solution for Police, Healthcare, Education, and Transport departments",
+        "Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git",
+      ],
+    },
+  ];
+  const socialLinks = [
+    {
+      icon: Github,
+      href: "https://github.com/LuC-9/",
+      label: "GitHub",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/aarsh-mishra09/",
+      label: "LinkedIn",
+    },
+    {
+      icon: Mail,
+      href: "mailto:aarshmail@gmail.com",
+      label: "Email",
+    },
+    {
+      icon: SiLeetcode,
+      href: "https://leetcode.com/u/LuC9/",
+      label: "LeetCode",
+    },
+    {
+      icon: Code2,
+      href: "https://replit.com/@AarshMishra",
+      label: "Replit",
+    },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -62,66 +164,66 @@ useEffect(() => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const heroImage = document.getElementById("hero-image");
-  //     const navImage = document.getElementById("nav-image");
-  //     const scrollPosition = window.scrollY;
-  //     const heroImageRect = heroImage?.getBoundingClientRect();
-  //     const navImageRect = navImage?.getBoundingClientRect();
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroImage = document.getElementById("hero-image");
+      const navImage = document.getElementById("nav-image");
+      const scrollPosition = window.scrollY;
+      const heroImageRect = heroImage?.getBoundingClientRect();
+      const navImageRect = navImage?.getBoundingClientRect();
 
-  //     if (heroImageRect && navImageRect) {
-  //       const progress = Math.min(Math.max(scrollPosition / 300, 0), 1);
-  //       setIsScrolled(progress > 0.1);
+      if (heroImageRect && navImageRect) {
+        const progress = Math.min(Math.max(scrollPosition / 300, 0), 1);
+        setIsScrolled(progress > 0.1);
 
-  //       // Calculate positions
-  //       const startX = heroImageRect.left + heroImageRect.width / 2;
-  //       const startY = heroImageRect.top + heroImageRect.height / 2;
-  //       const endX = navImageRect.left + navImageRect.width / 2;
-  //       const endY = navImageRect.top + navImageRect.height / 2;
+        // Calculate positions
+        const startX = heroImageRect.left + heroImageRect.width / 2;
+        const startY = heroImageRect.top + heroImageRect.height / 2;
+        const endX = navImageRect.left + navImageRect.width / 2;
+        const endY = navImageRect.top + navImageRect.height / 2;
 
-  //       // Use cubic-bezier easing for smoother animation
-  //       const easeProgress = progress * (2 - progress); // Ease out quad
+        // Use cubic-bezier easing for smoother animation
+        const easeProgress = progress * (2 - progress); // Ease out quad
 
-  //       // Calculate current position with easing
-  //       const currentX = startX + (endX - startX) * easeProgress;
-  //       const currentY = startY + (endY - startY) * easeProgress;
-  //       const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
+        // Calculate current position with easing
+        const currentX = startX + (endX - startX) * easeProgress;
+        const currentY = startY + (endY - startY) * easeProgress;
+        const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
 
-  //       heroImage.style.transition =
-  //         "transform 0.1s ease-out, opacity 0.1s ease-out";
-  //       heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
-  //       heroImage.style.opacity = `${1 - easeProgress}`;
-  //     }
-  //   };
+        heroImage.style.transition =
+          "transform 0.1s ease-out, opacity 0.1s ease-out";
+        heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
+        heroImage.style.opacity = `${1 - easeProgress}`;
+      }
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // useEffect(() => {
-  //   const observerOptions = {
-  //     root: null,
-  //     rootMargin: "0px",
-  //     threshold: 0.1,
-  //   };
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
 
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add("animate-slide-up", "opacity-100");
-  //         entry.target.classList.remove("opacity-0", "translate-y-5");
-  //       }
-  //     });
-  //   }, observerOptions);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-slide-up", "opacity-100");
+          entry.target.classList.remove("opacity-0", "translate-y-5");
+        }
+      });
+    }, observerOptions);
 
-  //   document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-  //     element.classList.add("opacity-0", "translate-y-5");
-  //     observer.observe(element);
-  //   });
+    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+      element.classList.add("opacity-0", "translate-y-5");
+      observer.observe(element);
+    });
 
-  //   return () => observer.disconnect();
-  // }, []);
+    return () => observer.disconnect();
+  }, []);
 
  
   return (
@@ -139,6 +241,8 @@ useEffect(() => {
 <Experience />
 <Projects />
 <Skills />
+
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
