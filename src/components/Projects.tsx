@@ -42,10 +42,10 @@ export default function Projects() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
-            initial={{ scale: 0, rotate: 180, opacity: 0 }}
-            whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
-            transition={{ type: "spring", duration: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold mb-12 text-center"
           >
             <Code2 className="w-8 h-8 text-primary" />
           </motion.div>
@@ -68,7 +68,7 @@ export default function Projects() {
                 }
               }}
             >
-              <Card className="h-full">
+              <Card className="flex flex-col h-full hover:shadow-xl hover:scale-105 hover:bg-primary/5 transition-all duration-300 transform-gpu min-h-[250px] justify-between">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
