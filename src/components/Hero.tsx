@@ -68,7 +68,7 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          India | {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" })} IST
+          India | {new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: '2-digit', minute: '2-digit' })} IST
         </motion.p>
       </div>
 
