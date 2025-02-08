@@ -70,4 +70,69 @@ export default function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-       
+          >
+            Aarsh Mishra
+          </motion.h1>
+
+          <motion.p 
+            className="text-xl text-gray-300 mb-4 font-[Poppins]"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            LuC
+          </motion.p>
+
+          <motion.h2
+            className="text-xl md:text-2xl text-muted-foreground mb-4 font-[Roboto]"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Software Engineer at Nagarro
+          </motion.h2>
+
+          {/* Location and Time with Icons */}
+          <motion.div 
+            className="text-lg text-gray-300 mb-4 font-[Roboto] flex items-center justify-start gap-4"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            {/* Location Icon */}
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-white" />
+              <span className="font-[Poppins] text-white">{location}</span>
+            </div>
+            
+            {/* Time Icon */}
+            <div className="flex items-center gap-2">
+              <FaRegClock className="text-white" />
+              <span className="font-[Poppins] text-white">{time} IST</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Social Links */}
+        <div className="flex flex-col items-start gap-4">
+          {socialLinks.map(({ href, icon: Icon, label }) => (
+            <motion.a
+              key={href}
+              href={href}
+              target={label === "Resume" ? "_self" : "_blank"}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Icon className="w-6 h-6" />
+              <span>{label}</span>
+              <span className="text-gray-400">/{label.toLowerCase()}</span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
