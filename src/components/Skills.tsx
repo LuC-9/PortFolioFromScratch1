@@ -54,7 +54,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id = "skills" className="py-20" data-scroll-section>
+    <section id="skills" className="py-20" data-scroll-section>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
