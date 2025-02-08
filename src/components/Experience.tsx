@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "./ui/cards";
 import { Building2, Briefcase } from "lucide-react";
 import { SiInfosys } from "react-icons/si";
 
