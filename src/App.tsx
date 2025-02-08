@@ -7,6 +7,7 @@ import { Github, Linkedin, Mail, Code2 } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
+import Cursor from "@/components/Cursor";
 import {
   GithubLogo,
   LinkedinLogo,
@@ -135,92 +136,94 @@ const skillCategories = [
       label: "Replit",
     },
   ];
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  // const [isScrolled, setIsScrolled] = useState(false);
+  // const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  const updateCursorPosition = useCallback((e: MouseEvent) => {
-    requestAnimationFrame(() => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    });
-  }, []);
+  // const updateCursorPosition = useCallback((e: MouseEvent) => {
+  //   requestAnimationFrame(() => {
+  //     setCursorPosition({ x: e.clientX, y: e.clientY });
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    window.addEventListener("mousemove", updateCursorPosition);
-    return () => window.removeEventListener("mousemove", updateCursorPosition);
-  }, [updateCursorPosition]);
+  // useEffect(() => {
+  //   window.addEventListener("mousemove", updateCursorPosition);
+  //   return () => window.removeEventListener("mousemove", updateCursorPosition);
+  // }, [updateCursorPosition]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroImage = document.getElementById("hero-image");
-      const navImage = document.getElementById("nav-image");
-      const scrollPosition = window.scrollY;
-      const heroImageRect = heroImage?.getBoundingClientRect();
-      const navImageRect = navImage?.getBoundingClientRect();
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const heroImage = document.getElementById("hero-image");
+  //     const navImage = document.getElementById("nav-image");
+  //     const scrollPosition = window.scrollY;
+  //     const heroImageRect = heroImage?.getBoundingClientRect();
+  //     const navImageRect = navImage?.getBoundingClientRect();
 
-      if (heroImageRect && navImageRect) {
-        const progress = Math.min(Math.max(scrollPosition / 300, 0), 1);
-        setIsScrolled(progress > 0.1);
+  //     if (heroImageRect && navImageRect) {
+  //       const progress = Math.min(Math.max(scrollPosition / 300, 0), 1);
+  //       setIsScrolled(progress > 0.1);
 
-        // Calculate positions
-        const startX = heroImageRect.left + heroImageRect.width / 2;
-        const startY = heroImageRect.top + heroImageRect.height / 2;
-        const endX = navImageRect.left + navImageRect.width / 2;
-        const endY = navImageRect.top + navImageRect.height / 2;
+  //       // Calculate positions
+  //       const startX = heroImageRect.left + heroImageRect.width / 2;
+  //       const startY = heroImageRect.top + heroImageRect.height / 2;
+  //       const endX = navImageRect.left + navImageRect.width / 2;
+  //       const endY = navImageRect.top + navImageRect.height / 2;
 
-        // Use cubic-bezier easing for smoother animation
-        const easeProgress = progress * (2 - progress); // Ease out quad
+  //       // Use cubic-bezier easing for smoother animation
+  //       const easeProgress = progress * (2 - progress); // Ease out quad
 
-        // Calculate current position with easing
-        const currentX = startX + (endX - startX) * easeProgress;
-        const currentY = startY + (endY - startY) * easeProgress;
-        const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
+  //       // Calculate current position with easing
+  //       const currentX = startX + (endX - startX) * easeProgress;
+  //       const currentY = startY + (endY - startY) * easeProgress;
+  //       const scale = 1 - 0.7 * easeProgress; // Scale from 1 to 0.3
 
-        heroImage.style.transition =
-          "transform 0.1s ease-out, opacity 0.1s ease-out";
-        heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
-        heroImage.style.opacity = `${1 - easeProgress}`;
-      }
-    };
+  //       heroImage.style.transition =
+  //         "transform 0.1s ease-out, opacity 0.1s ease-out";
+  //       heroImage.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px) scale(${scale})`;
+  //       heroImage.style.opacity = `${1 - easeProgress}`;
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
-    };
+  // useEffect(() => {
+  //   const observerOptions = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 0.1,
+  //   };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-slide-up", "opacity-100");
-          entry.target.classList.remove("opacity-0", "translate-y-5");
-        }
-      });
-    }, observerOptions);
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("animate-slide-up", "opacity-100");
+  //         entry.target.classList.remove("opacity-0", "translate-y-5");
+  //       }
+  //     });
+  //   }, observerOptions);
 
-    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-      element.classList.add("opacity-0", "translate-y-5");
-      observer.observe(element);
-    });
+  //   document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+  //     element.classList.add("opacity-0", "translate-y-5");
+  //     observer.observe(element);
+  //   });
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  return (
-    <div className="min-h-screen text-white">
-      <div
-        className="custom-cursor"
-        style={{
-          left: `${cursorPosition.x}px`,
-          top: `${cursorPosition.y}px`,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
-      <Toaster position="top-right" />
+  // return (
+  //   <div className="min-h-screen text-white">
+  //     <div
+  //       className="custom-cursor"
+  //       style={{
+  //         left: `${cursorPosition.x}px`,
+  //         top: `${cursorPosition.y}px`,
+  //         transform: "translate(-50%, -50%)",
+  //       }}
+  //     />
+  //     <Toaster position="top-right" />
+
+<Cursor />
 
       {/* Navigation */}
 {/*       <nav className="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 px-6 py-3 transition-all duration-300">
