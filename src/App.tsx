@@ -445,7 +445,7 @@ export default function ThemeToggle() {
       </div>
     </section>
 
-      /*Links*/
+       { /*Links*/}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -473,7 +473,7 @@ export default function ThemeToggle() {
         })}
       </motion.div>
 
-      /* Experience Section */
+       { /* Experience Section */}
       <section id="experience" className="py-20" data-scroll-section>
         <div className="container mx-auto px-4">
           <motion.div
