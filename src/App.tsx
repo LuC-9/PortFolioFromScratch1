@@ -37,9 +37,111 @@ import {
 } from "react-icons/si";
 
 function App() {
-
-  
-  
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    skills: [
+      { name: "Java", icon: Code2 },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Python", icon: SiPython },
+      { name: "Shell", icon: Code2 }
+    ]
+  },
+  {
+    title: "Frameworks",
+    icon: Code2,
+    skills: [
+      { name: "Spring Boot", icon: SiSpring },
+      { name: "Node", icon: SiNodedotjs },
+      { name: "Express", icon: SiExpress },
+      { name: "React", icon: SiReact },
+      { name: "Angular", icon: SiAngular }
+    ]
+  },
+  {
+    title: "Servers & Platforms",
+    icon: Code2,
+    skills: [
+      { name: "SoftwareAG", icon: Code2 },
+      { name: "Docker", icon: SiDocker },
+      { name: "AWS", icon: SiAmazon },
+      { name: "GIT", icon: SiGithub },
+      { name: "Apigee", icon: SiApache },
+      { name: "Postman", icon: Code2 }
+    ]
+  },
+  {
+    title: "Databases",
+    icon: Code2,
+    skills: [
+      { name: "MySQL", icon: SiMysql },
+      { name: "MongoDB", icon: SiMongodb }
+    ]
+  }
+];
+  const experiences = [
+    {
+      title: "Engineer",
+      company: "Nagarro",
+      period: "01/2024 – Present",
+      location: "Gurugram, India",
+      description: [
+        "Developed and optimized 250+ APIs for seamless system integration",
+        "Delivered scalable backend solutions to enhance performance and reliability",
+        "Collaborated with teams to ensure efficient data flow across platforms",
+      ],
+    },
+    {
+      title: "Associate Engineer",
+      company: "Nagarro",
+      period: "07/2022 – 12/2023",
+      location: "Gurugram, India",
+      description: [
+        "Developed expertise in Java and Spring Boot for backend development",
+        "Managed codebases using Git and version control systems",
+        "Worked with backend technologies, including Node.js, to build and integrate applications",
+      ],
+    },
+    {
+      title: "Systems Engineer Intern",
+      company: "Infosys",
+      period: "02/2022 – 05/2022",
+      location: "Mysore, India",
+      description: [
+        "Developed a system for managing complaints across city departments with role-based access",
+        "Implemented solution for Police, Healthcare, Education, and Transport departments",
+        "Tech stack: Java, Spring Boot, Maven, Angular 10, REST APIs, MySQL, Git",
+      ],
+    },
+  ];
+  const socialLinks = [
+    {
+      icon: Github,
+      href: "https://github.com/LuC-9/",
+      label: "GitHub",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/aarsh-mishra09/",
+      label: "LinkedIn",
+    },
+    {
+      icon: Mail,
+      href: "mailto:aarshmail@gmail.com",
+      label: "Email",
+    },
+    {
+      icon: SiLeetcode,
+      href: "https://leetcode.com/u/LuC9/",
+      label: "LeetCode",
+    },
+    {
+      icon: Code2,
+      href: "https://replit.com/@AarshMishra",
+      label: "Replit",
+    },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -139,6 +241,8 @@ useEffect(() => {
 <Experience />
 <Projects />
 <Skills />
+
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#0a0404]">
         <div className="max-w-6xl mx-auto px-6">
