@@ -49,8 +49,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Left-aligned Navigation */}
-          <div className="flex items-center gap-8">
+          {/* Left-aligned Navigation (Hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-6">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -73,7 +73,7 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Right-aligned Social Links */}
+          {/* Right-aligned Social Links (Hidden on mobile) */}
           <div className="hidden md:flex">
             <SocialLinks />
           </div>
@@ -90,23 +90,19 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu (Only visible when toggled) */}
         {isMenuOpen && (
           <motion.div
-            className="md:hidden"
-            initial={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-16 left-0 w-full bg-background shadow-md"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <ul className="py-4 space-y-2">
+            <ul className="py-4 space-y-2 text-center">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`block py-2 px-4 text-sm font-medium transition-colors hover:text-foreground ${
-                      activeSection === item.href.slice(1)
-                        ? "text-foreground"
-                        : "text-muted-foreground"
-                    }`}
+                    className="block py-2 text-sm font-medium transition-colors hover:text-foreground"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href);
@@ -117,7 +113,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="px-4 py-2">
+            <div className="py-2 flex justify-center">
               <SocialLinks />
             </div>
           </motion.div>
