@@ -35,7 +35,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-between relative bg-red-800 text-white px-6 py-12">
+    <section className="min-h-screen flex items-center justify-between relative bg-black/60 text-white px-6 py-12">
       {/* Left Section: Name, Gamer Name, Profession, and Time */}
       <div className="flex flex-col gap-4">
         <motion.h1
