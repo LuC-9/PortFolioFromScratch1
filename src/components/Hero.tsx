@@ -12,9 +12,23 @@ export default function Hero() {
   // Update time every minute to reflect the current time in IST
   useEffect(() => {
     const interval = setInterval(() => {
-      const currentTime = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false });
+      const currentTime = new Date().toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "Asia/Kolkata", // Explicitly set the time zone to IST (India Standard Time)
+      });
       setTime(currentTime);
     }, 60000);
+
+    // Set the time immediately on mount
+    const initialTime = new Date().toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Asia/Kolkata",
+    });
+    setTime(initialTime);
 
     return () => clearInterval(interval);
   }, []);
