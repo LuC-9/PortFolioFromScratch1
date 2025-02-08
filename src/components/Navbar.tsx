@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SocialLinks from "@/components/SocialLinks";
@@ -75,12 +74,10 @@ export default function Navbar() {
               ))}
             </ul>
             <SocialLinks />
-            <ThemeToggle />
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center gap-4">
-{/*             <ThemeToggle /> */}
             <Button
               variant="ghost"
               size="icon"
