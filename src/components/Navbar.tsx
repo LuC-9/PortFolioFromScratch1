@@ -58,7 +58,7 @@ export default function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-gray-300 ${
+                    className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
                       activeSection === item.href.slice(1)
                         ? "text-white"
                         : "text-gray-400"
@@ -93,16 +93,17 @@ export default function Navbar() {
         {/* Mobile Menu (Solid when toggled) */}
         {isMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700"
+            className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <ul className="py-4 text-left px-6 space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="block py-2 text-sm font-medium transition-colors hover:text-gray-300"
+                    className="block py-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href);
