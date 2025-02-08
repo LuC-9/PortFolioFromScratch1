@@ -51,7 +51,7 @@ export default function FloatingProfile() {
     >
       {/* Profile Image: Only moves with scroll */}
       <motion.img
-        src={isImage2 ? "/path/to/your-image.gif" : "/profile.jpg"} // Change image source to GIF when toggled
+        src={isImage2 ? "/profile2.gif" : "/profile.jpg"} // Change image source to GIF when toggled
         alt="Aarsh Mishra"
         className="rounded-full object-cover border-2 border-white/10"
         style={{
