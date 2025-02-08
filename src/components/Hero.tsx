@@ -87,7 +87,7 @@ export default function Hero() {
       {/* Right Section: Social Links */}
       <div className="flex flex-col md:flex-row gap-4 ml-auto mt-6 md:mt-0 md:gap-6">
         {/* Mobile: social links in a horizontal row with no usernames or text */}
-        <div className="flex md:hidden gap-4">
+        <div className="flex md:hidden gap-4 justify-center">
           {socialLinks.map((link, index) => (
             <a
               key={index}
@@ -112,7 +112,6 @@ export default function Hero() {
               className="flex items-center gap-3 text-white hover:text-gray-300"
             >
               <span className="text-xl">{link.icon}</span>
-              <span className="text-lg">{link.username}</span> {/* Username */}
             </a>
           ))}
         </div>
