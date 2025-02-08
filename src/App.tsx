@@ -217,7 +217,7 @@ const skillCategories = [
       
 
 
-
+<Navbar />
       /* Navigation */
 /*       <nav className="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 px-6 py-3 transition-all duration-300">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -327,7 +327,7 @@ export default function ThemeToggle() {
 }*
 */
 
-<Navbar />
+
 
 
 
