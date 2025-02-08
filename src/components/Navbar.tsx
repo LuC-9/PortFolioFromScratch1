@@ -47,12 +47,12 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 relative">
+        <div className="flex items-center h-16">
           <div className="w-10 h-10" /> {/* Placeholder for logo/profile */}
 
           {/* Mobile Navigation - Toggle Button Shifted Left */}
-          <div className="md:hidden flex items-center gap-4 mr-auto">
+          <div className="md:hidden absolute left-4">
             <Button
               variant="ghost"
               size="icon"
