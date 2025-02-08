@@ -6,7 +6,7 @@ import { Building2 } from "lucide-react";
 import { Github, Linkedin, Mail, Code2 } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
-import {Navbar} from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import {
   GithubLogo,
   LinkedinLogo,
