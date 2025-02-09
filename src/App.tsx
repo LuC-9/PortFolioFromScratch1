@@ -59,7 +59,7 @@ useEffect(() => {
 
 <Navbar />            
 {/* <FloatingProfile />      */}
-<motion.div><Hero /></motion.div>
+<Hero />
 <About />
 <Experience />
 <Projects />
