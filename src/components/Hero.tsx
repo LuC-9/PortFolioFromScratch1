@@ -32,7 +32,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12 mt-[18rem]">
       {/* Centered Content */}
       <div className="text-center flex flex-col items-center gap-4">
         <motion.h1
@@ -52,7 +52,7 @@ export default function Hero() {
           LuC
         </motion.h2>
 
-        {/* Social Links (Stacked Vertically) */}
+        {/* Social Links (Username next to Icons) */}
         <div className="flex flex-col items-center gap-4 mt-6">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -60,7 +60,7 @@ export default function Hero() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center text-lg text-white hover:text-gray-300"
+              className="flex items-center gap-3 text-lg text-white hover:text-gray-300"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 + index * 0.1 }}
