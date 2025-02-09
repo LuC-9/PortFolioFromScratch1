@@ -4,7 +4,7 @@ import { User2 } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="py-10 md:py-7">
+    <section id="about" className="py-5 md:py-5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
