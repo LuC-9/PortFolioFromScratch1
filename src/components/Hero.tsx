@@ -32,7 +32,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12 mt-[18rem]">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12 mt-[15rem]">
       {/* Centered Content */}
       <div className="text-center flex flex-col items-center gap-4">
         <motion.h1
