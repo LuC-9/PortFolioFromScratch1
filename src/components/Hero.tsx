@@ -32,9 +32,9 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center relative bg-muted/30 text-white px-6 py-12 md:py-10 mt-[18rem] md:mt-0">
-      {/* Left Section */}
-      <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left md:ml-auto md:mr-auto"> 
+    <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12">
+      {/* Centered Content */}
+      <div className="text-center flex flex-col items-center gap-4">
         <motion.h1
           className="text-4xl md:text-6xl font-bold"
           initial={{ y: 20, opacity: 0 }}
@@ -51,88 +51,65 @@ export default function Hero() {
         >
           LuC
         </motion.h2>
-        <motion.p
-          className="text-lg md:text-xl"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Software Engineer at Nagarro
-        </motion.p>
-        <div className="flex items-center gap-3 text-lg md:text-xl">
-          <FaMapMarkerAlt />
-          <motion.p
-            className="text-lg md:text-xl"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            India
-          </motion.p>
-        </div>
-        <div className="flex items-center gap-3 text-lg md:text-xl">
-          <FaClock />
-          <motion.p
-            className="text-lg md:text-xl"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            {new Date().toLocaleTimeString("en-IN", {
-              timeZone: "Asia/Kolkata",
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: false,
-            })} IST
-          </motion.p>
-        </div>
 
-        {/* Social Links in Mobile (Horizontal Layout) */}
-        <div className="flex md:hidden justify-center items-center gap-6 mt-6">
+        {/* Social Links (Stacked Vertically) */}
+        <div className="flex flex-col items-center gap-4 mt-6">
           {socialLinks.map((link, index) => (
             <motion.a
               key={index}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
+              className="flex flex-col items-center text-lg text-white hover:text-gray-300"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + index * 0.1 }}
+              transition={{ delay: 0.4 + index * 0.1 }}
             >
-              {link.icon}
+              <span className="text-2xl">{link.icon}</span>
+              <span className="text-lg">{link.username}</span>
             </motion.a>
           ))}
         </div>
-      </div>
 
-      {/* Right Section (Animated Social Links) */}
-      <div className="hidden md:flex flex-col gap-3 md:w-[40%]">
-        {socialLinks.map((link, index) => (
-          <motion.a
-            key={index}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-white hover:text-gray-300"
+        {/* Location & Time Below Links */}
+        <div className="flex flex-col items-center gap-3 mt-6">
+          <motion.div
+            className="flex items-center gap-2 text-lg md:text-xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6 + index * 0.1 }}
+            transition={{ delay: 0.8 }}
           >
-            <span className="text-xl">{link.icon}</span>
-            <span className="text-lg">{link.username}</span>
-          </motion.a>
-        ))}
+            <FaMapMarkerAlt />
+            <p>India</p>
+          </motion.div>
+          <motion.div
+            className="flex items-center gap-2 text-lg md:text-xl"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          >
+            <FaClock />
+            <p>
+              {new Date().toLocaleTimeString("en-IN", {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              })}{" "}
+              IST
+            </p>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Buttons Centered Below Everything */}
+      {/* Buttons Centered Below */}
       <div className="flex justify-center gap-6 mt-12 w-full">
         <motion.button
           onClick={scrollToContact}
           className="px-8 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 1 }}
         >
           Get in Touch
         </motion.button>
@@ -142,7 +119,7 @@ export default function Hero() {
           className="px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 1.1 }}
         >
           My Resume
         </motion.a>
