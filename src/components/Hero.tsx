@@ -120,4 +120,8 @@ export default function Hero() {
               <span className="text-lg">{link.username}</span>
             </a>
           ))}
-        <
+        </div>
+      </section>
+    </>
+  );
+}
