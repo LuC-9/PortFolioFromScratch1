@@ -32,7 +32,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-black/60 text-white px-6 py-12 md:py-16 mt-[18rem] md:mt-0">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-muted/30 text-white px-6 py-12 md:py-10 mt-[18rem] md:mt-0">
       {/* Left Section */}
       <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left"> 
         <motion.h1
