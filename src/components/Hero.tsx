@@ -28,9 +28,11 @@ export default function Hero() {
   ];
 
   return (
-    <div>
-      {/* Floating Profile Image */}
-      <FloatingProfile />  {/* Include FloatingProfile component */}
+    <>
+      {/* Floating Profile in a Separate Section */}
+      <section className="absolute top-0 left-1/2 z-50">
+        <FloatingProfile />  {/* Include FloatingProfile component */}
+      </section>
 
       {/* Main Hero Section */}
       <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 md:py-12 pt-32 md:pt-0 relative z-10">
@@ -87,8 +89,9 @@ export default function Hero() {
               })} IST
             </motion.p>
           </div>
-          {/* Social Links in Mobile */}
-          <div className="flex md:hidden flex-col items-center gap-3 mt-4">
+
+          {/* Social Links for Mobile and Desktop */}
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-3 mt-4">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
@@ -98,13 +101,14 @@ export default function Hero() {
                 className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
               >
                 {link.icon}
-                <span>{link.username}</span>
+                {/* Hide username in mobile view */}
+                <span className="hidden md:block">{link.username}</span>
               </a>
             ))}
           </div>
         </div>
 
-        {/* Right Section (Desktop Social Links) */}
+        {/* Right Section (Desktop Social Links, but in the same div as social links) */}
         <div className="hidden md:flex flex-col gap-3 md:w-[40%]">
           {socialLinks.map((link, index) => (
             <a
@@ -119,23 +123,7 @@ export default function Hero() {
             </a>
           ))}
         </div>
-
-        {/* Mobile Social Links (With no username shown) */}
-        <div className="md:hidden flex flex-col items-start gap-3 mt-4">
-          {socialLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
-            >
-              {link.icon}
-              <span className="hidden sm:block">{link.username}</span> {/* Hide username on mobile */}
-            </a>
-          ))}
-        </div>
       </section>
-    </div>
+    </>
   );
 }
