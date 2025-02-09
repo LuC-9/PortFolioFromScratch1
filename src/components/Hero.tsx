@@ -35,9 +35,9 @@ export default function Hero() {
       </section>
 
       {/* Main Hero Section */}
-      <section className="min-h-screen flex flex-col justify-end items-center bg-black/60 text-white px-6 py-12 md:py-12 pt-32 md:pt-0 relative z-10">
+      <section className="min-h-screen flex items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10">
         {/* Left Section (Content) */}
-        <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start gap-4 md:w-[55%] text-center md:text-left">
           <motion.h1
             className="text-4xl md:text-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
@@ -90,8 +90,8 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* Social Links for Mobile and Desktop */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-3 mt-4">
+          {/* Social Links for Mobile */}
+          <div className="flex flex-col items-center gap-3 mt-4 md:hidden">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
@@ -101,15 +101,14 @@ export default function Hero() {
                 className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
               >
                 {link.icon}
-                {/* Show username only on desktop */}
-                <span className="hidden md:block">{link.username}</span>
+                <span>{link.username}</span>
               </a>
             ))}
           </div>
         </div>
 
-        {/* Right Section (Only visible on Desktop) */}
-        <div className="hidden md:flex flex-col gap-3 md:w-[40%] items-end">
+        {/* Right Section (Social Links - Only visible on Desktop) */}
+        <div className="hidden md:flex flex-col gap-3 md:w-[40%] items-start">
           {socialLinks.map((link, index) => (
             <a
               key={index}
