@@ -37,9 +37,9 @@ export default function Hero() {
       {/* Main Hero Section */}
       <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10 mt-60 md:mt-0">
         {/* Left Section (Content) */}
-        <div className="flex flex-col items-center md:items-start gap-4 md:w-[55%] text-center md:text-left flex-grow justify-between">
+        <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 md:w-[55%] text-center md:text-left flex-grow justify-between">
           <motion.h1
-            className="text-4xl md:text-6xl font-bold"
+            className="text-3xl md:text-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -47,7 +47,7 @@ export default function Hero() {
             Aarsh Mishra
           </motion.h1>
           <motion.h2
-            className="text-xl md:text-2xl text-muted-foreground"
+            className="text-lg md:text-2xl text-muted-foreground"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -55,17 +55,17 @@ export default function Hero() {
             LuC
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl"
+            className="text-base md:text-xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             Software Engineer at Nagarro
           </motion.p>
-          <div className="flex items-center gap-3 text-lg md:text-xl">
+          <div className="flex items-center gap-2 md:gap-3 text-base md:text-xl">
             <FaMapMarkerAlt />
             <motion.p
-              className="text-lg md:text-xl"
+              className="text-base md:text-xl"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -73,10 +73,10 @@ export default function Hero() {
               India
             </motion.p>
           </div>
-          <div className="flex items-center gap-3 text-lg md:text-xl">
+          <div className="flex items-center gap-2 md:gap-3 text-base md:text-xl">
             <FaClock />
             <motion.p
-              className="text-lg md:text-xl"
+              className="text-base md:text-xl"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -91,7 +91,7 @@ export default function Hero() {
           </div>
 
           {/* Social Links for Mobile (Icons horizontally arranged) */}
-          <div className="flex md:hidden justify-center gap-6 mt-4">
+          <div className="flex md:hidden justify-center gap-4 mt-4">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
