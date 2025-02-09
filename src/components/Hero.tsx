@@ -36,7 +36,7 @@ export default function Hero() {
 
       {/* Main Hero Section */}
       <section className="min-h-screen flex flex-col justify-end items-center bg-black/60 text-white px-6 py-12 md:py-12 pt-32 md:pt-0 relative z-10">
-        {/* Left Section */}
+        {/* Left Section (Content) */}
         <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left">
           <motion.h1
             className="text-4xl md:text-6xl font-bold"
@@ -106,6 +106,22 @@ export default function Hero() {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Right Section (Only visible on Desktop) */}
+        <div className="hidden md:flex flex-col gap-3 md:w-[40%] items-end">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-white hover:text-gray-300"
+            >
+              <span className="text-xl">{link.icon}</span>
+              <span className="text-lg">{link.username}</span>
+            </a>
+          ))}
         </div>
       </section>
     </>
