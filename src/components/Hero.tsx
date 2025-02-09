@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
-import FloatingProfile from "./FloatingProfile"; // Import your floating profile component
+import FloatingProfile from "./FloatingProfile";  // Make sure to import the FloatingProfile component
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -11,28 +11,28 @@ export default function Hero() {
   const socialLinks = [
     {
       href: "https://www.linkedin.com/in/aarsh-mishra09/",
-      icon: <SiLinkedin />, 
+      icon: <SiLinkedin />,
       username: "in/aarsh-mishra09",
     },
     {
       href: "https://github.com/LuC-9",
-      icon: <SiGithub />, 
+      icon: <SiGithub />,
       username: "/LuC-9",
     },
     {
       href: "https://leetcode.com/u/LuC9/",
-      icon: <SiLeetcode />, 
+      icon: <SiLeetcode />,
       username: "/u/LuC9",
     },
     {
       href: "https://replit.com/@aarshmishra",
-      icon: <SiReplit />, 
+      icon: <SiReplit />,
       username: "/@aarshmishra",
     },
   ];
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-black/60 text-white px-6 py-12 md:py-16 mt-[10rem] md:mt-0">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-black/60 text-white px-6 py-12 md:py-16 mt-[18rem] md:mt-0">
       {/* Left Section */}
       <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left"> 
         <motion.h1
@@ -86,8 +86,8 @@ export default function Hero() {
             })} IST
           </motion.p>
         </div>
-        {/* Social Links in Mobile */}
-        <div className="flex md:hidden flex-col items-center gap-3 mt-4">
+        {/* Social Links in Mobile (Horizontal Layout) */}
+        <div className="flex md:hidden justify-center items-center gap-6 mt-6">
           {socialLinks.map((link, index) => (
             <a
               key={index}
@@ -97,7 +97,6 @@ export default function Hero() {
               className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
             >
               {link.icon}
-              <span>{link.username}</span>
             </a>
           ))}
         </div>
@@ -118,6 +117,7 @@ export default function Hero() {
           </a>
         ))}
       </div>
+
       {/* Floating Profile Component */}
       <FloatingProfile />
     </section>
