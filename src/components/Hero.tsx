@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Main Hero Section */}
       <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10">
         {/* Left Section (Content) */}
-        <div className="flex flex-col items-center md:items-start gap-4 md:w-[55%] text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start gap-4 md:w-[55%] text-center md:text-left flex-grow justify-between">
           <motion.h1
             className="text-4xl md:text-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
