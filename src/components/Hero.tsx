@@ -8,7 +8,7 @@ export default function Hero() {
     {
       href: "https://www.linkedin.com/in/aarsh-mishra09/",
       icon: <SiLinkedin />,
-      username: "/in/aarsh-mishra09",
+      username: "in/aarsh-mishra09",
     },
     {
       href: "https://github.com/LuC-9",
@@ -116,6 +116,22 @@ export default function Hero() {
             >
               <span className="text-xl">{link.icon}</span>
               <span className="text-lg">{link.username}</span>
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Social Links (With no username shown) */}
+        <div className="md:hidden flex flex-col items-start gap-3 mt-4">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
+            >
+              {link.icon}
+              <span className="hidden sm:block">{link.username}</span> {/* Hide username on mobile */}
             </a>
           ))}
         </div>
