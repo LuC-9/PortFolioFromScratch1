@@ -35,9 +35,9 @@ export default function Hero() {
       </section>
 
       {/* Main Hero Section */}
-      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10 mt-60 md:mt-0">
+      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10 mt-70 md:mt-0">
         {/* Left Section (Content) */}
-        <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 md:w-[55%] text-center md:text-left flex-grow justify-between">
+        <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 md:w-[55%] text-center md:text-left flex-grow justify-between space-y-3">
           <motion.h1
             className="text-3xl md:text-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
@@ -120,8 +120,4 @@ export default function Hero() {
               <span className="text-lg">{link.username}</span>
             </a>
           ))}
-        </div>
-      </section>
-    </>
-  );
-}
+        <
