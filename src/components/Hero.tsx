@@ -35,7 +35,7 @@ export default function Hero() {
       </section>
 
       {/* Main Hero Section */}
-      <section className="min-h-screen flex items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10">
+      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 relative z-10">
         {/* Left Section (Content) */}
         <div className="flex flex-col items-center md:items-start gap-4 md:w-[55%] text-center md:text-left">
           <motion.h1
@@ -90,18 +90,17 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* Social Links for Mobile */}
-          <div className="flex flex-col items-center gap-3 mt-4 md:hidden">
+          {/* Social Links for Mobile (Icons horizontally arranged) */}
+          <div className="flex md:hidden justify-center gap-6 mt-4">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
+                className="text-white hover:text-gray-300 text-3xl"
               >
                 {link.icon}
-                <span>{link.username}</span>
               </a>
             ))}
           </div>
