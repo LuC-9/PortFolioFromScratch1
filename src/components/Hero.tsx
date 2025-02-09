@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
-import FloatingProfile from "./FloatingProfile";  // Make sure to import the FloatingProfile component
+import FloatingProfile from "./FloatingProfile";  
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -33,7 +33,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center relative bg-muted/30 text-white px-6 py-12 md:py-10 mt-[18rem] md:mt-0">
-      {/* Left Section - Aligned More to the Center */}
+      {/* Left Section */}
       <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left md:ml-auto md:mr-auto"> 
         <motion.h1
           className="text-4xl md:text-6xl font-bold"
@@ -102,7 +102,22 @@ export default function Hero() {
           ))}
         </div>
 
-       
+        {/* Buttons inside Left Section to stay below hero content */}
+        <div className="flex justify-center md:justify-start gap-6 mt-8">
+          <button
+            onClick={scrollToContact}
+            className="px-8 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+          >
+            Get in Touch
+          </button>
+          <a
+            href="/Mishra_Aarsh.pdf"
+            download
+            className="px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
+          >
+            My Resume
+          </a>
+        </div>
       </div>
 
       {/* Right Section (Desktop Social Links) */}
@@ -120,22 +135,6 @@ export default function Hero() {
           </a>
         ))}
       </div>
-   {/* Buttons below Left Section */}
-        <div className="flex justify-center gap-6 mt-8">
-          <button
-            onClick={scrollToContact}
-            className="px-8 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-          >
-            Get in Touch
-          </button>
-          <a
-            href="/Mishra_Aarsh.pdf"
-            download
-            className="px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
-          >
-            My Resume
-          </a>
-        </div>
 
       {/* Floating Profile Component */}
       <FloatingProfile />
