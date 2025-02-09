@@ -1,14 +1,14 @@
-import FloatingProfile from "./FloatingProfile";  // Assuming the file is named FloatingProfile.js
 import { motion } from "framer-motion";
 import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import FloatingProfile from './FloatingProfile';  // Importing the profile component
 
 export default function Hero() {
   const socialLinks = [
     {
       href: "https://www.linkedin.com/in/aarsh-mishra09/",
       icon: <SiLinkedin />,
-      username: "in/aarsh-mishra09",
+      username: "/in/aarsh-mishra09",
     },
     {
       href: "https://github.com/LuC-9",
@@ -29,13 +29,11 @@ export default function Hero() {
 
   return (
     <div>
-      {/* Floating Profile Component */}
-      <div className="relative">
-        <FloatingProfile />
-      </div>
+      {/* Floating Profile Image */}
+      <FloatingProfile />  {/* Include FloatingProfile component */}
 
       {/* Main Hero Section */}
-      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 md:pt-24">
+      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 md:py-12 pt-32 md:pt-0 relative z-10">
         {/* Left Section */}
         <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left">
           <motion.h1
