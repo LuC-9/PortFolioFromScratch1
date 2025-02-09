@@ -90,50 +90,62 @@ export default function Hero() {
         {/* Social Links in Mobile (Horizontal Layout) */}
         <div className="flex md:hidden justify-center items-center gap-6 mt-6">
           {socialLinks.map((link, index) => (
-            <a
+            <motion.a
               key={index}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6 + index * 0.1 }}
             >
               {link.icon}
-            </a>
+            </motion.a>
           ))}
-        </div>
-
-        {/* Buttons inside Left Section to stay below hero content */}
-        <div className="flex justify-center md:justify-start gap-6 mt-8">
-          <button
-            onClick={scrollToContact}
-            className="px-8 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-          >
-            Get in Touch
-          </button>
-          <a
-            href="/Mishra_Aarsh.pdf"
-            download
-            className="px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
-          >
-            My Resume
-          </a>
         </div>
       </div>
 
-      {/* Right Section (Desktop Social Links) */}
+      {/* Right Section (Animated Social Links) */}
       <div className="hidden md:flex flex-col gap-3 md:w-[40%]">
         {socialLinks.map((link, index) => (
-          <a
+          <motion.a
             key={index}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-white hover:text-gray-300"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 + index * 0.1 }}
           >
             <span className="text-xl">{link.icon}</span>
             <span className="text-lg">{link.username}</span>
-          </a>
+          </motion.a>
         ))}
+      </div>
+
+      {/* Buttons Centered Below Everything */}
+      <div className="flex justify-center gap-6 mt-12 w-full">
+        <motion.button
+          onClick={scrollToContact}
+          className="px-8 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          Get in Touch
+        </motion.button>
+        <motion.a
+          href="/Mishra_Aarsh.pdf"
+          download
+          className="px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        >
+          My Resume
+        </motion.a>
       </div>
 
       {/* Floating Profile Component */}
