@@ -1,129 +1,91 @@
+import React, { useEffect, useState, useCallback } from "react";
+import { Card, CardContent } from "@/components/ui/cards";
+import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
-import { SiLinkedin, SiGithub, SiLeetcode, SiReplit } from "react-icons/si";
-import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
-import FloatingProfile from './FloatingProfile';  // Importing the profile component
+import { Building2 } from "lucide-react";
+import { Github, Linkedin, Mail, Code2 } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
+import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
+import Cursor from "@/components/Cursor";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import FloatingProfile from "@/components/FloatingProfile";
+import {
+  GithubLogo,
+  LinkedinLogo,
+  FileText,
+  Briefcase,
+  Buildings,
+  User,
+  Code,
+  Wrench,
+  EnvelopeSimple,
+  Moon,
+} from "@phosphor-icons/react";
+import ContactForm from "./components/ContactForm";
+import { motion } from "framer-motion";
+import { Code2 } from "lucide-react";
+import { 
+  SiJavascript, SiPython,
+  SiSpring, SiNodedotjs, SiExpress, SiReact, SiAngular,
+  SiDocker, SiAmazon, SiGithub, SiApache,
+  SiMysql, SiMongodb
+} from "react-icons/si";
 
-export default function Hero() {
-  const socialLinks = [
-    {
-      href: "https://www.linkedin.com/in/aarsh-mishra09/",
-      icon: <SiLinkedin />,
-      username: "in/aarsh-mishra09",
-    },
-    {
-      href: "https://github.com/LuC-9",
-      icon: <SiGithub />,
-      username: "/LuC-9",
-    },
-    {
-      href: "https://leetcode.com/u/LuC9/",
-      icon: <SiLeetcode />,
-      username: "/u/LuC9",
-    },
-    {
-      href: "https://replit.com/@aarshmishra",
-      icon: <SiReplit />,
-      username: "/@aarshmishra",
-    },
-  ];
+function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 }); 
+useEffect(() => {
+    const disableRightClick = (e: MouseEvent) => e.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
 
+
+ 
   return (
-    <>
-      {/* Floating Profile in a Separate Section */}
-      <section className="absolute top-0 left-1/2 z-50">
-        <FloatingProfile />  {/* Include FloatingProfile component */}
-      </section>
+     <div className="min-h-screen text-white">
+<Cursor />
+       <div/>
+      <Toaster position="top-right" />
+      
 
-      {/* Main Hero Section */}
-      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-black/60 text-white px-6 py-12 md:py-12 pt-32 md:pt-0 relative z-10">
-        {/* Left Section */}
-        <div className="flex flex-col items-center md:items-start gap-4 md:w-[45%] text-center md:text-left">
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Aarsh Mishra
-          </motion.h1>
-          <motion.h2
-            className="text-xl md:text-2xl text-muted-foreground"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            LuC
-          </motion.h2>
-          <motion.p
-            className="text-lg md:text-xl"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Software Engineer at Nagarro
-          </motion.p>
-          <div className="flex items-center gap-3 text-lg md:text-xl">
-            <FaMapMarkerAlt />
-            <motion.p
-              className="text-lg md:text-xl"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              India
-            </motion.p>
-          </div>
-          <div className="flex items-center gap-3 text-lg md:text-xl">
-            <FaClock />
-            <motion.p
-              className="text-lg md:text-xl"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              {new Date().toLocaleTimeString("en-IN", {
-                timeZone: "Asia/Kolkata",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              })} IST
-            </motion.p>
-          </div>
 
-          {/* Social Links for Mobile and Desktop */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-3 mt-4">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-lg text-white hover:text-gray-300"
-              >
-                {link.icon}
-                {/* Hide username in mobile view */}
-                <span className="hidden md:block">{link.username}</span>
-              </a>
-            ))}
+<Navbar />            
+{/* <FloatingProfile />      */}
+<motion.div><Hero /></motion.div>
+<About />
+<Experience />
+<Projects />
+<Skills />
+
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-[#0a0404]">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll">
+            Get in Touch
+          </h2>
+          <div className="animate-on-scroll">
+            <ContactForm />
           </div>
         </div>
-
-        {/* Right Section (Desktop Social Links, but in the same div as social links) */}
-        <div className="hidden md:flex flex-col gap-3 md:w-[40%]">
-          {socialLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-white hover:text-gray-300"
-            >
-              <span className="text-xl">{link.icon}</span>
-              <span className="text-lg">{link.username}</span>
-            </a>
-          ))}
-        </div>
       </section>
-    </>
+
+      {/* Footer */}
+      <footer className="bg-[#0a0404] py-6">
+        <div className="max-w-6xl mx-auto px-6 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} Aarsh. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
 }
+
+export default App;
