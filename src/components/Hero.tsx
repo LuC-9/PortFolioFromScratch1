@@ -87,24 +87,6 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Buttons for Resume and Get in Touch */}
-        <div className="flex gap-6 mt-6">
-          <button
-            onClick={scrollToContact}
-            className="px-6 py-3 bg-red-700 text-white rounded-lg hover:bg-red-800 transition-all"
-          >
-            Get in Touch
-          </button>
-          <a
-            href="/Mishra_Aarsh.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 border-2 border-red-700 text-red-700 rounded-lg hover:bg-red-700 hover:text-white transition-all"
-          >
-            Resume
-          </a>
-        </div>
-
         {/* Social Links in Mobile (Horizontal Layout) */}
         <div className="flex md:hidden justify-center items-center gap-6 mt-6">
           {socialLinks.map((link, index) => (
@@ -140,5 +122,23 @@ export default function Hero() {
       {/* Floating Profile Component */}
       <FloatingProfile />
     </section>
+
+    {/* Buttons for Resume and Get in Touch (Below Sections) */}
+    <div className="flex gap-6 mt-6 justify-center w-full">
+      <button
+        onClick={scrollToContact}
+        className="px-6 py-3 bg-red-700 text-white rounded-lg hover:bg-red-800 transition-all"
+      >
+        Get in Touch
+      </button>
+      <a
+        href="/Mishra_Aarsh.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-6 py-3 border-2 border-red-700 text-red-700 rounded-lg hover:bg-red-700 hover:text-white transition-all"
+      >
+        My Resume
+      </a>
+    </div>
   );
 }
