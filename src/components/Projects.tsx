@@ -36,12 +36,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-black relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, rotate: -180 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
             viewport={{ once: true }}
             className="text-4xl font-bold mb-12 text-center"
           >
@@ -50,36 +53,40 @@ export default function Projects() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-300 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <h3 className="text-xl font-bold mb-4 text-white">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.link && (
-                  <a
+                  <motion.a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors duration-200"
+                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
                   >
                     {project.linkLabel}
-                  </a>
+                  </motion.a>
                 )}
                 {project.tech.map((tech, idx) => (
-                  <span
+                  <motion.span
                     key={idx}
-                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors duration-200"
+                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
-              {/* Background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-70 rounded-2xl"></div>
-            </div>
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-2xl"></div>
+            </motion.div>
           ))}
         </div>
       </div>
