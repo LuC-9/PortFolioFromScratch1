@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2 } from "lucide-react";
+import { Code2 } from "lucide-react"; // Assuming you're using lucide icons
 
 const projects = [
   {
@@ -40,12 +40,21 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="text-4xl font-bold mb-12 text-center"
           >
-            <Code2 className="w-8 h-8 text-red-500" />
+            <motion.div
+              className="text-red-500"
+              whileHover={{
+                scale: 1.2,
+                rotate: 15,
+                transition: { duration: 0.3 },
+              }}
+            >
+              <Code2 className="w-8 h-8" />
+            </motion.div>
           </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
