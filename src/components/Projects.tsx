@@ -62,7 +62,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50 hover:opacity-100"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,6 +71,11 @@ export default function Projects() {
                 type: "spring",
                 stiffness: 100,
                 damping: 25,
+              }}
+              whileHover={{
+                scale: 1.05,
+                opacity: 0.9,
+                transition: { duration: 0.3 },
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
