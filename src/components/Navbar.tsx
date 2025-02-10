@@ -121,18 +121,12 @@ export default function Navbar() {
             </div>
 
             {/* Resume Button - Moved Below Social Links (Same Design) */}
-            <div className="px-6 pb-4 mt-2">
-              <Button
-        variant="outline"
-        size="sm"
-        className="gap-2"
-        asChild
-      >
+           
         <a href="/Mishra_Aarsh.pdf" target="_blank" rel="noopener noreferrer">
           <FileText className="w-4 h-4" />
           Resume
         </a>
-      </Button>
+      
             </div>
           </motion.div>
         )}
