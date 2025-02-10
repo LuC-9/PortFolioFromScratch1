@@ -70,7 +70,7 @@ export default function Experience() {
               {/* Glow effect for experience card */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-lg"></div>
                </motion.div>
-              <BlurryBlob firstBlobColor="" secondBlobColor="" className="rounded-xl opacity-45" />
+              <BlurryBlob firstBlobColor=""bg-red-500"" secondBlobColor="bg-purple-600" className="rounded-xl opacity-45" />
               </motion.div>
             </motion.div>
           ))}
