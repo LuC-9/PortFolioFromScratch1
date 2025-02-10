@@ -49,7 +49,11 @@ export default function Projects() {
             className="text-4xl font-bold mb-12 text-center"
           >
             <motion.div
-              whileHover={{ scale: 1.4 }} // Increased scale for a more prominent effect
+              whileHover={{
+                scale: 1.4, // Increased scale for a more prominent effect
+                rotate: 15, // Slight rotation on hover
+                transition: { duration: 0.5 },
+              }}
               className="w-8 h-8 text-red-500 transition-all ease-in-out duration-300"
             >
               <Code2 />
@@ -60,10 +64,10 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-300 relative overflow-hidden"
+              className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-500 relative overflow-hidden"
               whileHover={{
-                scale: 1.1, // Enhanced hover scale for cards
-                transition: { duration: 0.3 },
+                scale: 1.05, // Slightly increase scale on hover
+                transition: { duration: 0.4 },
               }}
               transition={{ type: "spring", stiffness: 200 }}
             >
