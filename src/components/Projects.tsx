@@ -106,7 +106,7 @@ export default function Projects() {
               </div>
 
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-2xl" style={{ pointerEvents: 'none' }}></div>
             </motion.div>
           ))}
         </div>
