@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu, FileText } from "lucide-react";  // ✅ Import FileText icon
+import { Menu, FileText } from "lucide-react"; // ✅ Import FileText icon
 import { Button } from "@/components/ui/button";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -84,15 +84,19 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="ml-auto">
+
+            <div className="ml-auto flex items-center gap-4">
+              {/* Desktop Social Links */}
               <SocialLinks />
-              <FileText className="w-4 h-4" />
+
+              {/* Desktop Resume Button */}
               <a
                 href="/Mishra_Aarsh.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+                className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
               >
+                <FileText className="w-4 h-4" />
                 Resume
               </a>
             </div>
