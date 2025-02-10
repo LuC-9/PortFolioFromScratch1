@@ -23,11 +23,11 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 function App() {
-  useEffect(() => {
-    const disableRightClick = (e) => e.preventDefault();
-    document.addEventListener("contextmenu", disableRightClick);
-    return () => document.removeEventListener("contextmenu", disableRightClick);
-  }, []);
+  // useEffect(() => {
+  //   const disableRightClick = (e) => e.preventDefault();
+  //   document.addEventListener("contextmenu", disableRightClick);
+  //   return () => document.removeEventListener("contextmenu", disableRightClick);
+  // }, []);
 
   return (
     <>
