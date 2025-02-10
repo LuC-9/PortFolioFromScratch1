@@ -25,10 +25,11 @@ export default function FloatingProfile() {
     return () => unsubscribe();
   }, [scrollY]);
 
+  // Increased image size in both mobile and desktop
   const imageSize = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["10rem", "2.5rem"] : ["10rem", "2.5rem"]
+    isMobile ? ["15rem", "5rem"] : ["20rem", "6rem"] // Larger image for desktop
   );
 
   const imageY = useTransform(
@@ -48,6 +49,9 @@ export default function FloatingProfile() {
         y: imageY,
         x: "-50%",
       }}
+      initial={{ opacity: 0, scale: 0.8 }} // Start with opacity 0 and scale smaller
+      animate={{ opacity: 1, scale: 1 }} // Fade in and scale up
+      transition={{ duration: 1 }} // Duration of the animation
     >
       {/* Profile Image: Only moves with scroll */}
       <motion.img
