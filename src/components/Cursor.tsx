@@ -3,22 +3,36 @@ import { useEffect, useState } from "react";
 
 export default function Cursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const moveCursor = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
+    const hideCursor = () => setVisible(false);
+    const showCursor = () => setVisible(true);
+
     window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
+    window.addEventListener("mouseleave", hideCursor);
+    window.addEventListener("mouseenter", showCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mouseleave", hideCursor);
+      window.removeEventListener("mouseenter", showCursor);
+    };
   }, []);
 
   return (
     <motion.div
-      className="fixed w-6 h-6 bg-red-500 rounded-full pointer-events-none mix-blend-difference"
-      animate={{ x: position.x - 12, y: position.y - 12 }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      style={{ zIndex: 1000 }}
+      className="custom-cursor"
+      animate={{
+        x: position.x,
+        y: position.y,
+        opacity: visible ? 1 : 0,
+      }}
+      transition={{ type: "spring", stiffness: 800, damping: 30 }}
     />
   );
 }
