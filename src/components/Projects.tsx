@@ -48,7 +48,12 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-12 text-center"
           >
-            <Code2 className="w-8 h-8 text-red-500" />
+            <motion.div
+              whileHover={{ scale: 1.2 }} // Added hover effect for icon
+              className="w-8 h-8 text-red-500"
+            >
+              <Code2 />
+            </motion.div>
           </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
