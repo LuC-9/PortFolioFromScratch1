@@ -44,18 +44,24 @@ body {
 }
 
 .custom-cursor {
-  width: 20px;
-  height: 20px;
-  background: rgba(190, 30, 30, 0.5);
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background-color: red;
   border-radius: 50%;
   pointer-events: none;
-  position: fixed;
-  mix-blend-mode: difference;
-  transition: transform 0.05s linear, width 0.2s ease-out, height 0.2s ease-out;
   transform: translate(-50%, -50%);
-  will-change: transform;
-  z-index: 9999;
+  z-index: 1000;
+  mix-blend-mode: difference;
 }
+
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
 
 @layer utilities {
   .animate-slide-up {
