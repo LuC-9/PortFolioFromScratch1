@@ -49,8 +49,8 @@ export default function Projects() {
             className="text-4xl font-bold mb-12 text-center"
           >
             <motion.div
-              whileHover={{ scale: 1.2 }} // Added hover effect for icon
-              className="w-8 h-8 text-red-500"
+              whileHover={{ scale: 1.4 }} // Increased scale for a more prominent effect
+              className="w-8 h-8 text-red-500 transition-all ease-in-out duration-300"
             >
               <Code2 />
             </motion.div>
@@ -61,8 +61,11 @@ export default function Projects() {
             <motion.div
               key={index}
               className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-300 relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              whileHover={{
+                scale: 1.1, // Enhanced hover scale for cards
+                transition: { duration: 0.3 },
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
             >
               <h3 className="text-xl font-bold mb-4 text-white">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
@@ -73,7 +76,11 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                      scale: 1.1,
+                      color: "#fff", // Adding color change on hover
+                      transition: { duration: 0.3 },
+                    }}
                   >
                     {project.linkLabel}
                   </motion.a>
@@ -82,7 +89,10 @@ export default function Projects() {
                   <motion.span
                     key={idx}
                     className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.3 },
+                    }}
                   >
                     {tech}
                   </motion.span>
