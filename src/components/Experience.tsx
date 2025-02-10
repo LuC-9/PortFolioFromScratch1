@@ -1,35 +1,111 @@
-import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
-import { SiInfosys } from "react-icons/si";
-import { Building2 } from "lucide-react";
-import { BlurryBlob } from '@/components/ui/BlurryBlob'; // Importing BlurryBlob
+import { motion } from 'framer-motion';
+import { BriefcaseIcon } from 'lucide-react';
+import { BlurryBlob } from '@/components/ui/BlurryBlob';
+import { cn } from '@/lib/utils';
 
 const experiences = [
   {
     title: "Engineer",
     company: "Nagarro",
     period: "2023 - Present",
-    icon: Building2,
   },
   {
     title: "Associate Engineer",
     company: "Nagarro",
     period: "2022 - 2023",
-    icon: Building2,
   },
   {
     title: "Systems Engineer Intern",
     company: "Infosys",
     period: "2021 - 2022",
-    icon: SiInfosys,
   },
 ];
+
+export function WorkExperience({ company, role }: { company: string; role: string }) {
+  return (
+    <motion.div
+      className="z-10 flex flex-col items-center justify-center gap-1 pt-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-20%' }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.1,
+          },
+        },
+      }}
+    >
+      <motion.div
+        className="z-10 p-1"
+        variants={{
+          hidden: { scale: 0.5, rotate: -45 },
+          visible: {
+            scale: 1,
+            rotate: 0,
+            transition: { type: 'spring', bounce: 0.5 },
+          },
+        }}
+        whileHover={{ y: -5, rotate: -10 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        >
+          <BriefcaseIcon className="size-10 text-muted-foreground" />
+        </motion.div>
+      </motion.div>
+
+      {/* Styled Heading (H3) Replacement */}
+      <motion.div
+        className="z-10"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { type: 'spring', stiffness: 120 },
+          },
+        }}
+      >
+        <h3
+          className={cn(
+            'scroll-m-20 text-2xl font-semibold tracking-tight text-secondary-foreground flex flex-col items-center gap-1.5 text-center md:flex-row'
+          )}
+        >
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+            {role}
+          </motion.span>
+          <motion.span
+            className="text-muted-foreground mx-1"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', delay: 0.4 }}
+          >
+            @
+          </motion.span>
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+            {company}
+          </motion.span>
+        </h3>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function Experience() {
   return (
     <section id="experience" className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       <div className="container mx-auto px-6 relative">
-        {/* Background Blobs for Glow Effect */}
+        {/* Background Blobs */}
         <BlurryBlob 
           firstBlobColor="bg-red-500" 
           secondBlobColor="bg-purple-600" 
@@ -41,42 +117,10 @@ export default function Experience() {
           className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40"
         />
 
-        {/* Section Icon */}
-        <motion.div
-          initial={{ rotate: -30, opacity: 0 }}
-          whileInView={{ rotate: 0, opacity: 1 }}
-          transition={{ type: "spring", duration: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12 relative"
-        >
-          <Briefcase className="w-8 h-8 text-white" />
-        </motion.div>
-
-        {/* Experience Cards */}
-        <div className="flex flex-col gap-6 max-w-3xl mx-auto relative z-10">
+        {/* Experience Section */}
+        <div className="flex flex-col gap-10 max-w-3xl mx-auto relative z-10">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{
-                scale: 1.05,
-                transition: { type: "spring", stiffness: 300, damping: 20 },
-              }}
-              className="bg-transparent p-6 rounded-lg shadow-xl hover:bg-[#3a1f1f] transition-colors duration-200 flex items-center gap-4 relative overflow-hidden"
-            >
-              <exp.icon className="w-12 h-12 text-white" />
-              <div>
-                <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
-                <p className="text-gray-400">{exp.company}</p>
-                <p className="text-sm text-gray-500">{exp.period}</p>
-              </div>
-
-              {/* Subtle Glow Effect on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-lg"></div>
-            </motion.div>
+            <WorkExperience key={index} company={exp.company} role={exp.title} />
           ))}
         </div>
       </div>
