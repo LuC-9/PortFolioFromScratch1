@@ -56,7 +56,7 @@ useEffect(() => {
 
 
 <Navbar />            
-{/* <FloatingProfile />      */}
+
 <Hero />
 <About />
 <Experience />
