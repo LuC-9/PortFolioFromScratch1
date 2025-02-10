@@ -93,7 +93,7 @@ export default function Navbar() {
         {/* Mobile Menu (Solid when toggled) */}
         {isMenuOpen && (
           <motion.div
-            className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-50"
+            className="fixed inset-0 bg-black/50 backdrop-blur-lg text-white z-50 flex flex-col items-center justify-center"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
