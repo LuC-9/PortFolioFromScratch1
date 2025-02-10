@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { SiInfosys } from "react-icons/si";
 import { Building2 } from "lucide-react";
-import { BlurryBlob } from '~/components/ui/BlurryBlob';  // Adjust import path if needed
+import { BlurryBlob } from '@/components/ui/BlurryBlob';  // Adjust import path if needed
 
 const experiences = [
   {
