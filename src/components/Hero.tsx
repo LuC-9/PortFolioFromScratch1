@@ -66,7 +66,7 @@ export default function Hero() {
 
         {/* Animated Vertical Line Separator */}
         <motion.div
-          className="hidden md:block w-[2px] h-[150px] bg-red-600 mx-10 relative"
+          className="hidden md:block w-[2px] h-[150px] bg-red-600 mx-14 relative" // Increased margin to push right
           initial={{ opacity: 0, scaleY: 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -80,7 +80,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Right Section */}
-        <div className="mt-8 md:mt-0 flex flex-col items-center md:items-start md:w-1/2">
+        <div className="mt-8 md:mt-0 flex flex-col items-center md:items-start md:w-1/2 md:ml-4"> {/* Added margin left */}
           <motion.div
             className="flex flex-wrap md:flex-col gap-4 text-lg md:text-xl text-gray-300"
             initial={{ opacity: 0, x: 20 }}
