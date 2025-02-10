@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react"; // X icon for closing menu
 import { Button } from "@/components/ui/button";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -58,7 +58,11 @@ export default function Navbar() {
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <Menu className="h-5 w-5 text-white" />
+              {isMenuOpen ? (
+                <X className="h-6 w-6 text-white" /> // Close icon
+              ) : (
+                <Menu className="h-6 w-6 text-white" />
+              )}
             </Button>
           </div>
 
@@ -89,37 +93,47 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu (Solid when toggled) */}
-        {isMenuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-lg text-white z-50 flex flex-col items-center justify-center"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="py-4 text-left px-6 space-y-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="block py-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="py-2 px-6">
-              <SocialLinks />
-            </div>
-          </motion.div>
-        )}
       </div>
+
+      {/* Mobile Menu - Covers entire screen with blur */}
+      {isMenuOpen && (
+        <motion.div
+          className="fixed inset-0 bg-black/60 backdrop-blur-lg text-white z-50 flex flex-col items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ul className="text-center space-y-4">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="block text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <SocialLinks />
+          </div>
+
+          {/* Close Button */}
+          <Button
+            variant="ghost"
+            className="absolute top-5 right-5"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <X className="h-8 w-8 text-white" />
+          </Button>
+        </motion.div>
+      )}
     </motion.nav>
   );
 }
