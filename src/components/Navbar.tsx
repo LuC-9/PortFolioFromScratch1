@@ -86,6 +86,15 @@ export default function Navbar() {
             </ul>
             <div className="ml-auto">
               <SocialLinks />
+              <FileText className="w-4 h-4" />
+              <a
+                href="/Mishra_Aarsh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+              >
+                Resume
+              </a>
             </div>
           </div>
         </div>
