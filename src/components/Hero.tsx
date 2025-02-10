@@ -9,10 +9,26 @@ export default function Hero() {
   };
 
   const socialLinks = [
-    { href: "https://www.linkedin.com/in/aarsh-mishra09/", icon: <SiLinkedin /> },
-    { href: "https://github.com/LuC-9", icon: <SiGithub /> },
-    { href: "https://leetcode.com/u/LuC9/", icon: <SiLeetcode /> },
-    { href: "https://replit.com/@aarshmishra", icon: <SiReplit /> },
+    {
+      href: "https://www.linkedin.com/in/aarsh-mishra09/",
+      icon: <SiLinkedin />,
+      username: "in/aarsh-mishra09",
+    },
+    {
+      href: "https://github.com/LuC-9",
+      icon: <SiGithub />,
+      username: "/LuC-9",
+    },
+    {
+      href: "https://leetcode.com/u/LuC9/",
+      icon: <SiLeetcode />,
+      username: "/u/LuC9",
+    },
+    {
+      href: "https://replit.com/@aarshmishra",
+      icon: <SiReplit />,
+      username: "/@aarshmishra",
+    },
   ];
 
   return (
@@ -63,8 +79,9 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Section: Social Links (Desktop Full Links, Mobile Icons Only) */}
+        {/* Right Section: Social Links */}
         <div className="md:text-left md:order-2 mt-8 md:mt-0">
+          {/* Desktop: Show Icons + Usernames */}
           <div className="hidden md:flex flex-col">
             {socialLinks.map((link, index) => (
               <motion.a
@@ -78,11 +95,12 @@ export default function Hero() {
                 transition={{ delay: 0.4 + index * 0.1, duration: 0.8 }}
               >
                 <span className="text-2xl">{link.icon}</span>
+                <span className="text-lg">{link.username}</span>
               </motion.a>
             ))}
           </div>
 
-          {/* Mobile: Icons in One Line */}
+          {/* Mobile: Only Icons in One Line */}
           <motion.div
             className="flex md:hidden justify-center gap-6 mt-4"
             initial={{ opacity: 0, y: 20 }}
