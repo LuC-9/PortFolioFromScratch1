@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { SiInfosys } from "react-icons/si";
 import { Building2 } from "lucide-react";
-import { BlurryBlob } from '@/components/ui/BlurryBlob';  // Adjust import path if needed
+import { BlurryBlob } from '~/components/ui/BlurryBlob'; // Importing BlurryBlob
 
 const experiences = [
   {
@@ -27,7 +27,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-[#1a0f0f] relative overflow-hidden">
+    <section id="experience" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Blurry Blob Background */}
         <BlurryBlob 
@@ -35,7 +35,7 @@ export default function Experience() {
           secondBlobColor="bg-black" 
           className="opacity-45"
         />
-        
+
         <motion.div
           initial={{ rotate: -30, opacity: 0 }}
           whileInView={{ rotate: 0, opacity: 1 }}
