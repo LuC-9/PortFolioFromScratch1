@@ -36,10 +36,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-[#f8f8f8] text-black relative overflow-hidden">
-      {/* Background Light Blobs */}
-      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-pink-300 to-indigo-300 opacity-30 animate-pulse blur-[10px]"></div>
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-l from-pink-300 to-indigo-300 opacity-25 animate-pulse blur-[10px]"></div>
+    <section id="projects" className="py-20 bg-gradient-to-b from-red-100 via-red-200 to-red-300 text-black relative overflow-hidden">
+      {/* Background Gradient and Light Blobs */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-red-300 to-red-500 opacity-20 animate-pulse blur-[10px]"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-l from-red-300 to-red-600 opacity-20 animate-pulse blur-[10px]"></div>
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
@@ -66,7 +66,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-opacity-70 p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-opacity-90 transition-all duration-300 ease-in-out backdrop-blur-lg"
+              className="bg-red-500 bg-opacity-60 p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-opacity-80 transition-all duration-300 ease-in-out backdrop-blur-lg"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,15 +82,15 @@ export default function Projects() {
                 transition: { duration: 0.2 },
               }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-black">{project.title}</h3>
-              <p className="text-gray-700 mb-4">{project.description}</p>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
+              <p className="text-gray-100 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.link && (
                   <motion.a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-pink-600/80 rounded-full text-sm text-white hover:bg-pink-500/90 transition-all duration-150 ease-in-out"
+                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-150 ease-in-out"
                     whileHover={{
                       scale: 1.1,
                       transition: { duration: 0.2 },
@@ -102,7 +102,7 @@ export default function Projects() {
                 {project.tech.map((tech, idx) => (
                   <motion.span
                     key={idx}
-                    className="px-3 py-1 bg-pink-600/80 rounded-full text-sm text-white hover:bg-pink-500/90 transition-all duration-150 ease-in-out"
+                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-150 ease-in-out"
                     whileHover={{
                       scale: 1.1,
                       transition: { duration: 0.2 },
