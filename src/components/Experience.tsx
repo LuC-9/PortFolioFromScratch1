@@ -33,7 +33,7 @@ export default function Experience() {
         <BlurryBlob 
           firstBlobColor="bg-red-600" 
           secondBlobColor="bg-black" 
-          className="opacity-45"
+          className="opacity-45 absolute top-0 left-1/3"
         />
 
         <motion.div
@@ -69,12 +69,16 @@ export default function Experience() {
 
               {/* Glow effect for experience card */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-lg"></div>
-               </motion.div>
-              <BlurryBlob firstBlobColor="bg-red-500" secondBlobColor="bg-purple-600" className="rounded-xl opacity-45" />
-              </motion.div>
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom Blurry Blob for Extra Glow */}
+        <BlurryBlob 
+          firstBlobColor="bg-red-500" 
+          secondBlobColor="bg-purple-600" 
+          className="rounded-xl opacity-45 absolute bottom-0 right-1/3"
+        />
       </div>
     </section>
   );
