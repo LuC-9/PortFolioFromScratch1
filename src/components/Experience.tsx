@@ -2,32 +2,40 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { SiInfosys } from "react-icons/si";
 import { Building2 } from "lucide-react";
+import { BlurryBlob } from '~/components/ui/BlurryBlob';  // Adjust import path if needed
 
 const experiences = [
   {
     title: "Engineer",
     company: "Nagarro",
     period: "2023 - Present",
-    icon: Building2
+    icon: Building2,
   },
   {
     title: "Associate Engineer",
     company: "Nagarro",
     period: "2022 - 2023",
-    icon: Building2
+    icon: Building2,
   },
   {
     title: "Systems Engineer Intern",
     company: "Infosys",
     period: "2021 - 2022",
-    icon: SiInfosys
-  }
+    icon: SiInfosys,
+  },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-[#1a0f0f]">
+    <section id="experience" className="py-20 bg-[#1a0f0f] relative overflow-hidden">
       <div className="container mx-auto px-6">
+        {/* Blurry Blob Background */}
+        <BlurryBlob 
+          firstBlobColor="bg-red-600" 
+          secondBlobColor="bg-black" 
+          className="opacity-45"
+        />
+        
         <motion.div
           initial={{ rotate: -30, opacity: 0 }}
           whileInView={{ rotate: 0, opacity: 1 }}
@@ -46,11 +54,11 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
-                transition: { type: "spring", stiffness: 300, damping: 20 }
+                transition: { type: "spring", stiffness: 300, damping: 20 },
               }}
-              className="bg-[#2a1919] p-6 rounded-lg shadow-xl hover:bg-[#3a1f1f] transition-colors duration-200 flex items-center gap-4"
+              className="bg-transparent p-6 rounded-lg shadow-xl hover:bg-[#3a1f1f] transition-colors duration-200 flex items-center gap-4 relative"
             >
               <exp.icon className="w-12 h-12 text-white" />
               <div>
@@ -58,6 +66,9 @@ export default function Experience() {
                 <p className="text-gray-400">{exp.company}</p>
                 <p className="text-sm text-gray-500">{exp.period}</p>
               </div>
+
+              {/* Glow effect for experience card */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-60 rounded-lg"></div>
             </motion.div>
           ))}
         </div>
