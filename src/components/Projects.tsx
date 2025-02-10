@@ -41,8 +41,9 @@ export default function Projects() {
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 360 }}
             viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
             className="text-4xl font-bold mb-12 text-center"
           >
             <motion.div
@@ -61,7 +62,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
