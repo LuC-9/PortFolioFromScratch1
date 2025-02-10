@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[12rem]">
-      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start relative">
         
         {/* Left Section */}
         <div className="text-center md:text-right md:w-1/2">
@@ -63,6 +63,21 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
+
+        {/* Animated Vertical Line Separator */}
+        <motion.div
+          className="hidden md:block w-[2px] h-[150px] bg-red-600 mx-10 relative"
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
+          <motion.div
+            className="absolute w-[2px] h-full bg-gradient-to-b from-red-400 to-transparent animate-pulse"
+            initial={{ height: 0 }}
+            animate={{ height: "100%" }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+          />
+        </motion.div>
 
         {/* Right Section */}
         <div className="mt-8 md:mt-0 flex flex-col items-center md:items-start md:w-1/2">
