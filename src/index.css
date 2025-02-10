@@ -24,18 +24,19 @@ a {
 }
 
 /* Ensures links inside cards are clickable and not blocked */
-.project-card {
+/* .project-card {
   position: relative; /* Ensures proper stacking context */
 }
 
 /* If you have a card with overlaying elements, make sure they don't block pointer events */
 .project-card .overlay {
   pointer-events: none; /* Makes sure the overlay won't block interactions */
-}
+} */
 
 html {
   scroll-behavior: smooth;
   cursor: default;
+  pointer-events: auto;
 }
 
 body {
