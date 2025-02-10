@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { BriefcaseIcon } from 'lucide-react';
+import { SiInfosys } from 'react-icons/si';
+import { Building2 } from 'lucide-react'; // Use this for Nagarro (or replace with a custom logo)
 import { BlurryBlob } from '@/components/ui/BlurryBlob'; // Importing the BlurryBlob component
 import { cn } from '@/lib/utils';
 
@@ -8,20 +9,23 @@ const experiences = [
     title: "Engineer",
     company: "Nagarro",
     period: "2023 - Present",
+    icon: Building2, // Use a building icon for Nagarro
   },
   {
     title: "Associate Engineer",
     company: "Nagarro",
     period: "2022 - 2023",
+    icon: Building2, // Use the same for now, or replace with custom Nagarro logo
   },
   {
     title: "Systems Engineer Intern",
     company: "Infosys",
     period: "2021 - 2022",
+    icon: SiInfosys, // Use Infosys icon here
   },
 ];
 
-export function WorkExperience({ company, role }: { company: string; role: string }) {
+export function WorkExperience({ company, role, Icon }: { company: string; role: string; Icon: React.ComponentType }) {
   return (
     <motion.div
       className="z-10 flex flex-col items-center justify-center gap-1 pt-10"
@@ -60,7 +64,7 @@ export function WorkExperience({ company, role }: { company: string; role: strin
             ease: 'easeInOut',
           }}
         >
-          <BriefcaseIcon className="size-10 text-white" />
+          <Icon className="size-10 text-white" /> {/* Icon component dynamically */}
         </motion.div>
       </motion.div>
 
@@ -105,22 +109,22 @@ export default function Experience() {
   return (
     <section id="experience" className="relative py-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       <div className="container mx-auto px-6 relative">
-        {/* Background Blobs */}
+        {/* Background Blobs (Placed outside of the content container) */}
         <BlurryBlob 
           firstBlobColor="bg-red-500" 
           secondBlobColor="bg-purple-600" 
-          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50"
+          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50 z-0"
         />
         <BlurryBlob 
           firstBlobColor="bg-blue-500" 
           secondBlobColor="bg-purple-700" 
-          className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40"
+          className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40 z-0"
         />
 
         {/* Experience Section */}
         <div className="flex flex-col gap-10 max-w-3xl mx-auto relative z-10">
           {experiences.map((exp, index) => (
-            <WorkExperience key={index} company={exp.company} role={exp.title} />
+            <WorkExperience key={index} company={exp.company} role={exp.title} Icon={exp.icon} />
           ))}
         </div>
       </div>
