@@ -50,9 +50,7 @@ useEffect(() => {
 
  
   return (
-     <div className="min-h-screen text-white">
-<Cursor />
-       <div/>
+     
       <Toaster position="top-right" />
       
 
