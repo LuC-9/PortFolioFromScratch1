@@ -118,7 +118,7 @@ export default function Experience() {
         <BlurryBlob 
           firstBlobColor="bg-blue-400" 
           secondBlobColor="bg-purple-500" 
-          className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40 z-0 filter blur-2xl"
+          className="rounded-xl opacity-45"
         />
 
         {/* Experience Section */}
