@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Toaster position="top-right" />
-      <Cursor />
+{/*       <Cursor /> */}
       <Navbar />
       <Hero />
       <About />
