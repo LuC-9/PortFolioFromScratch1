@@ -90,7 +90,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu (Now Ensured to Be Above Everything) */}
+        {/* Mobile Menu (Solid when toggled & stays above all elements) */}
         {isMenuOpen && (
           <motion.div
             className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-[100]"
