@@ -62,12 +62,12 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50 hover:opacity-100"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50 hover:opacity-100"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 1,
+                duration: 0.5, // Reduced to make the animation faster
                 type: "spring",
                 stiffness: 100,
                 damping: 25,
@@ -75,29 +75,37 @@ export default function Projects() {
               whileHover={{
                 scale: 1.05,
                 opacity: 0.9,
-                transition: { duration: 0.3 },
+                transition: { duration: 0.2 }, // Faster hover effect
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.link && (
-                  <a
+                  <motion.a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-colors duration-200"
+                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-all duration-200 ease-in-out"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
                   >
                     {project.linkLabel}
-                  </a>
+                  </motion.a>
                 )}
                 {project.tech.map((tech, idx) => (
-                  <span
+                  <motion.span
                     key={idx}
-                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-colors duration-200"
+                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-all duration-200 ease-in-out"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
