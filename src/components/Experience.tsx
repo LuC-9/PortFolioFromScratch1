@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { BriefcaseIcon } from 'lucide-react';
-import { BlurryBlob } from '@/components/ui/BlurryBlob';
+import { BlurryBlob } from '@/components/ui/BlurryBlob'; // Importing the BlurryBlob component
 import { cn } from '@/lib/utils';
 
 const experiences = [
@@ -60,11 +60,11 @@ export function WorkExperience({ company, role }: { company: string; role: strin
             ease: 'easeInOut',
           }}
         >
-          <BriefcaseIcon className="size-10 text-muted-foreground" />
+          <BriefcaseIcon className="size-10 text-white" />
         </motion.div>
       </motion.div>
 
-      {/* Styled Heading (H3) Replacement */}
+      {/* Styled Heading (H3) with Text Color Update */}
       <motion.div
         className="z-10"
         variants={{
@@ -78,7 +78,7 @@ export function WorkExperience({ company, role }: { company: string; role: strin
       >
         <h3
           className={cn(
-            'scroll-m-20 text-2xl font-semibold tracking-tight text-secondary-foreground flex flex-col items-center gap-1.5 text-center md:flex-row'
+            'scroll-m-20 text-2xl font-semibold tracking-tight text-white flex flex-col items-center gap-1.5 text-center md:flex-row'
           )}
         >
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
@@ -103,13 +103,13 @@ export function WorkExperience({ company, role }: { company: string; role: strin
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+    <section id="experience" className="relative py-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       <div className="container mx-auto px-6 relative">
         {/* Background Blobs */}
         <BlurryBlob 
           firstBlobColor="bg-red-500" 
           secondBlobColor="bg-purple-600" 
-          className="absolute -top-10 left-1/4 w-72 h-72 opacity-50"
+          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50"
         />
         <BlurryBlob 
           firstBlobColor="bg-blue-500" 
