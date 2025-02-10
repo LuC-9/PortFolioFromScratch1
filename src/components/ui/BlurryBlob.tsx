@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Utility function to combine class names (assumed to be available in your project)
-import { cn } from '~/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface BlobProps extends React.HTMLAttributes<HTMLDivElement> {
   firstBlobColor: string;
