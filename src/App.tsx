@@ -19,7 +19,6 @@ import {
   SiDocker, SiAmazon, SiApache,
   SiMysql, SiMongodb
 } from "react-icons/si";
-import { Navbar, Cursor, Hero, About, Experience, Projects, Skills, FloatingProfile } from "@/components";
 import ContactForm from "@/components/ContactForm";
 
 function App() {
