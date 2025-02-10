@@ -66,20 +66,20 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-red-600 bg-opacity-60 p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-opacity-80 transition-all duration-300 ease-in-out backdrop-blur-lg"
+              className="bg-red-600 bg-opacity-40 p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-opacity-50 transition-all duration-500 ease-in-out backdrop-blur-lg"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.3,
+                duration: 0.5,
                 type: "spring",
                 stiffness: 150,
                 damping: 20,
               }}
               whileHover={{
                 scale: 1.05,
-                opacity: 0.9,
-                transition: { duration: 0.2 },
+                opacity: 0.85,
+                transition: { duration: 0.3 },
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
@@ -90,10 +90,10 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-150 ease-in-out"
+                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
                     whileHover={{
                       scale: 1.1,
-                      transition: { duration: 0.2 },
+                      transition: { duration: 0.3 },
                     }}
                   >
                     {project.linkLabel}
@@ -102,10 +102,10 @@ export default function Projects() {
                 {project.tech.map((tech, idx) => (
                   <motion.span
                     key={idx}
-                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-150 ease-in-out"
+                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
                     whileHover={{
                       scale: 1.1,
-                      transition: { duration: 0.2 },
+                      transition: { duration: 0.3 },
                     }}
                   >
                     {tech}
