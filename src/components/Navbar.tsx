@@ -90,7 +90,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu (Solid when toggled & stays above all elements) */}
+        {/* Mobile Menu (With Resume Button Below Social Links) */}
         {isMenuOpen && (
           <motion.div
             className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-[100]"
@@ -114,8 +114,21 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
+
+            {/* Social Links */}
             <div className="py-2 px-6">
               <SocialLinks />
+            </div>
+
+            {/* Resume Button Below Social Links */}
+            <div className="px-6 pb-4">
+              <a
+                href="/Mishra_Aarsh.pdf"
+                download
+                className="block text-center px-8 py-3 border border-white text-white rounded-md hover:bg-gray-700 transition-colors"
+              >
+                My Resume
+              </a>
             </div>
           </motion.div>
         )}
