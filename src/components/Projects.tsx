@@ -43,15 +43,15 @@ export default function Projects() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 360 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="text-4xl font-bold mb-12 text-center"
           >
             <motion.div
-              className="text-red-500"
+              className="text-red-600"
               whileHover={{
                 scale: 1.2,
                 rotate: 15,
-                transition: { duration: 0.3 },
+                transition: { duration: 0.2 },
               }}
             >
               <Code2 className="w-8 h-8" />
@@ -62,20 +62,20 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-900/50 hover:opacity-100"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r from-red-600 to-red-400/60 hover:opacity-90"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.5, // Reduced to make the animation faster
+                duration: 0.3, // Further reduced to make the animation faster
                 type: "spring",
-                stiffness: 100,
-                damping: 25,
+                stiffness: 150,
+                damping: 20,
               }}
               whileHover={{
                 scale: 1.05,
                 opacity: 0.9,
-                transition: { duration: 0.2 }, // Faster hover effect
+                transition: { duration: 0.1 }, // Even faster hover effect
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
@@ -86,7 +86,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-all duration-200 ease-in-out"
+                    className="px-3 py-1 bg-red-600/60 rounded-full text-sm text-white hover:bg-red-500/80 transition-all duration-150 ease-in-out"
                     whileHover={{
                       scale: 1.1,
                       transition: { duration: 0.2 },
@@ -98,7 +98,7 @@ export default function Projects() {
                 {project.tech.map((tech, idx) => (
                   <motion.span
                     key={idx}
-                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-all duration-200 ease-in-out"
+                    className="px-3 py-1 bg-red-600/60 rounded-full text-sm text-white hover:bg-red-500/80 transition-all duration-150 ease-in-out"
                     whileHover={{
                       scale: 1.1,
                       transition: { duration: 0.2 },
