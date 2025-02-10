@@ -1,37 +1,24 @@
-import { useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Cursor() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smoother motion with adjusted damping
-  const smoothX = useSpring(mouseX, { stiffness: 150, damping: 25 });
-  const smoothY = useSpring(mouseY, { stiffness: 150, damping: 25 });
-
-  // Check if the device is mobile
-  const isMobile = window.innerWidth <= 768;
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (isMobile) return; // Skip cursor update on mobile devices
-
-    const updatePosition = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 16); // Correct offset
-      mouseY.set(e.clientY - 16); // Correct offset
+    const moveCursor = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", updatePosition);
-    return () => window.removeEventListener("mousemove", updatePosition);
-  }, [mouseX, mouseY, isMobile]);
-
-  if (isMobile) return null; // Don't render the cursor on mobile devices
+    window.addEventListener("mousemove", moveCursor);
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, []);
 
   return (
     <motion.div
-      className="fixed w-8 h-8 pointer-events-none z-50 mix-blend-difference"
-      style={{ x: smoothX, y: smoothY }}
-    >
-      <div className="w-full h-full rounded-full border-2 border-white bg-white/10 opacity-80" />
-    </motion.div>
+      className="fixed w-6 h-6 bg-red-500 rounded-full pointer-events-none mix-blend-difference"
+      animate={{ x: position.x - 12, y: position.y - 12 }}
+      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      style={{ zIndex: 1000 }}
+    />
   );
 }
