@@ -39,17 +39,7 @@ export default function SocialLinks() {
           <social.icon className="w-5 h-5" />
         </a>
       ))}
-      <Button
-        variant="outline"
-        size="sm"
-        className="gap-2"
-        asChild
-      >
-        <a href="/Mishra_Aarsh.pdf" target="_blank" rel="noopener noreferrer">
-          <FileText className="w-4 h-4" />
-          Resume
-        </a>
-      </Button>
+      
     </div>
   );
 }
