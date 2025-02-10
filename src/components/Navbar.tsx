@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, FileText } from "lucide-react";  // ✅ Import FileText icon
 import { Button } from "@/components/ui/button";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-[50] bg-black/30 backdrop-blur-sm text-white"
+      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-sm text-white"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -93,7 +93,7 @@ export default function Navbar() {
         {/* Mobile Menu (Resume Button Below Social Links) */}
         {isMenuOpen && (
           <motion.div
-            className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-[100]"
+            className="absolute top-full left-0 w-full min-h-screen bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-[150] flex flex-col"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -120,13 +120,17 @@ export default function Navbar() {
               <SocialLinks />
             </div>
 
-            {/* Resume Button - Moved Below Social Links (Same Design) */}
-          <div className="px-6 pb-4 mt-2"> 
-        <a href="/Mishra_Aarsh.pdf" target="_blank" rel="noopener noreferrer">
-          <FileText className="w-4 h-4" />
-          Resume
-        </a>
-      
+            {/* Resume Button - Moved Below Social Links (Fixed) */}
+            <div className="px-6 pb-4 mt-2 flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              <a
+                href="/Mishra_Aarsh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+              >
+                Resume
+              </a>
             </div>
           </motion.div>
         )}
