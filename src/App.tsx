@@ -35,7 +35,7 @@ function App() {
 {/*       <Cursor /> */}
       <Navbar />
       <div><Hero /></div>
-      <About />
+{/*       <About /> */}
       <Experience />
       <Projects />
       <Skills />
