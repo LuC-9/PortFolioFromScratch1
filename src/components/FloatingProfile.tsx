@@ -1,125 +1,78 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import SocialLinks from "@/components/SocialLinks";
+import { ArrowLeftRight } from "lucide-react"; // Reversible reaction symbol
 
-const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-];
+export default function FloatingProfile() {
+  const { scrollY } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
+  const [isImage2, setIsImage2] = useState(false); // State for toggling image
+  const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
 
-export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  // Check if screen is mobile on mount and resize
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    document.querySelectorAll("section[id]").forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    setIsMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  // Update scroll state based on scroll position
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((value) => {
+      setIsScrolled(value > 50); // Hide button after scrolling 50px down
+    });
+
+    return () => unsubscribe();
+  }, [scrollY]);
+
+  // Increased image size in both mobile and desktop
+  const imageSize = useTransform(
+    scrollY,
+    [0, 300],
+    isMobile ? ["15rem", "5rem"] : ["20rem", "6rem"] // Larger image for desktop
+  );
+
+  const imageY = useTransform(
+    scrollY,
+    [0, 300],
+    isMobile ? ["6rem", "0.75rem"] : ["6rem", "0.75rem"]
+  );
+
+  const toggleImage = () => {
+    setIsImage2(!isImage2); // Toggle between image1 and GIF
   };
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-[50] bg-black/30 backdrop-blur-sm text-white"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      className="fixed left-1/2 top-0 z-50"
+      style={{
+        y: imageY,
+        x: "-50%",
+      }}
+      initial={{ opacity: 0, scale: 0.8 }} // Start with opacity 0 and scale smaller
+      animate={{ opacity: 1, scale: 1 }} // Fade in and scale up
+      transition={{ duration: 1 }} // Duration of the animation
     >
-      <div className="container mx-auto px-4 relative">
-        <div className="flex items-center h-16">
-          <div className="w-10 h-10" /> {/* Placeholder for logo/profile */}
-
-          {/* Mobile Navigation - Toggle Button Shifted Left */}
-          <div className="md:hidden absolute left-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-5 w-5 text-white" />
-            </Button>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 w-full">
-            <ul className="flex items-center gap-6">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
-                      activeSection === item.href.slice(1)
-                        ? "text-white"
-                        : "text-gray-400"
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="ml-auto">
-              <SocialLinks />
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu (Now Ensured to Be Above Everything) */}
-        {isMenuOpen && (
-          <motion.div
-            className="absolute top-full right-0 w-full bg-black/90 backdrop-blur-md text-white shadow-lg border-t border-gray-700 z-[100]"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="py-4 text-left px-6 space-y-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="block py-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="py-2 px-6">
-              <SocialLinks />
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </motion.nav>
+      {/* Profile Image: Only moves with scroll */}
+      <motion.img
+        src={isImage2 ? "/profile.jpg" : "/profile2.gif"} // Change image source to GIF when toggled
+        alt="Aarsh Mishra"
+        className="rounded-full object-cover border-2 border-white/10"
+        style={{
+          width: imageSize,
+          height: imageSize,
+        }}
+      />
+      
+      {/* Swap Button: Fixed below the image */}
+      {!isScrolled && ( // Conditionally render button based on scroll position
+        <motion.button
+          onClick={toggleImage}
+          className="absolute bottom-[-3rem] left-1/2 transform -translate-x-1/2 bg-transparent p-2 rounded-full shadow-md border-2 border-white/20"
+        >
+          <ArrowLeftRight className="w-6 h-6 text-white/80" />
+        </motion.button>
+      )}
+    </motion.div>
   );
 }
