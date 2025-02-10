@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start relative">
         
         {/* Left Section */}
-        <div className="text-center md:text-right md:w-1/2">
+        <div className="text-center md:text-right md:w-1/2 md:ml-7">
           <motion.h1
             className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-red-600 via-red-400 to-red-600 text-transparent bg-clip-text"
             initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Right Section */}
-        <div className="mt-8 md:mt-0 flex flex-col items-center md:items-start md:w-1/2 md:ml-7"> {/* Added margin left */}
+        <div className="mt-8 md:mt-0 flex flex-col items-center md:items-start md:w-1/2 "> {/* Added margin left */}
           <motion.div
             className="flex flex-wrap md:flex-col gap-4 text-lg md:text-xl text-gray-300"
             initial={{ opacity: 0, x: 20 }}
