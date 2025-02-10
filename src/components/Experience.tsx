@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SiInfosys } from 'react-icons/si';
-import { Building2 } from 'lucide-react'; // Use this for Nagarro (or replace with a custom logo)
+import { Building2 } from 'lucide-react'; // Using Building2 for Nagarro
 import { BlurryBlob } from '@/components/ui/BlurryBlob'; // Importing the BlurryBlob component
 import { cn } from '@/lib/utils';
 
@@ -28,7 +28,7 @@ const experiences = [
 export function WorkExperience({ company, role, Icon }: { company: string; role: string; Icon: React.ComponentType }) {
   return (
     <motion.div
-      className="z-10 flex flex-col items-center justify-center gap-1 pt-10"
+      className="z-10 flex flex-col items-center justify-center gap-1 pt-5"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-20%' }}
@@ -107,18 +107,18 @@ export function WorkExperience({ company, role, Icon }: { company: string; role:
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+    <section id="experience" className="relative py-10 bg-gradient-to-br from-blue-100 via-purple-200 to-white overflow-hidden">
       <div className="container mx-auto px-6 relative">
         {/* Background Blobs (Placed outside of the content container) */}
         <BlurryBlob 
-          firstBlobColor="bg-red-500" 
-          secondBlobColor="bg-purple-600" 
-          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50 z-0"
+          firstBlobColor="bg-yellow-400" 
+          secondBlobColor="bg-pink-500" 
+          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50 z-0 filter blur-2xl"
         />
         <BlurryBlob 
-          firstBlobColor="bg-blue-500" 
-          secondBlobColor="bg-purple-700" 
-          className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40 z-0"
+          firstBlobColor="bg-blue-400" 
+          secondBlobColor="bg-purple-500" 
+          className="absolute bottom-0 right-1/3 w-64 h-64 opacity-40 z-0 filter blur-2xl"
         />
 
         {/* Experience Section */}
