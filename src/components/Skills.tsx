@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { 
@@ -54,17 +53,18 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20" data-scroll-section>
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 bg-[#1a0f0f]">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", bounce: 0.5, duration: 0.8 }}
-          className="bg-primary/10 p-6 rounded-full w-fit mx-auto mb-12"
+          className="bg-[#2a1919] p-6 rounded-full w-fit mx-auto mb-12"
         >
-          <Code2 className="w-12 h-12 text-primary" />
+          <Code2 className="w-12 h-12 text-white" />
         </motion.div>
+        
         <div className="grid gap-12">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
@@ -73,11 +73,13 @@ export default function Skills() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.1 }}
+              className="bg-[#2a1919] p-6 rounded-lg shadow-xl hover:bg-[#3a1f1f] transition-colors duration-200"
             >
               <div className="flex items-center justify-center gap-3 mb-6">
-                <category.icon className="w-6 h-6 text-primary" />
-                <h3 className="text-2xl font-semibold text-center">{category.title}</h3>
+                <category.icon className="w-6 h-6 text-white" />
+                <h3 className="text-2xl font-semibold text-white text-center">{category.title}</h3>
               </div>
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {category.skills.map((skill, index) => (
                   <motion.div
@@ -89,10 +91,10 @@ export default function Skills() {
                     whileHover={{ scale: 1.1 }}
                     className="flex flex-col items-center"
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <skill.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-[#3a1f1f] flex items-center justify-center mb-4 transition-colors duration-200 hover:bg-[#4a2929]">
+                      <skill.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="text-lg font-medium text-center">{skill.name}</h4>
+                    <h4 className="text-lg font-medium text-white text-center">{skill.name}</h4>
                   </motion.div>
                 ))}
               </div>
