@@ -33,25 +33,38 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[12rem]">
-      {/* Wrapper with two sections */}
-      <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
-        {/* Left Section - Name, Gamer Tag, Location, Time (Right Aligned) */}
-        <motion.div 
-          className="text-right flex flex-col items-end gap-4"
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold">Aarsh Mishra</h1>
-          <h2 className="text-xl md:text-2xl text-muted-foreground">LuC</h2>
+      <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center">
+        {/* Left Section: Name, Gamer Tag, Location & Time */}
+        <div className="text-right md:order-1">
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-red-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            Aarsh Mishra
+          </motion.h1>
+          <motion.h2
+            className="text-2xl md:text-3xl text-gray-300 mt-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            LuC
+          </motion.h2>
 
-          {/* Location & Time */}
-          <div className="flex flex-col items-end gap-3 mt-6">
-            <div className="flex items-center gap-2 text-lg md:text-xl">
+          {/* Location & Time in Same Line */}
+          <motion.div
+            className="flex justify-end items-center gap-6 mt-4 text-lg md:text-xl"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <div className="flex items-center gap-2">
               <FaMapMarkerAlt />
               <p>India</p>
             </div>
-            <div className="flex items-center gap-2 text-lg md:text-xl">
+            <div className="flex items-center gap-2">
               <FaClock />
               <p>
                 {new Date().toLocaleTimeString("en-IN", {
@@ -63,29 +76,27 @@ export default function Hero() {
                 IST
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Right Section - Social Links (Left Aligned) */}
-        <motion.div 
-          className="text-left flex flex-col items-start gap-4"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
+        {/* Right Section: Social Links */}
+        <div className="text-left md:order-2 mt-8 md:mt-0">
           {socialLinks.map((link, index) => (
-            <a
+            <motion.a
               key={index}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-lg text-white hover:text-gray-300"
+              className="flex items-center gap-3 text-lg text-white hover:text-gray-300 mb-3"
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.8 }}
             >
               <span className="text-2xl">{link.icon}</span>
               <span className="text-lg">{link.username}</span>
-            </a>
+            </motion.a>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Buttons Centered Below */}
