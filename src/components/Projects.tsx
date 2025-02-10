@@ -36,11 +36,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-black text-white relative overflow-hidden">
-      {/* Background Gradient and Light Blobs */}
-      <div className="absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-gradient-to-r from-red-500 to-red-700 opacity-10 animate-pulse blur-[8px]"></div>
-      <div className="absolute bottom-0 right-0 w-[250px] h-[250px] rounded-full bg-gradient-to-l from-red-500 to-red-700 opacity-10 animate-pulse blur-[8px]"></div>
-
+    <section id="projects" className="py-20 bg-black text-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
