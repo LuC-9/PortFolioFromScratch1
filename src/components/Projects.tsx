@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2 } from "lucide-react"; // Assuming you're using lucide icons
+import { Code2 } from "lucide-react";
 
 const projects = [
   {
@@ -36,7 +36,11 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-black text-white">
+    <section id="projects" className="py-20 bg-[#0f0f0f] text-white relative overflow-hidden">
+      {/* Background Light Blobs */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-red-500 to-red-700 opacity-50 animate-pulse blur-[10px]"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-l from-red-500 to-red-700 opacity-40 animate-pulse blur-[10px]"></div>
+
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
@@ -62,12 +66,12 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r from-red-600 to-red-400/60 hover:opacity-90"
+              className="bg-red-600 p-8 rounded-2xl shadow-xl transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-red-600/70 hover:opacity-90"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.3, // Further reduced to make the animation faster
+                duration: 0.3,
                 type: "spring",
                 stiffness: 150,
                 damping: 20,
@@ -75,7 +79,7 @@ export default function Projects() {
               whileHover={{
                 scale: 1.05,
                 opacity: 0.9,
-                transition: { duration: 0.1 }, // Even faster hover effect
+                transition: { duration: 0.1 },
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
