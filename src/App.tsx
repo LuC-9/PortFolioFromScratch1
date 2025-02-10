@@ -31,6 +31,7 @@ function App() {
   return (
     <>
       <Toaster position="top-right" />
+      <Cursor />
       <Navbar />
       <Hero />
       <About />
