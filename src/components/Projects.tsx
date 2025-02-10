@@ -50,9 +50,18 @@ export default function Projects() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover:scale-105 transform transition-all duration-300"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+                damping: 25,
+              }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
@@ -76,7 +85,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
