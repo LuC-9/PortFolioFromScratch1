@@ -1,68 +1,32 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { Card, CardContent } from "@/components/ui/cards";
+import React, { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { motion } from "framer-motion";
-import { Building2 } from "lucide-react";
-import { Github, Linkedin, Mail, Code2 } from "lucide-react";
-import { SiLeetcode } from "react-icons/si";
-import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Cursor from "@/components/Cursor";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import FloatingProfile from "@/components/FloatingProfile";
-import {
-  GithubLogo,
-  LinkedinLogo,
-  FileText,
-  Briefcase,
-  Buildings,
-  User,
-  Code,
-  Wrench,
-  EnvelopeSimple,
-  Moon,
-} from "@phosphor-icons/react";
-import ContactForm from "./components/ContactForm";
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { 
   SiJavascript, SiPython,
   SiSpring, SiNodedotjs, SiExpress, SiReact, SiAngular,
-  SiDocker, SiAmazon, SiGithub, SiApache,
+  SiDocker, SiAmazon, SiApache,
   SiMysql, SiMongodb
 } from "react-icons/si";
+import { Navbar, Cursor, Hero, About, Experience, Projects, Skills, FloatingProfile } from "@/components";
+import ContactForm from "@/components/ContactForm";
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 }); 
-useEffect(() => {
-    const disableRightClick = (e: MouseEvent) => e.preventDefault();
+  useEffect(() => {
+    const disableRightClick = (e) => e.preventDefault();
     document.addEventListener("contextmenu", disableRightClick);
-    return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
-    };
+    return () => document.removeEventListener("contextmenu", disableRightClick);
   }, []);
 
-
- 
   return (
-     
+    <>
       <Toaster position="top-right" />
-      
-
-
-<Navbar />            
-
-<Hero />
-<About />
-<Experience />
-<Projects />
-<Skills />
-
+      <Navbar />
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#0a0404]">
@@ -82,7 +46,7 @@ useEffect(() => {
           <p>© {new Date().getFullYear()} Aarsh. All rights reserved.</p>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
