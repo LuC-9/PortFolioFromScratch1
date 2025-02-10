@@ -38,8 +38,8 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-black text-white relative overflow-hidden">
       {/* Background Gradient and Light Blobs */}
-      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-red-500 to-red-700 opacity-20 animate-pulse blur-[10px]"></div>
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-l from-red-500 to-red-700 opacity-20 animate-pulse blur-[10px]"></div>
+      <div className="absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-gradient-to-r from-red-500 to-red-700 opacity-10 animate-pulse blur-[8px]"></div>
+      <div className="absolute bottom-0 right-0 w-[250px] h-[250px] rounded-full bg-gradient-to-l from-red-500 to-red-700 opacity-10 animate-pulse blur-[8px]"></div>
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
@@ -66,20 +66,20 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-red-600 bg-opacity-40 p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-opacity-50 transition-all duration-500 ease-in-out backdrop-blur-lg"
+              className="bg-red-600 bg-opacity-30 p-8 rounded-3xl shadow-xl hover:scale-105 hover:shadow-2xl hover:bg-opacity-40 transition-all duration-300 ease-in-out backdrop-blur-lg"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.5,
                 type: "spring",
-                stiffness: 150,
-                damping: 20,
+                stiffness: 200,
+                damping: 25,
               }}
               whileHover={{
                 scale: 1.05,
                 opacity: 0.85,
-                transition: { duration: 0.3 },
+                transition: { duration: 0.2 },
               }}
             >
               <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
@@ -93,7 +93,7 @@ export default function Projects() {
                     className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
                     whileHover={{
                       scale: 1.1,
-                      transition: { duration: 0.3 },
+                      transition: { duration: 0.2 },
                     }}
                   >
                     {project.linkLabel}
@@ -105,7 +105,7 @@ export default function Projects() {
                     className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
                     whileHover={{
                       scale: 1.1,
-                      transition: { duration: 0.3 },
+                      transition: { duration: 0.2 },
                     }}
                   >
                     {tech}
