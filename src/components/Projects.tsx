@@ -36,7 +36,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-black text-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
@@ -45,16 +45,16 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-12 text-center"
           >
-            <Code2 className="w-8 h-8 text-primary" />
+            <Code2 className="w-8 h-8 text-red-500" />
           </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover-scale animate-on-scroll"
+              className="bg-[#1a0f0f] p-8 rounded-lg shadow-xl hover:scale-105 transform transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-4">{project.title}</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.link && (
@@ -62,7 +62,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
+                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-colors duration-200"
                   >
                     {project.linkLabel}
                   </a>
@@ -70,7 +70,7 @@ export default function Projects() {
                 {project.tech.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-red-900/50 rounded-full text-sm hover:bg-red-800/50 transition-colors duration-200"
+                    className="px-3 py-1 bg-red-500/50 rounded-full text-sm text-white hover:bg-red-400/50 transition-colors duration-200"
                   >
                     {tech}
                   </span>
