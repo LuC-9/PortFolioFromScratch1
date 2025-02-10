@@ -1,7 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { Card, CardContent } from "@/components/ui/cards";
 import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
-import { Code2 } from "lucide-react";
+import { Building2 } from "lucide-react";
+import { Github, Linkedin, Mail, Code2 } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
+import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import FloatingProfile from "@/components/FloatingProfile";
 import { 
   SiJavascript, SiPython,
   SiSpring, SiNodedotjs, SiExpress, SiReact, SiAngular,
