@@ -36,79 +36,50 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-black text-white">
+    <section id="projects" className="py-20 bg-black relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center gap-4 mb-12">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 360 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeInOut" }}
             className="text-4xl font-bold mb-12 text-center"
           >
-            <motion.div
-              className="text-red-600"
-              whileHover={{
-                scale: 1.2,
-                rotate: 15,
-                transition: { duration: 0.2 },
-              }}
-            >
-              <Code2 className="w-8 h-8" />
-            </motion.div>
+            <Code2 className="w-8 h-8 text-red-500" />
           </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-red-600 bg-opacity-30 p-8 rounded-3xl shadow-xl hover:scale-105 hover:shadow-2xl hover:bg-opacity-40 transition-all duration-300 ease-in-out backdrop-blur-lg"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                type: "spring",
-                stiffness: 200,
-                damping: 25,
-              }}
-              whileHover={{
-                scale: 1.05,
-                opacity: 0.85,
-                transition: { duration: 0.2 },
-              }}
+              className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-300 relative overflow-hidden"
             >
-              <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
-              <p className="text-gray-100 mb-4">{project.description}</p>
+              <h3 className="text-xl font-bold mb-4 text-white">{project.title}</h3>
+              <p className="text-gray-300 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.link && (
-                  <motion.a
+                  <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.2 },
-                    }}
+                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors duration-200"
                   >
                     {project.linkLabel}
-                  </motion.a>
+                  </a>
                 )}
                 {project.tech.map((tech, idx) => (
-                  <motion.span
+                  <span
                     key={idx}
-                    className="px-3 py-1 bg-red-700/80 rounded-full text-sm text-white hover:bg-red-600/90 transition-all duration-200 ease-in-out"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.2 },
-                    }}
+                    className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors duration-200"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
-            </motion.div>
+
+              {/* Background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-30 transition-all ease-out duration-300 hover:opacity-70 rounded-2xl"></div>
+            </div>
           ))}
         </div>
       </div>
