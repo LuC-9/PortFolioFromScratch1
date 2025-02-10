@@ -47,7 +47,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, rotate: 0 }}
             viewport={{ once: true }}
             className="text-4xl font-bold mb-12 text-center"
-            transition={{ duration: 1 }}  {/* Slowing down the initial animation */}
+            transition={{ duration: 1 }} // Slowing down the initial animation
           >
             <motion.div
               whileHover={{
@@ -86,7 +86,7 @@ export default function Projects() {
                       color: "#fff", // Adding color change on hover
                       transition: { duration: 0.3 },
                     }}
-                    style={{ pointerEvents: "auto" }}  {/* Ensuring link is clickable */}
+                    style={{ pointerEvents: "auto" }}  // Ensuring link is clickable
                   >
                     {project.linkLabel}
                   </motion.a>
