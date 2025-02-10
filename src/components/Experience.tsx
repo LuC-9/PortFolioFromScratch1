@@ -107,18 +107,41 @@ export function WorkExperience({ company, role, Icon }: { company: string; role:
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-10 bg-gradient-to-br from-blue-100 via-purple-200 to-white overflow-hidden">
+    <section
+      id="experience"
+      className="relative py-10 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 overflow-hidden" // Dark Grey-Blue Gradient Background
+    >
       <div className="container mx-auto px-6 relative">
-        {/* Background Blobs (Placed outside of the content container) */}
-        <BlurryBlob 
-          firstBlobColor="bg-yellow-400" 
-          secondBlobColor="bg-pink-500" 
-          className="absolute -top-32 left-1/4 w-72 h-72 opacity-50 z-0 filter blur-2xl"
+        {/* Animated Background Blobs (Ripple Effect) */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0.5 }}
+          animate={{
+            scale: [0.8, 1.2, 0.8], // Shrink and expand for the ripple effect
+            opacity: [0.5, 0.6, 0.5], // Slight opacity change for the glowing effect
+          }}
+          transition={{
+            type: 'spring',
+            stiffness: 80,
+            duration: 4,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
+          className="absolute -top-32 left-1/4 w-72 h-72 z-0 filter blur-2xl bg-gradient-to-r from-yellow-400 to-pink-500 opacity-50"
         />
-        <BlurryBlob 
-          firstBlobColor="bg-blue-400" 
-          secondBlobColor="bg-purple-500" 
-          className="rounded-xl opacity-45"
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0.5 }}
+          animate={{
+            scale: [0.8, 1.2, 0.8], // Shrink and expand for the ripple effect
+            opacity: [0.5, 0.6, 0.5], // Slight opacity change for the glowing effect
+          }}
+          transition={{
+            type: 'spring',
+            stiffness: 80,
+            duration: 4,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
+          className="absolute bottom-0 right-1/3 w-64 h-64 z-0 filter blur-2xl bg-gradient-to-r from-blue-400 to-purple-500 opacity-40"
         />
 
         {/* Experience Section */}
