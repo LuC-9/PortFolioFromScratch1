@@ -48,7 +48,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-[80] ${navbarBg}  text-white`}
+      className={`fixed top-0 left-0 right-0 z-[99] ${navbarBg} backdrop-blur-sm text-white`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
