@@ -56,10 +56,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center h-12">  
           
-          {/* Logo/Profile Image */}
-          <div className="w-10 h-10">  
-            
-          </div>
+         
           
           {/* Mobile Navigation - Toggle Button */}
           <div className="md:hidden absolute left-4">
