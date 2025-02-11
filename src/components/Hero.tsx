@@ -16,7 +16,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[3rem] bg-transparent overflow-visible">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[3rem] bg-gray-900 overflow-visible">
 
       
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start relative z-10 mt-[18rem]">
