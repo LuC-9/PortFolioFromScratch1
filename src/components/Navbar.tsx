@@ -15,6 +15,7 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [navbarBg, setNavbarBg] = useState("bg-black/30"); // State for dynamic navbar background
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,6 +23,11 @@ export default function Navbar() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            if (entry.target.id === "experience") {
+              setNavbarBg("bg-blue-500"); // Set the background to blue when the experience section is in view
+            } else {
+              setNavbarBg("bg-black/30"); // Default background
+            }
           }
         });
       },
@@ -42,7 +48,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-sm text-white"
+      className={`fixed top-0 left-0 right-0 z-[100] ${navbarBg} backdrop-blur-sm text-white`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
