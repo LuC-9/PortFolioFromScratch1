@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { SiInfosys } from "react-icons/si";
-import { Building2 } from "lucide-react"; // Using Building2 for Nagarro
 import { cn } from "@/lib/utils";
-import NagarroLogo from "/nagarro.svg"; // Import your SVG here
+import NagarroLogo from "/nagarro.svg"; // Import SVG from root directory
 
 // Experience details
 const experiences = [
@@ -127,7 +126,10 @@ export function WorkExperience({
 // Experience Section with Solid Pastel Background
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-10 bg-gray-900 overflow-hidden">
+    <section
+      id="experience"
+      className="relative py-10 bg-gray-900 overflow-visible" // Ensure overflow-visible to show blobs outside section
+    >
       <div className="container mx-auto px-6 relative">
         {/* Animated Background Blobs */}
         <motion.div
