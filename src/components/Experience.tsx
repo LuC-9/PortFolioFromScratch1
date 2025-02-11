@@ -75,9 +75,9 @@ export function WorkExperience({
           }}
         >
           {isSvg ? (
-            <img src={Icon as string} alt={company} className="w-16 h-16" /> // Increased SVG size
+            <img src={Icon as string} alt={company} className="w-18 h-18" /> // Increased SVG size
           ) : (
-            <Icon className="size-14 text-white" /> // Increased React Icon size
+            <Icon className="size-18 text-white" /> // Increased React Icon size
           )}
         </motion.div>
       </motion.div>
@@ -128,12 +128,12 @@ export default function Experience() {
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute -top-0 left-1/3 w-72 h-72 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
+          className="absolute -top-0 left-1/3 w-50 h-50 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
         />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-50 filter blur-2xl"
+          className="absolute bottom-0 right-1/3 w-50 h-50 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-50 filter blur-2xl"
         />
 
         {/* Experience Section */}
