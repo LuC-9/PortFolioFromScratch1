@@ -45,7 +45,7 @@ export default function FloatingProfile() {
 
   return (
     <motion.div
-      className="fixed left-1/2 top-0 z-[50]" // Fixed on the page, initially in center
+      className="fixed left-1/2 top-0 z-[100]" // Fixed on the page, initially in center
       style={{
         y: imageY, // Apply the scroll-based vertical position
         x: "-50%", // Center horizontally
