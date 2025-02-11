@@ -34,7 +34,7 @@ function App() {
       <Toaster position="top-right" />
 {/*       <Cursor /> */}
       <Navbar />
-      <div><Hero /></div>
+     <Hero />
 {/*       <About /> */}
       <Experience />
       <Projects />
