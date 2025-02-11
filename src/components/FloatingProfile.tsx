@@ -1,12 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowLeftRight } from "lucide-react"; // Reversible reaction symbol
 
 export default function FloatingProfile() {
   const { scrollY } = useScroll();
   const [isMobile, setIsMobile] = useState(false);
-  const [isImage2, setIsImage2] = useState(false); // State for toggling image
-  const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
+  const [isImage2, setIsImage2] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Check if screen is mobile on mount and resize
   useEffect(() => {
@@ -25,11 +24,10 @@ export default function FloatingProfile() {
     return () => unsubscribe();
   }, [scrollY]);
 
-  // Increased image size in both mobile and desktop
   const imageSize = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["15rem", "5rem"] : ["20rem", "6rem"] // Larger image for desktop
+    isMobile ? ["15rem", "5rem"] : ["20rem", "6rem"]
   );
 
   const imageY = useTransform(
@@ -39,23 +37,22 @@ export default function FloatingProfile() {
   );
 
   const toggleImage = () => {
-    setIsImage2(!isImage2); // Toggle between image1 and GIF
+    setIsImage2(!isImage2);
   };
 
   return (
     <motion.div
-      className="fixed left-1/2 top-0 z-50"
+      className="fixed left-1/2 top-16 z-[50]" // Positioning the profile in center of the navbar
       style={{
         y: imageY,
         x: "-50%",
       }}
-      initial={{ opacity: 0, scale: 0.8 }} // Start with opacity 0 and scale smaller
-      animate={{ opacity: 1, scale: 1 }} // Fade in and scale up
-      transition={{ duration: 1 }} // Duration of the animation
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
     >
-      {/* Profile Image: Only moves with scroll */}
       <motion.img
-        src={isImage2 ? "/profile.jpg" : "/profile2.gif"} // Change image source to GIF when toggled
+        src={isImage2 ? "/profile.jpg" : "/profile2.gif"}
         alt="Aarsh Mishra"
         className="rounded-full object-cover border-2 border-white/10"
         style={{
@@ -63,9 +60,9 @@ export default function FloatingProfile() {
           height: imageSize,
         }}
       />
-      
-      {/* Swap Button: Fixed below the image */}
-      {!isScrolled && ( // Conditionally render button based on scroll position
+
+      {/* Swap Button */}
+      {!isScrolled && (
         <motion.button
           onClick={toggleImage}
           className="absolute bottom-[-3rem] left-1/2 transform -translate-x-1/2 bg-transparent p-2 rounded-full shadow-md border-2 border-white/20"
