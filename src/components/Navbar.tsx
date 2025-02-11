@@ -58,11 +58,7 @@ export default function Navbar() {
           
           {/* Logo/Profile Image */}
           <div className="w-10 h-10">  {/* Image container */}
-            <img 
-              src="/profile.jpg"  {/* Replace with your image path */}
-              alt="Logo"
-              className="w-full h-full object-cover rounded-full"
-            />
+           
           </div>
           
           {/* Mobile Navigation - Toggle Button */}
