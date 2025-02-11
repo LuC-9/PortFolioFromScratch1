@@ -29,7 +29,7 @@ export default function FloatingProfile() {
   const imageSize = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["12rem", "4rem"] : ["18rem", "4rem"] // Adjust size more for smaller screens
+    isMobile ? ["12rem", "3rem"] : ["16rem", "3rem"] // Adjust size more for smaller screens
   );
 
   // Vertical position of the image as you scroll
@@ -45,7 +45,7 @@ export default function FloatingProfile() {
 
   return (
     <motion.div
-      className="fixed left-1/2 top-0 z-[100]" // Fixed on the page, initially in center
+      className="fixed left-1/2 top-0 z-[100] pt-8" // Fixed on the page, initially in center
       style={{
         y: imageY, // Apply the scroll-based vertical position
         x: "-50%", // Center horizontally
