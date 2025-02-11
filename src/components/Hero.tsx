@@ -132,7 +132,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Profile */}
-       <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[3rem] bg-gray-900 overflow-visible"><FloatingProfile /> 
-    </section></section>
+       <FloatingProfile /> 
+    </section>
   );
 }
