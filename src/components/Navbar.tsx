@@ -15,7 +15,7 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navbarBg, setNavbarBg] = useState("bg-gray-900 bg-opacity-30"); // ✅ Updated background
+  const [navbarBg, setNavbarBg] = useState("none"); // ✅ Updated background
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,7 +23,7 @@ export default function Navbar() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            setNavbarBg("bg-gray-900 bg-opacity-30"); // ✅ Default background with transparency
+            setNavbarBg("none"); // ✅ Default background with transparency
           }
         });
       },
