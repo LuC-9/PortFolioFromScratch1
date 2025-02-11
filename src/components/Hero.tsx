@@ -16,7 +16,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[12rem] bg-gray-900 overflow-visible">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-10 mt-[3rem] bg-gray-900 overflow-visible">
       {/* Animated Background Blobs */}
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -29,7 +29,7 @@ export default function Hero() {
         className="absolute bottom-16 right-1/3 w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-0 filter blur-2xl"
       />
       
-      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start relative z-10">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center md:items-start relative z-10 mt-[18rem]">
         
         {/* Left Section */}
         <div className="text-center md:text-right md:w-1/2 md:ml-7">

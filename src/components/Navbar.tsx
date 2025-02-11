@@ -23,15 +23,15 @@ export default function Navbar() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            if (entry.target.id === "experience") {
-              setNavbarBg("bg-blue-500"); // Set the background to blue when the experience section is in view
-            } else {
+            // if (entry.target.id === "experience") {
+            //   setNavbarBg("bg-blue-500"); // Set the background to blue when the experience section is in view
+            // } else {
               setNavbarBg("bg-black/30"); // Default background
-            }
+            // }
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     );
 
     document.querySelectorAll("section[id]").forEach((section) => {
@@ -59,55 +59,56 @@ export default function Navbar() {
          
           
           {/* Mobile Navigation - Toggle Button */}
-          <div className="md:hidden absolute left-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-5 w-5 text-white" />
-            </Button>
-          </div>
+<div className="sm:hidden md:block lg:hidden absolute left-4">
+  <Button
+    variant="ghost"
+    size="icon"
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+  >
+    <Menu className="h-5 w-5 text-white" />
+  </Button>
+</div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 w-full">
-            <ul className="flex items-center gap-6">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
-                      activeSection === item.href.slice(1)
-                        ? "text-white"
-                        : "text-gray-400"
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+{/* Desktop Navigation */}
+<div className="hidden lg:flex items-center gap-8 w-full">
+  <ul className="flex items-center gap-6">
+    {navItems.map((item) => (
+      <li key={item.href}>
+        <a
+          href={item.href}
+          className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
+            activeSection === item.href.slice(1)
+              ? "text-white"
+              : "text-gray-400"
+          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection(item.href);
+          }}
+        >
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
 
-            <div className="ml-auto flex items-center gap-4">
-              {/* Desktop Social Links */}
-              <SocialLinks />
+  <div className="ml-auto flex items-center gap-4">
+    {/* Desktop Social Links */}
+    <SocialLinks />
 
-              {/* Desktop Resume Button */}
-              <a
-                href="/Mishra_Aarsh.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-              >
-                <FileText className="w-4 h-4" />
-                Resume
-              </a>
-            </div>
-          </div>
+    {/* Desktop Resume Button */}
+    <a
+      href="/Mishra_Aarsh.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+    >
+      <FileText className="w-4 h-4" />
+      Resume
+    </a>
+  </div>
+</div>
+
         </div>
 
         {/* Mobile Menu (Resume Button Below Social Links) */}
