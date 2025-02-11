@@ -25,11 +25,11 @@ export default function FloatingProfile() {
     return () => unsubscribe();
   }, [scrollY]);
 
-  // Animated image size
+  // Animated image size: Make the image smaller to fit in the navbar
   const imageSize = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["15rem", "5rem"] : ["20rem", "6rem"]
+    isMobile ? ["12rem", "4rem"] : ["18rem", "4rem"] // Adjust size more for smaller screens
   );
 
   // Vertical position of the image as you scroll
