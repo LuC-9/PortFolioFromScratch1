@@ -42,16 +42,23 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-none text-white" // Remove blur for profile image
+      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-sm text-white"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      style={{ height: "60px" }} // Adjust navbar height initially
     >
       <div className="container mx-auto px-4 relative">
-        <div className="flex items-center h-16">
-          <div className="w-10 h-10" /> {/* Placeholder for logo/profile */}
-
+        <div className="flex items-center h-12">  {/* Adjusted navbar height to h-12 */}
+          
+          {/* Logo/Profile Image */}
+          <div className="w-10 h-10">  {/* Image container */}
+            <img 
+              src="/profile.jpg"  {/* Replace with your image path */}
+              alt="Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          
           {/* Mobile Navigation - Toggle Button */}
           <div className="md:hidden absolute left-4">
             <Button
