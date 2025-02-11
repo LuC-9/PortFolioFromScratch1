@@ -2,154 +2,154 @@ import { motion } from "framer-motion";
 import { SiInfosys } from "react-icons/si";
 import { cn } from "@/lib/utils";
 import NagarroLogo from "/nagarro.svg"; // Import SVG from root directory
-import { Menu, FileText } from "lucide-react"; // ✅ Import FileText icon
-import { Button } from "@/components/ui/button";
-import SocialLinks from "@/components/SocialLinks";
 
-const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+// Experience details
+const experiences = [
+  {
+    title: "Engineer",
+    company: "Nagarro",
+    period: "2023 - Present",
+    icon: NagarroLogo, // Use your SVG here for Nagarro
+    isSvg: true, // Flag to determine if it's an SVG
+  },
+  {
+    title: "Associate Engineer",
+    company: "Nagarro",
+    period: "2022 - 2023",
+    icon: NagarroLogo, // Use the same SVG for Nagarro
+    isSvg: true, // Flag to determine if it's an SVG
+  },
+  {
+    title: "Systems Engineer Intern",
+    company: "Infosys",
+    period: "2021 - 2022",
+    icon: SiInfosys, // Use Infosys icon here
+    isSvg: false, // React Icon, not SVG
+  },
 ];
 
-export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    document.querySelectorAll("section[id]").forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    setIsMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
+// WorkExperience Component
+export function WorkExperience({
+  company,
+  role,
+  Icon,
+  isSvg,
+}: {
+  company: string;
+  role: string;
+  Icon: React.ComponentType;
+  isSvg: boolean;
+}) {
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-[100] bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 text-white backdrop-blur-sm"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      className="z-10 flex flex-col items-center justify-center gap-1 pt-5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-20%" }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.1,
+          },
+        },
+      }}
     >
-      <div className="container mx-auto px-4 relative">
-        <div className="flex items-center h-12"> 
-          <div className="w-10 h-10" /> {/* Placeholder for logo/profile */}
+      <motion.div
+        className="z-10 p-1"
+        variants={{
+          hidden: { scale: 0.5, rotate: -45 },
+          visible: {
+            scale: 1,
+            rotate: 0,
+            transition: { type: "spring", bounce: 0.5 },
+          },
+        }}
+        whileHover={{ y: -5, rotate: -10 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {isSvg ? (
+            <img src={Icon} alt={company} className="w-24 h-24" /> // Increased SVG size
+          ) : (
+            <Icon className="text-white size-20" /> // Increased React Icon size
+          )}
+        </motion.div>
+      </motion.div>
 
-          {/* Mobile Navigation - Toggle Button */}
-          <div className="md:hidden absolute left-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-5 w-5 text-white" />
-            </Button>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 w-full">
-            <ul className="flex items-center gap-6">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
-                      activeSection === item.href.slice(1)
-                        ? "text-white"
-                        : "text-gray-400"
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className="ml-auto flex items-center gap-4">
-              {/* Desktop Social Links */}
-              <SocialLinks />
-
-              {/* Desktop Resume Button */}
-              <a
-                href="/Mishra_Aarsh.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-              >
-                <FileText className="w-4 h-4" />
-                Resume
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu (Resume Button Below Social Links) */}
-        {isMenuOpen && (
-          <motion.div
-            className="absolute top-full left-0 w-full min-h-screen bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 text-white shadow-lg border-t border-gray-700 z-[150] flex flex-col"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+      {/* Styled Heading (H3) with Text Color Update */}
+      <motion.div
+        className="z-10"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 120 },
+          },
+        }}
+      >
+        <h3
+          className={cn(
+            "scroll-m-20 text-2xl font-semibold tracking-tight text-white flex flex-col items-center gap-1.5 text-center md:flex-row"
+          )}
+        >
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+            {role}
+          </motion.span>
+          <motion.span
+            className="text-muted-foreground mx-1"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", delay: 0.4 }}
           >
-            <ul className="py-4 text-left px-6 space-y-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="block py-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            @
+          </motion.span>
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+            {company}
+          </motion.span>
+        </h3>
+      </motion.div>
+    </motion.div>
+  );
+}
 
-            {/* Social Links */}
-            <div className="py-2 px-6">
-              <SocialLinks />
-            </div>
+// Experience Section with Solid Pastel Background
+export default function Experience() {
+  return (
+    <section
+      id="experience"
+      className="relative py-10 bg-gray-900 overflow-visible" // Ensure overflow-visible to show blobs outside section
+    >
+      <div className="container mx-auto px-6 relative">
+        {/* Animated Background Blobs */}
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          className="absolute -top-16 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          className="absolute bottom-16 right-1/3 w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-0 filter blur-2xl"
+        />
 
-            {/* Resume Button - Moved Below Social Links (Fixed) */}
-            <div className="px-6 pb-4 mt-2 flex items-center gap-2">
-              <FileText className="w-4 h-4" />
-              <a
-                href="/Mishra_Aarsh.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-              >
-                Resume
-              </a>
-            </div>
-          </motion.div>
-        )}
+        {/* Experience Section */}
+        <div className="flex flex-col gap-10 max-w-3xl mx-auto relative z-10">
+          {experiences.map((exp, index) => (
+            <WorkExperience key={index} company={exp.company} role={exp.title} Icon={exp.icon} isSvg={exp.isSvg} />
+          ))}
+        </div>
       </div>
-    </motion.nav>
+    </section>
   );
 }
