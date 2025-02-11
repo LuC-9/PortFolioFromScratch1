@@ -29,7 +29,7 @@ export function WorkExperience({
   company,
   role,
   Icon,
-  isSvg = false, // Flag to check if it's an SVG
+  isSvg = false,
 }: {
   company: string;
   role: string;
@@ -38,7 +38,7 @@ export function WorkExperience({
 }) {
   return (
     <motion.div
-      className="z-10 flex flex-col items-center justify-center gap-1 pt-5"
+      className="z-10 flex flex-col items-center justify-center gap-2 pt-5"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-20%" }}
@@ -54,7 +54,7 @@ export function WorkExperience({
       }}
     >
       <motion.div
-        className="z-10 p-1"
+        className="z-10 p-2"
         variants={{
           hidden: { scale: 0.5, rotate: -45 },
           visible: {
@@ -75,9 +75,9 @@ export function WorkExperience({
           }}
         >
           {isSvg ? (
-            <img src={Icon as string} alt={company} className="w-12 h-12" />
+            <img src={Icon as string} alt={company} className="w-16 h-16" /> // Increased SVG size
           ) : (
-            <Icon className="size-10 text-white" />
+            <Icon className="size-14 text-white" /> // Increased React Icon size
           )}
         </motion.div>
       </motion.div>
@@ -119,7 +119,7 @@ export function WorkExperience({
   );
 }
 
-// Experience Section with Solid Pastel Background
+// Experience Section with Restored Animated Blob Colors
 export default function Experience() {
   return (
     <section id="experience" className="relative py-10 bg-gray-900 overflow-hidden">
@@ -128,12 +128,12 @@ export default function Experience() {
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute -top-0 left-1/3 w-72 h-72 rounded-full bg-gray-700 opacity-50 z-0 filter blur-2xl"
+          className="absolute -top-0 left-1/3 w-72 h-72 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
         />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gray-700 opacity-40 z-0 filter blur-2xl"
+          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-50 filter blur-2xl"
         />
 
         {/* Experience Section */}
