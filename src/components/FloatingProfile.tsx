@@ -44,7 +44,7 @@ export default function FloatingProfile() {
 
   return (
     <motion.div
-      className="fixed left-1/2 top-0 z-150"
+      className="fixed left-1/2 top-0 z-50"
       style={{
         y: imageY,
         x: "-50%",
@@ -63,18 +63,6 @@ export default function FloatingProfile() {
           height: imageSize,
         }}
       />
-      
-      {/* Blob Background Animations */}
-{/*       <motion.div
-        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="absolute -top-16 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="absolute bottom-16 right-1/3 w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-0 filter blur-2xl"
-      /> */}
       
       {/* Swap Button: Fixed below the image */}
       {!isScrolled && ( // Conditionally render button based on scroll position
