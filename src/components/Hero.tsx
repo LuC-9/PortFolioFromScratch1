@@ -142,7 +142,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Profile */}
-      <FloatingProfile />
+{/*       <FloatingProfile /> */}
     </section>
   );
 }
