@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu, FileText } from "lucide-react";
+import { Menu, FileText } from "lucide-react"; // ✅ Import FileText icon
 import { Button } from "@/components/ui/button";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -42,10 +42,11 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-sm text-white"
+      className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-none text-white" // Remove blur for profile image
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
+      style={{ height: "60px" }} // Adjust navbar height initially
     >
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center h-16">
