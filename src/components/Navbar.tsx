@@ -54,15 +54,11 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 relative">
-        <div className="flex items-center h-12">  {/* Adjusted navbar height to h-12 */}
+        <div className="flex items-center h-12">  
           
           {/* Logo/Profile Image */}
-          <div className="w-10 h-10">  {/* Image container */}
-            <img 
-              src="/profile.jpg"  {/* Replace with your image path */}
-              alt="Logo"
-              className="w-full h-full object-cover rounded-full"
-            />
+          <div className="w-10 h-10">  
+            
           </div>
           
           {/* Mobile Navigation - Toggle Button */}
