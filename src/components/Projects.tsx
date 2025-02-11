@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 
+// Project details
 const projects = [
   {
     title: "Securities Exchange Platform",
@@ -38,21 +39,34 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
+      className="relative py-20 bg-gray-900 overflow-hidden" // Solid pastel background
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-center gap-4 mb-12">
+      <div className="max-w-6xl mx-auto px-6 relative">
+        {/* Animated Background Blobs */}
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          className="absolute -top-32 left-1/4 w-72 h-72 rounded-full bg-gray-700 opacity-50 z-0 filter blur-2xl"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gray-700 opacity-40 z-0 filter blur-2xl"
+        />
+
+        {/* Header Icon */}
+        <div className="flex items-center justify-center gap-4 mb-12 relative z-10">
           <motion.div
             initial={{ opacity: 0, rotate: -180 }}
             whileInView={{ opacity: 1, rotate: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className="text-4xl font-bold mb-12 text-center"
-            transition={{ duration: 1 }} // Slowing down the initial animation
           >
             <motion.div
               whileHover={{
-                scale: 1.4, // Increased scale for a more prominent effect
-                rotate: 15, // Slight rotation on hover
+                scale: 1.4,
+                rotate: 15,
                 transition: { duration: 0.5 },
               }}
               className="w-8 h-8 text-red-500 transition-all ease-in-out duration-300"
@@ -61,13 +75,15 @@ export default function Projects() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-black p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-500 relative overflow-hidden"
+              className="bg-gray-800 p-8 rounded-2xl shadow-xl hover:scale-105 transform transition-all ease-out duration-500 relative overflow-hidden"
               whileHover={{
-                scale: 1.05, // Slightly increase scale on hover
+                scale: 1.05,
                 transition: { duration: 0.4 },
               }}
               transition={{ type: "spring", stiffness: 200 }}
@@ -83,10 +99,10 @@ export default function Projects() {
                     className="px-3 py-1 bg-transparent border-2 border-red-500 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all duration-300"
                     whileHover={{
                       scale: 1.1,
-                      color: "#fff", // Adding color change on hover
+                      color: "#fff",
                       transition: { duration: 0.3 },
                     }}
-                    style={{ pointerEvents: "auto" }}  // Ensuring link is clickable
+                    style={{ pointerEvents: "auto" }}
                   >
                     {project.linkLabel}
                   </motion.a>
