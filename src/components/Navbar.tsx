@@ -15,7 +15,7 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navbarBg, setNavbarBg] = useState("bg-black/30"); // State for dynamic navbar background
+  const [navbarBg, setNavbarBg] = useState("bg-gray-900 bg-opacity-30"); // ✅ Updated background
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,11 +23,7 @@ export default function Navbar() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            // if (entry.target.id === "experience") {
-            //   setNavbarBg("bg-blue-500"); // Set the background to blue when the experience section is in view
-            // } else {
-              setNavbarBg("bg-black/30"); // Default background
-            // }
+            setNavbarBg("bg-gray-900 bg-opacity-30"); // ✅ Default background with transparency
           }
         });
       },
@@ -54,60 +50,58 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 relative">
-        <div className="flex items-center h-12">  
-          
-         
+        <div className="flex items-center h-12">
           
           {/* Mobile Navigation - Toggle Button */}
-<div className="sm:hidden md:block lg:hidden absolute left-4">
-  <Button
-    variant="ghost"
-    size="icon"
-    onClick={() => setIsMenuOpen(!isMenuOpen)}
-  >
-    <Menu className="h-5 w-5 text-white" />
-  </Button>
-</div>
+          <div className="sm:hidden md:block lg:hidden absolute left-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Menu className="h-5 w-5 text-white" />
+            </Button>
+          </div>
 
-{/* Desktop Navigation */}
-<div className="hidden lg:flex items-center gap-8 w-full">
-  <ul className="flex items-center gap-6">
-    {navItems.map((item) => (
-      <li key={item.href}>
-        <a
-          href={item.href}
-          className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
-            activeSection === item.href.slice(1)
-              ? "text-white"
-              : "text-gray-400"
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection(item.href);
-          }}
-        >
-          {item.label}
-        </a>
-      </li>
-    ))}
-  </ul>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8 w-full">
+            <ul className="flex items-center gap-6">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 ${
+                      activeSection === item.href.slice(1)
+                        ? "text-white"
+                        : "text-gray-400"
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-  <div className="ml-auto flex items-center gap-4">
-    {/* Desktop Social Links */}
-    <SocialLinks />
+            <div className="ml-auto flex items-center gap-4">
+              {/* Desktop Social Links */}
+              <SocialLinks />
 
-    {/* Desktop Resume Button */}
-    <a
-      href="/Mishra_Aarsh.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
-    >
-      <FileText className="w-4 h-4" />
-      Resume
-    </a>
-  </div>
-</div>
+              {/* Desktop Resume Button */}
+              <a
+                href="/Mishra_Aarsh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 ease-in-out hover:text-gray-300"
+              >
+                <FileText className="w-4 h-4" />
+                Resume
+              </a>
+            </div>
+          </div>
 
         </div>
 
