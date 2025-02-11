@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { SiInfosys } from "react-icons/si";
-import { Building2 } from "lucide-react"; // Using Building2 for Nagarro
-import { BlurryBlob } from "@/components/ui/BlurryBlob"; // Importing the BlurryBlob component
 import { cn } from "@/lib/utils";
 
 // Experience details
@@ -10,19 +8,19 @@ const experiences = [
     title: "Engineer",
     company: "Nagarro",
     period: "2023 - Present",
-    icon: Building2, // Use a building icon for Nagarro
+    icon: "/nagarro.svg", // Using the SVG file from root
   },
   {
     title: "Associate Engineer",
     company: "Nagarro",
     period: "2022 - 2023",
-    icon: Building2, // Use the same for now, or replace with custom Nagarro logo
+    icon: "/nagarro.svg",
   },
   {
     title: "Systems Engineer Intern",
     company: "Infosys",
     period: "2021 - 2022",
-    icon: SiInfosys, // Use Infosys icon here
+    icon: SiInfosys, // Using Infosys icon as React component
   },
 ];
 
@@ -31,10 +29,12 @@ export function WorkExperience({
   company,
   role,
   Icon,
+  isSvg = false, // Flag to check if it's an SVG
 }: {
   company: string;
   role: string;
-  Icon: React.ComponentType;
+  Icon: string | React.ComponentType;
+  isSvg?: boolean;
 }) {
   return (
     <motion.div
@@ -74,11 +74,15 @@ export function WorkExperience({
             ease: "easeInOut",
           }}
         >
-          <Icon className="size-10 text-white" /> {/* Icon component dynamically */}
+          {isSvg ? (
+            <img src={Icon as string} alt={company} className="w-12 h-12" />
+          ) : (
+            <Icon className="size-10 text-white" />
+          )}
         </motion.div>
       </motion.div>
 
-      {/* Styled Heading (H3) with Text Color Update */}
+      {/* Styled Heading */}
       <motion.div
         className="z-10"
         variants={{
@@ -115,27 +119,33 @@ export function WorkExperience({
   );
 }
 
-// Experience Section with Animated Background
+// Experience Section with Solid Pastel Background
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-10 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 overflow-hidden">
+    <section id="experience" className="relative py-10 bg-gray-900 overflow-hidden">
       <div className="container mx-auto px-6 relative">
         {/* Animated Background Blobs */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute -top-0 left-1/3 w-72 h-72 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-pink-600 opacity-50 z-0 filter blur-2xl"
+          className="absolute -top-0 left-1/3 w-72 h-72 rounded-full bg-gray-700 opacity-50 z-0 filter blur-2xl"
         />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600 opacity-40 z-0 filter blur-2xl"
+          className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-gray-700 opacity-40 z-0 filter blur-2xl"
         />
 
         {/* Experience Section */}
         <div className="flex flex-col gap-10 max-w-3xl mx-auto relative z-10">
           {experiences.map((exp, index) => (
-            <WorkExperience key={index} company={exp.company} role={exp.title} Icon={exp.icon} />
+            <WorkExperience
+              key={index}
+              company={exp.company}
+              role={exp.title}
+              Icon={exp.icon}
+              isSvg={typeof exp.icon === "string"}
+            />
           ))}
         </div>
       </div>
